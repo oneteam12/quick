@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="EnvironmentalProtection"
+  id="myeclipse.1501594549990"
+  context-root="/quick4j"
+  j2ee-spec="1.7"
+  archive="EnvironmentalProtection.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

@@ -9,237 +9,115 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
+    <script type="text/javascript" src="app/js/echart/echarts.js"></script>
+    <script type="text/javascript" src='app/js/mike/mikeTest.js'></script>
+
+    <script type="text/javascript" src='app/js/bootstrap.js'></script>
+
+
+    <link rel="stylesheet" type="text/css" href="app/css/mike/mikeTest.css">
+
+
+
+    <link rel="stylesheet" href="app/js/3.20/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="app/js/3.20/esri/css/esri.css">
+    <link rel="stylesheet" href="app/js/3.20/dojox/widget/ColorPicker/ColorPicker.css">
+
+    <link rel="stylesheet" type="text/css" href='app/js/jquery/themes/gray/easyui.css'>
+    <link rel="stylesheet" type="text/css" href="app/js/jquery/themes/icon.css">
+
+
+    <link type="text/javascript" href="app/js/3.20/init.js">
+
     <script type="text/javascript" src="app/js/bootstrap-treeview.js"></script>
     <script type="text/javascript" src='app/js/jquery/jquery.easyui.min.js'></script>
     <script type="text/javascript" src='app/js/jquery/locale/easyui-lang-zh_CN.js'></script>
-    <script type="text/javascript" src='app/js/mike/mikeTest.js'></script>
-    <link rel="stylesheet" type="text/css" href="app/css/mike/mikeTest.css">
+
+
+
+
+    <link  rel="stylesheet" href="app/css/mike/jquery-ui.min.css" />
+    <!-- 引入jQuery的js文件 -->
+    <script type="text/javascript" src="app/js/jquery/jquery-1.7.2.min.js" ></script>
+    <!-- 引入jQuery UI的js文件 -->
+    <script type="text/javascript" src="app/js/jquery/jquery-ui.js" ></script>
+
+
+
+<style>
+    li{
+        list-style: none;
+        width: 200px;
+    }
+</style>
+
+<%--    echart--%>
 </head>
 <body>
-<%--<button id="read">读取指定文件夹中文件</button>--%>
-<%--<button id="open">选中并打开文件</button>--%>
-<%--<button id="readresult">读取指定文件夹中结果文件</button>--%>
-<%--<button id="openresult">选中并打开结果文件</button></body></br>--%>
-<%--<button id="toTxt">水位生成Txt</button>--%>
-<%--<button id="toAd11">水位生成Txt</button>--%>
-<%--<div id="listAll" style="width: auto"></div>--%>
-<%--<div id="listAll2" style="width: auto"></div>--%>
-
-
-<div id="selectRiver">
-
-    <select id="shuixi">
-        <option value="社河" selected>水系选择</option>
-        <option value="清河">清河</option>
-        <option value="亮子河">亮子河</option>
-    </select>
-    <select id="river">
-        <option value="社河" selected>一级河流选择</option>
-        <option value="清河">清河</option>
-        <option value="亮子河">亮子河</option>
-    </select>
-    模拟年份填写<input value="2017" id="time">
-    <button>污染源数据显示</button>
-    </br>
-    </br>
-    <div>
-        <button id="start">开始模拟</button>
-        <button id="result">模拟结果查看</button>
-        <button id="export">模拟结果导出</button>
-    </div>
-    </br>
+    河流：<input id="haha" >
+    <button id="select">选择</button>
     <div id="map">
 
     </div>
+    <button id="mytype">展示</button>
+    <div id="second" style="height:400px;width: 550px;float:right;border: 1px solid#000"></div>
 
+    <div style="width: 200px;height: 80px">
+        <input id="inp1" placeholder="请输入河流名称" style="width: 200px">
+        <div id="lsn" style="width: 200px">
 
-    <div id="div1">
-        原始数据：</br>
-        <table id="tab1">
-            <thead>
-            <tr>
-                <th>名称</th>
-                <th>类型（点元面源）</th>
-                <th>入河口位置（上下游里程）</th>
-                <th>废水排放量（m^3/s）</th>
-                <th>COD排放浓度（mg/l）</th>
-                <th>氨氮排放浓度（mg/l）</th>
-                <th>总磷排放浓度（mg/l）</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-            </tr>
-            </tbody>
-        </table>
-        </br>
-        可修改数据：<button>新增</button></br>
-        <table id="tab2">
-            <thead>
-            <tr>
-                <th>名称</th>
-                <th>类型（点元面源）</th>
-                <th>入河口位置（上下游里程）</th>
-                <th>废水排放量（m^3/s）</th>
-                <th>COD排放浓度（mg/l）</th>
-                <th>氨氮排放浓度（mg/l）</th>
-                <th>总磷排放浓度（mg/l）</th>
-                <td>操作</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><input value="1" style="width: 40px"></td>
-                <td><input value="1" style="width: 40px"></td>
-                <td><input value="1" style="width: 40px"></td>
-                <td><input value="1" style="width: 40px"></td>
-                <td><input value="1" style="width: 40px"></td>
-                <td><input value="1" style="width: 40px"></td>
-                <td><input value="1" style="width: 40px"></td>
-                <td><button>删除</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td><button>删除</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td><button>删除</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td><button>删除</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td><button>删除</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td><button>删除</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td><button>删除</button></td>
-            </tr>
-            </tbody>
-        </table>
-        </br>
-
+        </div>
     </div>
-</div>
 
-
-
-</div>
 
 
 </body>
+
+
 </html>
-</body>
-</html>
+<script>
+$(document).ready(function() {
+    $("#inp1").keyup(function() {
+        var uname = $(this).val();
+        var reg = /^[\u4e00-\u9fa5]+$/;
+
+//&&reg.test(uname)
+        if(uname != ""&&reg.test(uname)){
+            $("#lsn").show();
+            $.ajax({
+                url:"rest/mike/test",
+                type:"post",
+                data:{"term":uname},
+                dataType:"json",
+                async:true,
+                success:function(result){
+                    var html="";
+                    for(var i = 0;i < result.length ; i++){
+                      html+="<li>"+result[i]+"</li>";
+                    }
+
+                    $("#lsn").html(html);
+                    $("li").unbind("click").bind("click", function(){
+                        $("#inp1").val($(this).html());
+                        $("#inp1").focus();
+                        $("#lsn").hide();
+                    });
+                }
+              });
+
+        }else{
+            $("#lsn").html("");
+            $("#lsn").hide();
+        }
+
+
+
+
+
+    })
+    })
+</script>
+
+
+
+

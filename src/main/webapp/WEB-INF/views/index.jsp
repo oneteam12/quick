@@ -371,92 +371,9 @@
             </li>
           </ul>
         </li>
-
-        <li class="">
-          <a href="javascript:;">
-            <i class="glyphicon glyphicon-th-list"></i><span class="title"> 控制单元管理（新） </span><span
-                  class="arrow "> </span>
-          </a>
-
-          <ul class="sub-menu">
-            <li>
-              <a href="rest/page/kzdy" id="kzdy">
-                基本信息
-              </a>
-            </li>
-            <li>
-              <a href="rest/page/" id="2">
-                点源污染物排放量计算
-              </a>
-            </li>
-            <li>
-              <a href="rest/page/" id="3">
-                面源污染物负荷
-              </a>
-            </li>
-            <li>
-              <a href="rest/page/" id="4">
-                点面源污染负荷贡献率计算
-              </a>
-            </li>
-            <li>
-              <a href="rest/page/" id="5">
-                点源污染物入河量计算
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="">
-          <a href="javascript:;">
-            <i class="glyphicon glyphicon-tasks"></i><span class="title"> 控制断面管理（新） </span><span
-                  class="arrow "> </span>
-          </a>
-
-          <ul class="sub-menu">
-            <li>
-              <a href="rest/page/kzdm" id="kzdm">
-                基本信息管理
-              </a>
-            </li>
-            <li>
-              <a href="rest/page/kzdmtest" id="test">
-                测试页面
-              </a>
-            </li>
-            <li>
-              <a href="rest/page/" id="7">
-                断面水质识别
-              </a>
-            </li>
-            <li>
-              <a href="rest/page/" id="8">
-                水质变化分析
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="">
-          <a href="javascript:;">
-            <i class="glyphicon glyphicon-leaf"></i><span class="title"> 污染源管理（新） </span><span
-                  class="arrow "> </span>
-          </a>
-
-          <ul class="sub-menu">
-            <li>
-              <a href="rest/page/" id="9">
-                点源信息管理
-              </a>
-            </li>
-            <li>
-              <a href="rest/page/" id="10">
-                面源信息管理
-              </a>
-            </li>
-          </ul>
-        </li>
         <li class=" ">
           <a href="javascript:;">
-            <i class="glyphicon glyphicon-briefcase"></i><span class="title"> 污染物输入与水质响应分析 </span><span
+            <i class="glyphicon glyphicon-briefcase"></i><span class="title"> 污染物输入与水质响应 </span><span
                   class="arrow "> </span>
           </a>
 
@@ -477,20 +394,21 @@
               </a>
             </li>
             <li>
+              <a href="rest/page/xzpf" id="xzpf">
+                现状污染物排放和水质的响应关系
+              </a>
+            </li>
+            <li>
               <a href="rest/page/" id="12">
                 水环境容量计算
               </a>
             </li>
             <li>
               <a href="rest/page/" id="13">
-                污染物排放量限值
+                污染物排放限值计算
               </a>
             </li>
-            <li>
-              <a href="rest/page/" id="14">
-                污染物输入与水质相应关系
-              </a>
-            </li>
+
             <li>
               <a href="rest/page/shuJu" id="shuJu">
                 MIKE模块数据维护

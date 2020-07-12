@@ -1,7 +1,7 @@
 
 #divbutton {
     width:10%;
-    height: 500px;
+    height: 600px;
     border-style: solid;
     border-width: 1px;
     border-color: #000;
@@ -10,7 +10,7 @@
 }
 #div1 {
     width: 50%;
-    height: 500px;
+    height: 600px;
     border-style: solid;
     border-width: 1px;
     border-color: #000;
@@ -19,182 +19,21 @@
 }
 #map {
     width: 40%;
-    height: 500px;
+    height: 600px;
     border-style: solid;
     border-width: 1px;
     border-color: #000;
     margin: 0 auto;
     float: left;
 }
-
-/*#tab1 {*/
-/*    border: 1px solid #000000;*/
-/*    text-align: center;*/
-/*    width: 90%;*/
-/*    margin: 0 auto;*/
-/*}*/
-/*#tab2 {*/
-/*    border: 1px solid #000000;*/
-/*    text-align: center;*/
-/*    width: 90%;*/
-/*    margin: 0 auto;*/
-/*}*/
-/*#tab1 tr{*/
-/*   border: 1px solid #000000;*/
-/*    height: 20px;*/
-/*}*/
-/*#tab1 tr td {*/
-/*    border: 1px solid #000000;*/
-
-
-/*}*/
-/*#tab1 tr th {*/
-/*    border: 1px solid #000000;*/
-
-
-/*}*/
-/*#tab2 tr{*/
-/*    border: 1px solid #000000;*/
-/*    height: 20px;*/
-/*}*/
-/*#tab2 tr td {*/
-/*    border: 1px solid #000000;*/
-
-
-/*}*/
-/*#tab2 tr th {*/
-/*    border: 1px solid #000000;*/
-
-
-/*}*/
-#tab1{
-    width: 400px;
-    text-align: center;
-
+#tab1 th{
+    width:50px;
+    height: 20px;}
+#tab1 td{
+    width:50px;
+    height: 20px;
 }
-#tab2{
-    width: 450px;
-    text-align: center;
-
-}
-#tab1 tr{
-    width: 400px;
-    height:30px;
-    padding-top: 10px;
-}
-#tab1 thead{
-    width: 400px;
-    height: 30px;
-    text-align: center;
-}
-#tab1 tbody{
-    width: 400px;
-    height: 150px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-#tab2 tr{
-    width: 450px;
-    height:30px;
-    padding-top: 10px;
-}
-#tab2 thead{
-    width: 450px;
-    height: 30px;
-    text-align: center;
-}
-#tab2 tbody{
-    width: 450px;
-    height: 150px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-th,td,tr,thead,tbody{
-    display: block;
-}
-td,th{
-    float: left;
-}
-#tab1 td:nth-child(1),th:nth-child(1){
-    width: 30px;
-    height: 30px;
-}
-
-#tab1 td:nth-child(2),th:nth-child(2){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab1 td:nth-child(3),th:nth-child(3){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab1 td:nth-child(4),th:nth-child(4){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab1 td:nth-child(5),th:nth-child(5){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab1 td:nth-child(6),th:nth-child(6){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab1 td:nth-child(7),th:nth-child(7){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-
-#tab2 td:nth-child(1),th:nth-child(1){
-    width: 30px;
-    height: 30px;
-}
-
-#tab2 td:nth-child(2),th:nth-child(2){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab2 td:nth-child(3),th:nth-child(3){
-    width:30px;
-    float: left;
-    height: 30px;
-}
-#tab2 td:nth-child(4),th:nth-child(4){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab2 td:nth-child(5),th:nth-child(5){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab2 td:nth-child(6),th:nth-child(6){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab2 td:nth-child(7),th:nth-child(7){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-#tab2 td:nth-child(8),th:nth-child(8){
-    width: 30px;
-    float: left;
-    height: 30px;
-}
-thead{
-    background-color: #333333;
-    color: #fdfdfd;
-}
-table tbody tr:nth-child(even){
-    background-color: #dddddd;
+.fnt_cell{
+    width:50px;
+    height: 20px;
 }

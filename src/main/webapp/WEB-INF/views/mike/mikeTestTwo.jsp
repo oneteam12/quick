@@ -14,6 +14,10 @@
 <%--    <script type="text/javascript" src='app/js/jquery/locale/easyui-lang-zh_CN.js'></script>--%>
     <script type="text/javascript" src='app/js/mike/mikeTestTwo.js'></script>
     <link rel="stylesheet" type="text/css" href="app/css/mike/mikeTestTwo.css">
+
+
+    <script type="text/javascript" src="app/js/jquery/jquery.fixedheadertable.js"></script>
+    <link href="app/css/mike/defaultTheme.css" rel="stylesheet" media="screen" />
 </head>
 <body>
 <%--<button id="read">读取指定文件夹中文件</button>--%>
@@ -25,7 +29,7 @@
 <%--<div id="listAll" style="width: auto"></div>--%>
 <%--<div id="listAll2" style="width: auto"></div>--%>
 
-<button id="show">请看</button>
+
 
 <div id="selectRiver">
     <div id="listAll">
@@ -37,10 +41,10 @@
 
         <input style="display:none" id="inp1">
 
-        <div id ="div2"  style="display:none">
+<%--        <div id ="div2"  style="display:none">--%>
 
-            <button id="btn3">新建项目</button>
-        </div>
+<%--            <button id="btn3">新建项目</button>--%>
+<%--        </div>--%>
 
     </div>
         </br>
@@ -49,98 +53,30 @@
     </div>
 
     <div id="div1" >
-
-            原始数据：</br>
-            <table id="tab1">
-                <thead>
-                <tr>
-                    <th>名称</th>
-                    <th>类型（点元面源）</th>
-                    <th>入河口位置（上下游里程）</th>
-                    <th>废水排放量（m^3/s）</th>
-                    <th>COD排放浓度（mg/l）</th>
-                    <th>氨氮排放浓度（mg/l）</th>
-                    <th>总磷排放浓度（mg/l）</th>
+        <div id="div3" style="height: 200px;width: 600px">
+           原始数据：</br>
+           <table id="tbl1" class="fancyTable">
+         <thead style="width: 400px;height: 20px;" >
+               <tr>
+                   <th>企业名称</th>
+                   <th>废水排放量（t/a）</th>
+                   <th>COD浓度（mg/l）</th>
+                   <th>COD排放量（t/a）</th>
+                   <th>氨氮浓度（mg/l）</th>
+                   <th>氨氮排放量（t/a）</th>
+                   <th>总磷浓度（mg/l）</th>
+                   <th> 总磷排放量（t/a）</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                </tbody>
+            <tbody style="width: 400px;height: 80px;" id="tbd1" >
+           </tbody>
             </table>
-            </br>
+        </div>
+    </br>
+        <div id="div4" style="height: 200px;width: 600px">
             可修改数据：<button>新增</button></br>
-            <table id="tab2">
-                <thead>
+            <table id="tbl2" class="tbl">
+                <thead style="width: 400px;height: 20px;" >
                 <tr>
                     <th>名称</th>
                     <th>类型（点元面源）</th>
@@ -149,41 +85,27 @@
                     <th>COD排放浓度（mg/l）</th>
                     <th>氨氮排放浓度（mg/l）</th>
                     <th>总磷排放浓度（mg/l）</th>
+                    <th>企业名称</th>
+                    <th>？？？</th>
                     <td>操作</td>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="width: 400px;height: 20px;" >
                 <tr>
-                    <td><input value="1" style="width: 40px"></td>
-                    <td><input value="1" style="width: 40px"></td>
-                    <td><input value="1" style="width: 40px"></td>
-                    <td><input value="1" style="width: 40px"></td>
-                    <td><input value="1" style="width: 40px"></td>
-                    <td><input value="1" style="width: 40px"></td>
-                    <td><input value="1" style="width: 40px"></td>
+                    <td><input value="1" >1</td>
+                    <td><input value="1" >1</td>
+                    <td><input value="1" >1</td>
+                    <td><input value="1" >1</td>
+                    <td><input value="1">1</td>
+                    <td><input value="1" >1</td>
+                    <td><input value="1">1</td>
+                    <td><input value="1" >1</td>
+                    <td><input value="1">1</td>
                     <td><button>删除</button></td>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                <tr>
                     <td>1</td>
                     <td>1</td>
                     <td>1</td>
@@ -201,6 +123,20 @@
                     <td>1</td>
                     <td>1</td>
                     <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td><button>删除</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
                     <td><button>删除</button></td>
                 </tr>
                 <tr>
@@ -211,9 +147,25 @@
                     <td>1</td>
                     <td>1</td>
                     <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
                     <td><button>删除</button></td>
                 </tr>
                 <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td><button>删除</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
                     <td>1</td>
                     <td>1</td>
                     <td>1</td>
@@ -225,13 +177,11 @@
                 </tr>
                 </tbody>
             </table>
-            </br>
-
         </div>
 
-    <div id="map">
-
     </div>
+
+
 
 
 
@@ -247,5 +197,17 @@
 
 
 </body>
-
 </html>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+
+        $('#tbl1').fixedHeaderTable({ footer: true, altClass: 'odd' });
+        $('#tbl2').fixedHeaderTable({ footer: true, altClass: 'odd' });
+
+
+
+
+    });
+</script>

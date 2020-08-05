@@ -1,24 +1,19 @@
 package com.eliteams.quick4j.web.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Service;
 import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.core.generic.GenericServiceImpl;
 import com.eliteams.quick4j.core.page.Page;
 import com.eliteams.quick4j.web.dao.PollSourceMapper;
-import com.eliteams.quick4j.web.dao.QmpMapper;
 import com.eliteams.quick4j.web.dao.RoleMapper;
 import com.eliteams.quick4j.web.dao.UserMapper;
 import com.eliteams.quick4j.web.model.PollSource;
-import com.eliteams.quick4j.web.model.Qmp;
- 
- 
 import com.eliteams.quick4j.web.service.PollSourceService;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -68,14 +63,14 @@ public class PollSourceServiceImpl extends GenericServiceImpl<PollSource, Long> 
 
 	@Override
 	public List<PollSource> selectByPage(String pageNow) {
-		Page page = null;		  
-	    List<PollSource> pollsource = new ArrayList<PollSource>();  	     
+		Page page = null;
+	    List<PollSource> pollsource = new ArrayList<PollSource>();
 	    int totalCount = (int)pollsourceMapper.getCount();  	  
 	    if (pageNow != null) {  
-	        page = new Page(totalCount, Integer.parseInt(pageNow));  
+	        page = new Page(totalCount, Integer.parseInt(pageNow));
 	        pollsource = pollsourceMapper.selectByPage(page.getStartPos(), page.getPageSize());  
 	    } else {  
-	        page = new Page(totalCount, 1);  
+	        page = new Page(totalCount, 1);
 	        pollsource = pollsourceMapper.selectByPage(page.getStartPos(), page.getPageSize());  
 	    }  
 	    return pollsource;
@@ -86,9 +81,9 @@ public class PollSourceServiceImpl extends GenericServiceImpl<PollSource, Long> 
 		Page page = null;
 		int totalCount = (int)pollsourceMapper.getCount();  		  
 	    if (pageNow != null) {  
-	        page = new Page(totalCount, Integer.parseInt(pageNow));  
+	        page = new Page(totalCount, Integer.parseInt(pageNow));
 	    } else {  
-	        page = new Page(totalCount, 1);  
+	        page = new Page(totalCount, 1);
 	    } 
 	    return page;
 	}
@@ -112,14 +107,14 @@ public class PollSourceServiceImpl extends GenericServiceImpl<PollSource, Long> 
 			map.put("xzqhmc", arr[1]);
 		}
 		
-		Page page = null;		  
-	    List<PollSource> pollsource = new ArrayList<PollSource>();  	  
+		Page page = null;
+	    List<PollSource> pollsource = new ArrayList<PollSource>();
 	    int totalCount = (int)pollsourceMapper.getSearchCount(map); 
 	    if (pageNow != null) {  
-	        page = new Page(totalCount, Integer.parseInt(pageNow));  
+	        page = new Page(totalCount, Integer.parseInt(pageNow));
 	        pollsource = pollsourceMapper.searchByPage(page.getStartPos(), page.getPageSize(),map);  
 	    } else {  
-	        page = new Page(totalCount, 1);  
+	        page = new Page(totalCount, 1);
 	        pollsource = pollsourceMapper.searchByPage(page.getStartPos(), page.getPageSize(),map);  
 	    }  
 	    return pollsource;
@@ -145,9 +140,9 @@ public class PollSourceServiceImpl extends GenericServiceImpl<PollSource, Long> 
 		Page page = null;
 		int totalCount = (int)pollsourceMapper.getSearchCount(map);  		  
 	    if (pageNow != null) {  
-	        page = new Page(totalCount, Integer.parseInt(pageNow));  
+	        page = new Page(totalCount, Integer.parseInt(pageNow));
 	    } else {  
-	        page = new Page(totalCount, 1);  
+	        page = new Page(totalCount, 1);
 	    } 
 	    return page;
 	}
@@ -178,8 +173,16 @@ public class PollSourceServiceImpl extends GenericServiceImpl<PollSource, Long> 
 
 		return pollsourceMapper.selectForMap(map);
 	}
-	
-	
-	
-	
+
+	@Override
+	public List<PollSource> getShuiwennf(Map map) {
+		return pollsourceMapper.getShuiwennf( map);
+	}
+
+	@Override
+	public List<PollSource> getQiye(Map map) {
+		return pollsourceMapper.getQiye(map);
+	}
+
+
 }

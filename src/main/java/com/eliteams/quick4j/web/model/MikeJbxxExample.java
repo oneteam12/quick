@@ -234,6 +234,76 @@ public class MikeJbxxExample {
             return (Criteria) this;
         }
 
+        public Criteria andMikeHlbhIsNull() {
+            addCriterion("mike_hlbh is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhIsNotNull() {
+            addCriterion("mike_hlbh is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhEqualTo(String value) {
+            addCriterion("mike_hlbh =", value, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhNotEqualTo(String value) {
+            addCriterion("mike_hlbh <>", value, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhGreaterThan(String value) {
+            addCriterion("mike_hlbh >", value, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhGreaterThanOrEqualTo(String value) {
+            addCriterion("mike_hlbh >=", value, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhLessThan(String value) {
+            addCriterion("mike_hlbh <", value, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhLessThanOrEqualTo(String value) {
+            addCriterion("mike_hlbh <=", value, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhLike(String value) {
+            addCriterion("mike_hlbh like", value, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhNotLike(String value) {
+            addCriterion("mike_hlbh not like", value, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhIn(List<String> values) {
+            addCriterion("mike_hlbh in", values, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhNotIn(List<String> values) {
+            addCriterion("mike_hlbh not in", values, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhBetween(String value1, String value2) {
+            addCriterion("mike_hlbh between", value1, value2, "mikeHlbh");
+            return (Criteria) this;
+        }
+
+        public Criteria andMikeHlbhNotBetween(String value1, String value2) {
+            addCriterion("mike_hlbh not between", value1, value2, "mikeHlbh");
+            return (Criteria) this;
+        }
+
         public Criteria andMikeHldjIsNull() {
             addCriterion("mike_hldj is null");
             return (Criteria) this;

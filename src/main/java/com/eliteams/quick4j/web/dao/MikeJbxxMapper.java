@@ -33,5 +33,4 @@ public interface MikeJbxxMapper {
     List<MikeJbxx> selectAll();
 
     List<MikeJbxx> selectOne(@Param(value = "map") Map map);
-
 }

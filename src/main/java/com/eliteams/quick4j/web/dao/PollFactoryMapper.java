@@ -7,6 +7,7 @@ import com.eliteams.quick4j.web.model.PollFactory;
 import java.util.List;
 import java.util.Map;
 
+import com.eliteams.quick4j.web.model.PollSource;
 import org.apache.ibatis.annotations.Param;
 
 public interface PollFactoryMapper extends GenericDao<PollFactory, Long>{
@@ -57,5 +58,5 @@ public interface PollFactoryMapper extends GenericDao<PollFactory, Long>{
     
     List<Map<String,String>> selectKzdmSum(@Param(value = "map") Map map);
 
-
+    List<PollFactory> getWsc(@Param(value = "map") Map map);
 }

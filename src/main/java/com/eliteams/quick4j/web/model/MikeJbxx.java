@@ -5,6 +5,8 @@ public class MikeJbxx {
 
     private String mikeHlmc;
 
+    private String mikeHlbh;
+
     private String mikeHldj;
 
     private String mikeLymc;
@@ -51,6 +53,14 @@ public class MikeJbxx {
 
     public void setMikeHlmc(String mikeHlmc) {
         this.mikeHlmc = mikeHlmc == null ? null : mikeHlmc.trim();
+    }
+
+    public String getMikeHlbh() {
+        return mikeHlbh;
+    }
+
+    public void setMikeHlbh(String mikeHlbh) {
+        this.mikeHlbh = mikeHlbh == null ? null : mikeHlbh.trim();
     }
 
     public String getMikeHldj() {

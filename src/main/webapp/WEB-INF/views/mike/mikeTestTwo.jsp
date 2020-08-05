@@ -31,183 +31,1534 @@
 
 
 
-<div id="selectRiver">
-    <div id="listAll">
+<%--<div id="selectRiver">--%>
+<%--    <div id="listAll">--%>
 
-    </div>
-        </br>
-    <div id="list2">
-        <button id="btn1">选择当前项目查看</button>
+<%--    </div>--%>
+<%--        </br>--%>
+<%--    <div id="list2">--%>
+<%--        <button id="btn1">选择当前项目查看</button>--%>
 
-        <input style="display:none" id="inp1">
+<%--        <input style="display:none" id="inp1">--%>
 
-<%--        <div id ="div2"  style="display:none">--%>
+<%--&lt;%&ndash;        <div id ="div2"  style="display:none">&ndash;%&gt;--%>
 
-<%--            <button id="btn3">新建项目</button>--%>
-<%--        </div>--%>
+<%--&lt;%&ndash;            <button id="btn3">新建项目</button>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        </div>&ndash;%&gt;--%>
 
-    </div>
-        </br>
-    <div id="divbutton">
+<%--    </div>--%>
+<%--        </br>--%>
+<%--&lt;%&ndash;    <div id="divbutton">&ndash;%&gt;--%>
 
-    </div>
+<%--&lt;%&ndash;    </div>&ndash;%&gt;--%>
 
-    <div id="div1" >
-        <div id="div3" style="height: 200px;width: 600px">
-           原始数据：</br>
-           <table id="tbl1" class="fancyTable">
-         <thead style="width: 400px;height: 20px;" >
-               <tr>
-                   <th>企业名称</th>
-                   <th>废水排放量（t/a）</th>
-                   <th>COD浓度（mg/l）</th>
-                   <th>COD排放量（t/a）</th>
-                   <th>氨氮浓度（mg/l）</th>
-                   <th>氨氮排放量（t/a）</th>
-                   <th>总磷浓度（mg/l）</th>
-                   <th> 总磷排放量（t/a）</th>
-                </tr>
-                </thead>
-            <tbody style="width: 400px;height: 80px;" id="tbd1" >
-           </tbody>
-            </table>
-        </div>
-    </br>
-        <div id="div4" style="height: 200px;width: 600px">
-            可修改数据：<button>新增</button></br>
-            <table id="tbl2" class="tbl">
-                <thead style="width: 400px;height: 20px;" >
-                <tr>
-                    <th>名称</th>
-                    <th>类型（点元面源）</th>
-                    <th>入河口位置（上下游里程）</th>
-                    <th>废水排放量（m^3/s）</th>
-                    <th>COD排放浓度（mg/l）</th>
-                    <th>氨氮排放浓度（mg/l）</th>
-                    <th>总磷排放浓度（mg/l）</th>
-                    <th>企业名称</th>
-                    <th>？？？</th>
-                    <td>操作</td>
-                </tr>
-                </thead>
-                <tbody style="width: 400px;height: 20px;" >
-                <tr>
-                    <td><input value="1" >1</td>
-                    <td><input value="1" >1</td>
-                    <td><input value="1" >1</td>
-                    <td><input value="1" >1</td>
-                    <td><input value="1">1</td>
-                    <td><input value="1" >1</td>
-                    <td><input value="1">1</td>
-                    <td><input value="1" >1</td>
-                    <td><input value="1">1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><button>删除</button></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+<%--&lt;%&ndash;    <div id="div1" >&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <div id="div3" style="height: 200px;width: 600px">&ndash;%&gt;--%>
+<%--&lt;%&ndash;           原始数据：</br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;           <table id="tbl1" class="fancyTable">&ndash;%&gt;--%>
+<%--&lt;%&ndash;         <thead style="width: 400px;height: 20px;" >&ndash;%&gt;--%>
+<%--&lt;%&ndash;               <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                   <th>企业名称</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                   <th>废水排放量（t/a）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                   <th>COD浓度（mg/l）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                   <th>COD排放量（t/a）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                   <th>氨氮浓度（mg/l）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                   <th>氨氮排放量（t/a）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                   <th>总磷浓度（mg/l）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                   <th> 总磷排放量（t/a）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </thead>&ndash;%&gt;--%>
+<%--&lt;%&ndash;            <tbody style="width: 400px;height: 80px;" id="tbd1" >&ndash;%&gt;--%>
+<%--&lt;%&ndash;           </tbody>&ndash;%&gt;--%>
+<%--&lt;%&ndash;            </table>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;    </br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <div id="div4" style="height: 200px;width: 600px">&ndash;%&gt;--%>
+<%--&lt;%&ndash;            可修改数据：<button>新增</button></br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;            <table id="tbl2" class="tbl">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <thead style="width: 400px;height: 20px;" >&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>名称</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>类型（点元面源）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>入河口位置（上下游里程）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>废水排放量（m^3/s）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>COD排放浓度（mg/l）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>氨氮排放浓度（mg/l）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>总磷排放浓度（mg/l）</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>企业名称</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <th>？？？</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>操作</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </thead>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tbody style="width: 400px;height: 20px;" >&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1" >1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1" >1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1" >1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1" >1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1">1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1" >1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1">1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1" >1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><input value="1">1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><button>删除</button></td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><button>删除</button></td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><button>删除</button></td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><button>删除</button></td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><button>删除</button></td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><button>删除</button></td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td>1</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <td><button>删除</button></td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </tbody>&ndash;%&gt;--%>
+<%--&lt;%&ndash;            </table>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        </div>&ndash;%&gt;--%>
 
-    </div>
+<%--    </div>--%>
+<div style="width: 400px;height: 400px;">
+
+    <table id="tbl1" class="tbl" style="border: 1px solid #000;">
+        <thead style="width: 400px;height: 20px;" >
+        <tr>
+            <th>1</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+        </tr>
+        </thead>
+        <tbody style="width: 400px;height: 380px;">
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
 
 
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
 
 
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
 
 
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
 
 
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
 
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        </tbody>
+    </table>
+    <table id="tbl2" class="tbl" style="border: 1px solid #000;">
+        <thead style="width: 400px;height: 20px;" >
+        <tr>
+            <th>1</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+            <th>qwe</th>
+        </tr>
+        </thead>
+        <tbody style="width: 400px;height: 380px;">
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+
+
+        </tr>
+        </tbody>
+    </table>
 </div>
-
-
-
-
-
-
 </body>
 </html>
 <script type="text/javascript">
 
     $(document).ready(function() {
+        //  $('#tbl1').fixedHeaderTable({ footer: true, cloneHeadToFoot: true, altClass: 'odd', autoShow: false });
 
+        //   $('#tbl1').fixedHeaderTable('show', 1000);
 
         $('#tbl1').fixedHeaderTable({ footer: true, altClass: 'odd' });
         $('#tbl2').fixedHeaderTable({ footer: true, altClass: 'odd' });
 
+        // $('#tbl1').fixedHeaderTable({ altClass: 'odd', footer: true, fixedColumns: 1 });
 
+        // $('#tbl1').fixedHeaderTable({ altClass: 'odd', footer: true, fixedColumns: 1 });
 
-
+        // $('#tbl1').fixedHeaderTable({ altClass: 'odd', footer: true, cloneHeadToFoot: true, fixedColumns: 3 });
     });
 </script>

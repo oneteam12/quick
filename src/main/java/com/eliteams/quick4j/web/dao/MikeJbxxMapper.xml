@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.MikeJbxx" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="mike_hlmc" property="mikeHlmc" jdbcType="VARCHAR" />
+    <result column="mike_hlbh" property="mikeHlbh" jdbcType="VARCHAR" />
     <result column="mike_hldj" property="mikeHldj" jdbcType="VARCHAR" />
     <result column="mike_lymc" property="mikeLymc" jdbcType="VARCHAR" />
     <result column="mike_sxmc" property="mikeSxmc" jdbcType="VARCHAR" />
@@ -80,9 +81,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, mike_hlmc, mike_hldj, mike_lymc, mike_sxmc, mike_gl, mike_1jhl, mike_2jhl, mike_3jhl, 
-    mike_4jhl, mike_5jhl, mike_swnf, mike_mnnf, mike_sjly, mike_mnzb, mike_famc, mike_cclj, 
-    mike_fxsj
+    id, mike_hlmc, mike_hlbh, mike_hldj, mike_lymc, mike_sxmc, mike_gl, mike_1jhl, mike_2jhl, 
+    mike_3jhl, mike_4jhl, mike_5jhl, mike_swnf, mike_mnnf, mike_sjly, mike_mnzb, mike_famc, 
+    mike_cclj, mike_fxsj
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.MikeJbxxExample" >
     select
@@ -115,20 +116,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.eliteams.quick4j.web.model.MikeJbxx" >
-    insert into tbl_mike_jbxx (id, mike_hlmc, mike_hldj, 
-      mike_lymc, mike_sxmc, mike_gl, 
-      mike_1jhl, mike_2jhl, mike_3jhl, 
-      mike_4jhl, mike_5jhl, mike_swnf, 
-      mike_mnnf, mike_sjly, mike_mnzb, 
-      mike_famc, mike_cclj, mike_fxsj
-      )
-    values (#{id,jdbcType=INTEGER}, #{mikeHlmc,jdbcType=VARCHAR}, #{mikeHldj,jdbcType=VARCHAR}, 
-      #{mikeLymc,jdbcType=VARCHAR}, #{mikeSxmc,jdbcType=VARCHAR}, #{mikeGl,jdbcType=VARCHAR}, 
-      #{mike1jhl,jdbcType=VARCHAR}, #{mike2jhl,jdbcType=VARCHAR}, #{mike3jhl,jdbcType=VARCHAR}, 
-      #{mike4jhl,jdbcType=VARCHAR}, #{mike5jhl,jdbcType=VARCHAR}, #{mikeSwnf,jdbcType=INTEGER}, 
-      #{mikeMnnf,jdbcType=INTEGER}, #{mikeSjly,jdbcType=VARCHAR}, #{mikeMnzb,jdbcType=VARCHAR}, 
-      #{mikeFamc,jdbcType=VARCHAR}, #{mikeCclj,jdbcType=VARCHAR}, #{mikeFxsj,jdbcType=INTEGER}
-      )
+    insert into tbl_mike_jbxx (id, mike_hlmc, mike_hlbh, 
+      mike_hldj, mike_lymc, mike_sxmc, 
+      mike_gl, mike_1jhl, mike_2jhl, 
+      mike_3jhl, mike_4jhl, mike_5jhl, 
+      mike_swnf, mike_mnnf, mike_sjly, 
+      mike_mnzb, mike_famc, mike_cclj, 
+      mike_fxsj)
+    values (#{id,jdbcType=INTEGER}, #{mikeHlmc,jdbcType=VARCHAR}, #{mikeHlbh,jdbcType=VARCHAR}, 
+      #{mikeHldj,jdbcType=VARCHAR}, #{mikeLymc,jdbcType=VARCHAR}, #{mikeSxmc,jdbcType=VARCHAR}, 
+      #{mikeGl,jdbcType=VARCHAR}, #{mike1jhl,jdbcType=VARCHAR}, #{mike2jhl,jdbcType=VARCHAR}, 
+      #{mike3jhl,jdbcType=VARCHAR}, #{mike4jhl,jdbcType=VARCHAR}, #{mike5jhl,jdbcType=VARCHAR}, 
+      #{mikeSwnf,jdbcType=INTEGER}, #{mikeMnnf,jdbcType=INTEGER}, #{mikeSjly,jdbcType=VARCHAR}, 
+      #{mikeMnzb,jdbcType=VARCHAR}, #{mikeFamc,jdbcType=VARCHAR}, #{mikeCclj,jdbcType=VARCHAR}, 
+      #{mikeFxsj,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.MikeJbxx" >
     insert into tbl_mike_jbxx
@@ -138,6 +139,9 @@
       </if>
       <if test="mikeHlmc != null" >
         mike_hlmc,
+      </if>
+      <if test="mikeHlbh != null" >
+        mike_hlbh,
       </if>
       <if test="mikeHldj != null" >
         mike_hldj,
@@ -194,6 +198,9 @@
       </if>
       <if test="mikeHlmc != null" >
         #{mikeHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeHlbh != null" >
+        #{mikeHlbh,jdbcType=VARCHAR},
       </if>
       <if test="mikeHldj != null" >
         #{mikeHldj,jdbcType=VARCHAR},
@@ -260,6 +267,9 @@
       <if test="record.mikeHlmc != null" >
         mike_hlmc = #{record.mikeHlmc,jdbcType=VARCHAR},
       </if>
+      <if test="record.mikeHlbh != null" >
+        mike_hlbh = #{record.mikeHlbh,jdbcType=VARCHAR},
+      </if>
       <if test="record.mikeHldj != null" >
         mike_hldj = #{record.mikeHldj,jdbcType=VARCHAR},
       </if>
@@ -317,6 +327,7 @@
     update tbl_mike_jbxx
     set id = #{record.id,jdbcType=INTEGER},
       mike_hlmc = #{record.mikeHlmc,jdbcType=VARCHAR},
+      mike_hlbh = #{record.mikeHlbh,jdbcType=VARCHAR},
       mike_hldj = #{record.mikeHldj,jdbcType=VARCHAR},
       mike_lymc = #{record.mikeLymc,jdbcType=VARCHAR},
       mike_sxmc = #{record.mikeSxmc,jdbcType=VARCHAR},
@@ -342,6 +353,9 @@
     <set >
       <if test="mikeHlmc != null" >
         mike_hlmc = #{mikeHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeHlbh != null" >
+        mike_hlbh = #{mikeHlbh,jdbcType=VARCHAR},
       </if>
       <if test="mikeHldj != null" >
         mike_hldj = #{mikeHldj,jdbcType=VARCHAR},
@@ -397,6 +411,7 @@
   <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.MikeJbxx" >
     update tbl_mike_jbxx
     set mike_hlmc = #{mikeHlmc,jdbcType=VARCHAR},
+      mike_hlbh = #{mikeHlbh,jdbcType=VARCHAR},
       mike_hldj = #{mikeHldj,jdbcType=VARCHAR},
       mike_lymc = #{mikeLymc,jdbcType=VARCHAR},
       mike_sxmc = #{mikeSxmc,jdbcType=VARCHAR},
@@ -426,6 +441,9 @@
     <where>
       <if test="map.mike_hlmc != null">
         mike_hlmc = #{map.mike_hlmc}
+      </if>
+      <if test="map.mike_hlbh != null">
+        and  mike_hldj = #{map.mike_hlbh}
       </if>
       <if test="map.mike_hldj != null">
         and  mike_hldj LIKE CONCAT('%', #{map.mike_hldj}, '%')

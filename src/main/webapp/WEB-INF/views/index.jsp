@@ -17,7 +17,7 @@
 <head>
   <base href="<%=basePath%>">
   <meta charset="utf-8"/>
-  <title>辽宁省水环境综合管理系统</title>
+  <title>辽河流域污染物输入响应分析可视化系统</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="" name="description"/>
@@ -54,8 +54,8 @@
   <div class="header-inner">
     <%--<img src="assets/img/title.jpg" width="100%">--%>
     <!-- BEGIN LOGO -->
-    <span class="navbar-brand" style="color: white;font-style: italic"><strong><span style="font-size: 24px;">辽宁省水环境综合管理系统</span><br/><span
-            style="font-size: 10px;color: lightgrey">Environmental protection project of Liaoning</span></strong></span>
+    <span class="navbar-brand" style="color: white;font-style: italic"><strong><span style="font-size: 24px;">辽河流域污染物输入响应分析可视化系统</span><br/><span
+            style="font-size: 10px;color: lightgrey">Visualization System of Pollutant Input Response Analysis in Liaohe River Basin</span></strong></span>
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
     <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

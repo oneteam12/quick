@@ -180,6 +180,7 @@ function initMap() {
         });
 
         var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/14";
+       // var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/14";
         featureLayer = new esri.layers.FeatureLayer(layerUrl, {
             mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
             outFields: ["*"],
@@ -200,7 +201,10 @@ function initMap() {
         });
 
         layer = new ArcGISDynamicMapServiceLayer("http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer");
-        layer.setVisibleLayers([0 ,11 ,13 ,14 ,16 ,22]);
+        //layer = new ArcGISDynamicMapServiceLayer("http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer")
+       layer.setVisibleLayers([0 ,11 ,13 ,14 ,16 ,22]);
+
+       // layer.setVisibleLayers([2,3,4,5,11,12,13,14,15,16,17,18,19,20,21,22,29,30,31,33,34,35,36,37,38,39]);
         map.addLayer(layer);
         graphicLayer = new esri.layers.GraphicsLayer();
         map.addLayer(graphicLayer);

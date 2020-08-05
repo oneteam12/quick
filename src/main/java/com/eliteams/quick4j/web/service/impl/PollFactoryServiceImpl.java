@@ -176,8 +176,11 @@ public class PollFactoryServiceImpl extends GenericServiceImpl<PollFactory, Long
 
 		return pollfactoryMapper.selectForMap(map);
 	}
-	
-	
-	
-	
+
+	@Override
+	public List<PollFactory> getWsc(Map map) {
+		return pollfactoryMapper.getWsc(map);
+	}
+
+
 }

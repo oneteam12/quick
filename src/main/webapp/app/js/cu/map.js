@@ -1,4 +1,4 @@
-console.log("liuxin");
+﻿console.log("liuxin");
 var agoLayer, layer, map, tb, statesTask, riversTask, citiesTask, query, symbol;
 var num=0;
 init();
@@ -36,15 +36,18 @@ require(["esri/map", "esri/layers/ArcGISDynamicMapServiceLayer", "esri/layers/Fe
        zoom:12,  //显示地图的级别  
        maxZoom:16  //最大空间等级  
       });
-   var url = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer";
+  // var url = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer";
+		var url = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer";
     agoLayer = new ArcGISDynamicMapServiceLayer(url);
     //agoLayer.setVisibleLayers([9]);//设置china(9)
-		agoLayer.setVisibleLayers([19,20,21,23]);//设置china(9)
+		//agoLayer.setVisibleLayers([19,20,21,23]);//设置china(9)
+		agoLayer.setVisibleLayers([0,1,28,31,32,33,34,35]);//设置china(9)
     map.addLayer(agoLayer,0);
 	//	map.addLayer(agoLayer,0);
 
-		
-		var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/20";
+
+		//var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/20";
+		var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/28";
 		featureLayer_2 = new esri.layers.FeatureLayer(layerUrl_2, {
 			mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
 			outFields: ["*"],
@@ -55,7 +58,8 @@ require(["esri/map", "esri/layers/ArcGISDynamicMapServiceLayer", "esri/layers/Fe
 
 
     //var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/5";
-		var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/19";
+		//var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/19";
+		var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/28";
     layer = new esri.layers.FeatureLayer(layerUrl, 	{
         infoTemplate: new esri.InfoTemplate("控制单元", 
         "<button class='btnz btnz-info' type='button' onclick='cuToQmp(\"${单元名称}\")'>相关断面</button>"+

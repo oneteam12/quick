@@ -1,4 +1,4 @@
-var extents = {
+﻿var extents = {
   tieling: [121.683328, 41.840331, 126.582710, 43.573067],
   huludao: [118.172417, 39.834530, 122.336235, 41.369228],
   chaoyang: [117.205270, 40.391405, 123.074377, 42.504821],
@@ -158,18 +158,20 @@ function initMap() {
       zoom: 12,
       maxZoom: 16
     });
-
-    //var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/8";
-    var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/20";
-    featureLayer = new esri.layers.FeatureLayer(layerUrl, {
-      mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
-      outFields: ["*"],
-      hasAttributionData: true
-    });
-    map.addLayer(featureLayer, 100);
+   //
+   //  //var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/8";
+   // // var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/20";
+   //  var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/33";
+   //  featureLayer = new esri.layers.FeatureLayer(layerUrl, {
+   //    mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
+   //    outFields: ["*"],
+   //    hasAttributionData: true
+   //  });
+   //  map.addLayer(featureLayer, 100);
 
    // var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/5";
-    var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/23";
+   // var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/23";
+    var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/31";
     featureLayer_2 = new esri.layers.FeatureLayer(layerUrl_2, {
       mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
       outFields: ["*"],
@@ -189,8 +191,11 @@ function initMap() {
       }
     });
 
-    layer = new ArcGISDynamicMapServiceLayer("http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer");
-    layer.setVisibleLayers([20, 21]);
+   // layer = new ArcGISDynamicMapServiceLayer("http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer");
+    layer = new ArcGISDynamicMapServiceLayer("http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer");
+    //layer.setVisibleLayers([20, 21]);
+    layer.setVisibleLayers([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,31,32,33,34,35]);
+
     map.addLayer(layer, 0);
     graphicLayer = new esri.layers.GraphicsLayer();
     map.addLayer(graphicLayer);

@@ -17,8 +17,6 @@
 
 
 
-    <script type="text/javascript" src="app/js/jquery/jquery.fixedheadertable.js"></script>
-    <link href="app/css/mike/defaultTheme.css" rel="stylesheet" media="screen" />
 
 
     <link rel="stylesheet" href="app/js/3.20/dijit/themes/tundra/tundra.css">
@@ -38,6 +36,11 @@
     <script type="text/javascript" src="app/js/jquery/jquery-1.7.2.min.js" ></script>
     <!-- 引入jQuery UI的js文件 -->
     <script type="text/javascript" src="app/js/jquery/jquery-ui.js" ></script>
+    
+
+    <script type="text/javascript" src="app/js/jquery/jquery.fixedheadertable.min.js"></script>
+    <link href="app/css/mike/defaultTheme.css" rel="stylesheet" media="screen" />
+
 </head>
 
 <body>
@@ -87,68 +90,150 @@
 <div id="left">
 
 </div>
-<div id="right">
-
+<div id="right"   style="height:400px;width: 550px;border: 1px solid#000">
+    <button id="mytype">展示</button>
 </div>
 <div id="up">
 
 </div>
-<div id="down" style="height: 200px;width: 600px">
+<div id="down" style="height: 600px;width: 600px">
     原始数据：</br>
-    <table id="tbl1" >
-        <thead style="width: 400px;height: 20px;" >
-        <tr>
-            <th>企业名称</th>
-            <th>废水排放量（t/a）</th>
-            <th>COD浓度（mg/l）</th>
-            <th>COD排放量（t/a）</th>
-            <th>氨氮浓度（mg/l）</th>
-            <th>氨氮排放量（t/a）</th>
-            <th>总磷浓度（mg/l）</th>
-            <th> 总磷排放量（t/a）</th>
-        </tr>
-        </thead>
-        <tbody style="width: 400px;height: 80px;" id="tbd1" >
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-        </tr>
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-        </tr>
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-        </tr>
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div id="downin"  style="height: 400px;width: 400px">
+
+
+    </div>
+<%--    <table id="tab1" >--%>
+<%--        <thead style="width: 400px;height: 20px;" >--%>
+<%--        <tr id="tr1">--%>
+<%--            <th>企业名称</th>--%>
+<%--            <th>详细地址县(区、市、旗)</th>--%>
+<%--            <th>详细地址乡(镇)</th>--%>
+<%--            <th>经度</th>--%>
+<%--            <th>纬度</th>--%>
+<%--            <th>生产时间（小时/年）</th>--%>
+<%--            <th>废水排放量（吨/年）</th>--%>
+<%--        </tr>--%>
+<%--        </thead>--%>
+<%--        <tbody style="width: 400px;height: 80px;" id="tbd1" >--%>
+<%--        </tbody>--%>
+<%--    </table>--%>
 </div>
+    <div style="height: 100px;width: 400px" >
+        <table id="tab3">
+            <thead style="width: 400px;height: 20px;" >
+            <tr id="tr1">
+                <th>企业名称</th>
+                <th>详细地址县(区、市、旗)</th>
+                <th>详细地址乡(镇)</th>
+                <th>经度</th>
+                <th>纬度</th>
+                <th>生产时间（小时/年）</th>
+                <th>废水排放量（吨/年）</th>
+            </tr>
+            </thead>
+            <tbody style="width: 400px;height: 80px;" id="tbd1" >
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            </tbody>
+        </table>
+</div>
+
 </body>
 </html>
 <script type="text/javascript">
 
     $(document).ready(function() {
-        $('#tbl1').fixedHeaderTable({ footer: true, altClass: 'odd' });
+        $('#tab1').fixedHeaderTable({ footer: true, altClass: 'odd' });
+        $('#tab2').fixedHeaderTable({ footer: true, altClass: 'odd' });
+        $('#tab3').fixedHeaderTable({ footer: true, altClass: 'odd' });
     });
+
 </script>

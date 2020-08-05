@@ -22,7 +22,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <head>
     <base href="<%=basePath%>">
     <meta charset="utf-8"/>
-    <title>辽宁省水环境综合管理系统</title>
+    <title>辽河流域污染物输入响应分析可视化系统</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
@@ -45,7 +45,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div style="width:100%;height: 100%;" class="flex-login">
     <div class="title">
         <hr class="line-top"/>
-        <span>辽宁省水环境综合管理系统</span>
+        <span style="width: 80%">辽河流域污染物输入响应分析可视化系统</span>
         <hr class="line-bottom"/>
     </div>
 

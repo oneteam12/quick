@@ -3013,8 +3013,25 @@
         where
 	    is_del = 0 and SNSTMC != ''
     </select>
-  
-  
+
+
+    <select id="getWsc"   parameterType="java.util.Map" resultType="Map">
+        select *
+        from pollution
+        where
+        <trim>
+            <if test="map.SNSTMC!= null">
+                SNSTMC = #{map.SNSTMC} and
+            </if>
+            <if test="map.SNSTDM != null">
+                SNSTDM = #{map.SNSTDM} and
+            </if>
+            <if test="map.TJNF != null">
+                TJNF = #{map.TJNF} and
+            </if>
+        </trim>
+        is_del = 0
+    </select>
   
   
 </mapper>

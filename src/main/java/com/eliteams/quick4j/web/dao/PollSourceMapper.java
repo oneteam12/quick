@@ -2,14 +2,12 @@ package com.eliteams.quick4j.web.dao;
 
 import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.web.model.PollSource;
-import com.eliteams.quick4j.web.model.Qmp;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
-
-public interface PollSourceMapper extends GenericDao<PollSource, Long>{
+public interface PollSourceMapper extends GenericDao<PollSource, Long> {
 
     int insertSelective(PollSource record);///
     
@@ -60,4 +58,7 @@ public interface PollSourceMapper extends GenericDao<PollSource, Long>{
 
     List<Map<String,String>> selectKzdmSum(@Param(value = "map") Map map);
 
+    List<PollSource> getShuiwennf(@Param(value = "map") Map map);
+
+    List<PollSource> getQiye(@Param(value = "map") Map map);
 }

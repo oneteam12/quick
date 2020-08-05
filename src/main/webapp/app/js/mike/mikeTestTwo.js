@@ -1,8 +1,9 @@
 ﻿
 
 $(document).ready(function() {
+
     $('#tbl1').fixedHeaderTable({ footer: true, altClass: 'odd' });
-  $('#tbl2').fixedHeaderTable({ footer: true, altClass: 'odd' });
+    $('#tbl2').fixedHeaderTable({ footer: true, altClass: 'odd' });
 
     var str = "<select id='sheng'></select> <select id='shi'></select>    <select id='qu'></select> <select id='hr'></select>";//三个下拉交给一个字符串
     $("#listAll").html(str);//将三个下拉的字符串交给前边的div

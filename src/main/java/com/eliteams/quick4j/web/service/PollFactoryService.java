@@ -6,6 +6,7 @@ import java.util.Map;
 import com.eliteams.quick4j.core.generic.GenericService;
 import com.eliteams.quick4j.core.page.Page;
 import com.eliteams.quick4j.web.model.PollFactory;
+import com.eliteams.quick4j.web.model.PollSource;
 import com.eliteams.quick4j.web.model.Qmp;
  
  
@@ -73,5 +74,8 @@ public interface PollFactoryService extends GenericService<PollFactory, Long> {
     Page getSearchPage(String pageNow,Map map);
     
     List<PollFactory> selectForMap(Map map);
+
+
+    List<PollFactory> getWsc(Map map);
     
 }

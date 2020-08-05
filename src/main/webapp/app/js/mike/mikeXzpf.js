@@ -1,4 +1,6 @@
-﻿$(document).ready(function() {
+﻿
+
+$(document).ready(function() {
 
 
 
@@ -9,7 +11,7 @@
     $("#home").html(str);
 
 
-    var str2=" 模拟设置：</br>水文年份：<select id='shuiwennf'></select>计算年份：<select id='jisuannf'></select>排放数据选择：<select id='sjxz'></select>模拟指标：<select id='monizb'></select>"
+    var str2=" 模拟设置：</br>排放数据选择：<select id='sjxz'></select>水文设计条件(环统数据年份选择)：<select id='shujunf'></select>计算年份（反查水文表年份设置）：<select id='jisuannf'></select>模拟指标：<select id='monizb'></select>"
     $("#monishezhi").html(str2);
     //将三个下拉的字符串交给前边的div
 
@@ -21,6 +23,13 @@
     sanji();
     siji();
     wuji();
+
+    sjxz();
+    shujunf();
+    jisuannf();
+    monizb();
+
+    
 
     $("#liuyu").change(function(){
         shuixi();
@@ -65,6 +74,14 @@
         wuji();
     });
 
+    $("#sjxz").change(function(){
+        shujunf();
+        jisuannf();
+    });
+    $("#shujunf").change(function(){
+        jisuannf();
+    });
+
 
     $("#inp1").keyup(function() {
         var uname = $(this).val();
@@ -74,9 +91,9 @@
         if(uname != ""&&reg.test(uname)){
             $("#lsn").show();
             $.ajax({
-                url:"rest/mike/test",
+                url:"rest/mike/searchRiverName",
                 type:"post",
-                data:{"term":uname},
+                data:{"name":uname},
                 dataType:"json",
                 async:true,
                 success:function(result){
@@ -139,23 +156,6 @@ function shuixi() {
 
         }
     });
-    // var pcode = "0001"; //找出省的父级代号
-    // $.ajax({
-    //     async:false,//同步
-    //     url:"rest/mike/getShuixi",
-    //     data:{pcode:pcode},
-    //     type:"POST",
-    //     dataType:"json",
-    //     success: function(data){
-    //         var haha="<option value=\"0\" selected>水系选择</option>";
-    //         // var haha="";
-    //
-    //         for (var i = 0; i < data.length; i++) {
-    //             haha+="<option value='"+data[i]+"'>"+data[i]+"</option>";
-    //         };
-    //         $("#sheng").html(haha);
-    //     }
-    // });
 };
 
 function ganliu() {
@@ -269,53 +269,1135 @@ function wuji() {
         success: function(data){
             var html="<option value=\"0\" selected>==请选择==</option>";
             for (var i = 0; i < data.length; i++) {
-                html+="<option value='"+data[i]+"'>"+data[i]  +"</option>";
+                html+="<option value='"+data[i]+"'>"+data[i]+"</option>";
             };
             $("#wuji").html(html);
 
         }
     });
 };
-function shuiwennf() {
-    var pcode = $("#shuixi").val();//找区的父级代号，市选中项的值
-    var pcode2 = $("#ganliu").val();//找区的父级代号，市选中项的值
-    $.ajax({
-        url:"rest/mike/getShuiwennf",
-        data:{moni:pcode,
-            yiji:pcode2
-        },
-        type:"POST",
-        dataType:"json",
-        success: function(data){
-            var html="<option value=\"0\" selected>==请选择==</option>";
-            for (var i = 0; i < data.length; i++) {
-                html+="<option value='"+data[i].fangan+"'>"+data[i].fangan+"</option>";
-            };
-            $("#shuiwennf").html(html);
 
+function sjxz(){
+    var html="<option value=\"huantong\" selected>==请选择==</option>";
+
+    html+="<option value=\"huantong\" >环统数据</option>";
+
+
+    $("#sjxz").html(html);
+
+}
+function shujunf(){
+
+    var pcode2 = $("#sjxz").val();
+    var html="<option value=\"0\" selected>==请选择==</option>";
+    $("#shujunf").html(html);
+
+
+    if($("#liuyu").val()!=0 && $("#shuixi").val()!=0 && $("#ganliu").val()!=0 ){
+        if($("#wuji").val()!=0 && $("#wuji").val()!=null &&$("#wuji").val()!=""){
+            var wuji = $("#wuji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url:"rest/mike/getShujunf",
+                data:{
+                    lyname:lyname,
+                    hlname:wuji,
+                    sj:pcode2
+                },
+                type:"POST",
+                dataType:"json",
+                success: function(data){
+                    var html="<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
+                    };
+
+                    $("#shujunf").html(html);
+
+                }
+            });
+        }else if($("#siji").val()!=0 && $("#siji").val()!=null &&$("#siji").val()!=""){
+            var siji = $("#siji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url:"rest/mike/getShujunf",
+                data:{
+                    lyname:lyname,
+                    hlname:siji,
+                    sj:pcode2
+                },
+                type:"POST",
+                dataType:"json",
+                success: function(data){
+
+                    var html="<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
+                    };
+
+                    $("#shujunf").html(html);
+                }
+            });
+
+        }else if($("#sanji").val()!=0 && $("#sanji").val()!=null &&$("#sanji").val()!=""){
+            var sanji = $("#sanji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url:"rest/mike/getShujunf",
+                data:{
+                    lyname:lyname,
+                    hlname:sanji,
+                    sj:pcode2
+                },
+                type:"POST",
+                dataType:"json",
+                success: function(data){
+
+                    var html="<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
+                    };
+
+                    $("#shujunf").html(html);
+                }
+            });
+
+        }else if($("#erji").val()!=0  && $("#erji").val()!=null &&$("#erji").val()!="" ){
+            var erji = $("#erji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url:"rest/mike/getShujunf",
+                data:{
+                    lyname:lyname,
+                    hlname:erji,
+                    sj:pcode2
+                },
+                type:"POST",
+                dataType:"json",
+                success: function(data){
+                    var html="<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
+                    };
+
+                    $("#shujunf").html(html);
+                }
+            });
+
+        }else if($("#yiji").val()!=0  && $("#yiji").val()!=null &&$("#yiji").val()!=""){
+            var yiji = $("#yiji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url:"rest/mike/getShujunf",
+                data:{
+                    lyname:lyname,
+                    hlname:yiji,
+                    sj:pcode2
+                },
+                type:"POST",
+                dataType:"json",
+                success: function(data){
+                    var html="<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
+                    };
+
+                    $("#shujunf").html(html);
+                }
+            });
+
+        }else{
+            alert("请选择河流");
         }
-    });
-};
+
+    }
+    $("#shujunf").html(html);
+}
+
 function jisuannf() {
-    var pcode = $("#shuixi").val();//找区的父级代号，市选中项的值
-    var pcode2 = $("#ganliu").val();//找区的父级代号，市选中项的值
-    $.ajax({
-        url:"rest/mike/getJisuannf",
-        data:{moni:pcode,
-            yiji:pcode2
-        },
-        type:"POST",
-        dataType:"json",
-        success: function(data){
-            var html="<option value=\"0\" selected>==请选择==</option>";
-            for (var i = 0; i < data.length; i++) {
-                html+="<option value='"+data[i].fangan+"'>"+data[i].fangan+"</option>";
-            };
-            $("#jisuannf").html(html);
+    var pcode2 = $("#shujunf").val();
+    var lyname = $("#liuyu").val();
 
+
+    var html = "<option value=\"0\" selected>==请选择==</option>";
+    $("#jisuannf").html(html);
+
+    if ($("#liuyu").val() != 0 && $("#shuixi").val() != 0 && $("#ganliu").val() != 0 && pcode2 !=0) {
+        if ($("#wuji").val() != 0 && $("#wuji").val() != null && $("#wuji").val() != "") {
+            var wuji = $("#wuji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url: "rest/mike/getShuiwennf",
+                data: {
+                    lyname: lyname,
+                    hlname: wuji,
+                    time: pcode2
+                },
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    var html = "<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+                    }
+                    ;
+
+                    $("#jisuannf").html(html);
+                }
+            });
+        } else if ($("#siji").val() != 0 && $("#siji").val() != null && $("#siji").val() != "") {
+            var siji = $("#siji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url: "rest/mike/getShuiwennf",
+                data: {
+                    lyname: lyname,
+                    hlname: siji,
+                    time: pcode2
+                },
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    var html = "<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+                    }
+                    ;
+
+                    $("#jisuannf").html(html);
+                }
+            });
+
+        } else if ($("#sanji").val() != 0 && $("#sanji").val() != null && $("#sanji").val() != "") {
+            var sanji = $("#sanji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url: "rest/mike/getShuiwennf",
+                data: {
+                    lyname: lyname,
+                    hlname: sanji,
+                    time: pcode2
+                },
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    var html = "<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+                    }
+                    ;
+
+                    $("#jisuannf").html(html);
+                }
+            });
+
+        } else if ($("#erji").val() != 0 && $("#erji").val() != null && $("#erji").val() != "") {
+            var erji = $("#erji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url: "rest/mike/getShuiwennf",
+                data: {
+                    lyname: lyname,
+                    hlname: erji,
+                    time: pcode2
+                },
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    var html = "<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+                    }
+                    ;
+
+                    $("#jisuannf").html(html);
+                }
+            });
+
+        } else if ($("#yiji").val() != 0 && $("#yiji").val() != null && $("#yiji").val() != "") {
+            var yiji = $("#yiji").val();
+            var lyname = $("#liuyu").val();
+            $.ajax({
+                url: "rest/mike/getShuiwennf",
+                data: {
+                    lyname: lyname,
+                    hlname: yiji,
+                    time: pcode2
+                },
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    var html = "<option value=\"0\" selected>==请选择==</option>";
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<option value='" + data[i]+ "'>" + data[i]+ "</option>";
+                    }
+                    ;
+
+                    $("#jisuannf").html(html);
+                }
+            });
+
+        }
+        $("#jisuannf").html(html);
+    }
+
+}
+function monizb(){
+    var html="<option value=\"0\" selected>==请选择==</option>";
+
+    html+="<option value=\"COD\" >COD</option>";
+    html+="<option value=\"ANDAN\" >氨氮</option>";
+    html+="<option value=\"ZONGLIN\" >总磷</option>";
+
+    $("#monizb").html(html);
+
+}
+// $("#startmoni").click(function(){
+//
+//     var html="";
+//     var monizb = $("#monizb").val();
+//     if(monizb!= 0){
+//         var pcode2 = $("#shujunf").val();
+//         var lyname = $("#liuyu").val();
+//
+//
+//         if ($("#liuyu").val() != 0 && $("#shuixi").val() != 0 && $("#ganliu").val() != 0 && pcode2 !=0) {
+//             if ($("#wuji").val() != 0) {
+//                 var wuji = $("#wuji").val();
+//
+//                 $.ajax({
+//                     url: "rest/mike/getQiye",
+//                     data: {
+//                         lyname: lyname,
+//                         hlname: wuji,
+//                         time: pcode2,
+//                         monizb:monizb
+//                     },
+//                     type: "POST",
+//                     dataType: "json",
+//                     success: function (data) {
+//
+//                         if(monizb == "COD"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("COD");
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//
+//
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else if(monizb == "ANDAN"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ANDAN");
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else{
+//                             var hhh="  <table id=\"tab1\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ZONGP");
+//
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }
+//
+//
+//
+//
+//                     }
+//                 });
+//             } else if ($("#siji").val() != 0 && $("#siji").val() != null && $("#siji").val() != "") {
+//                 var siji = $("#siji").val();
+//
+//                 $.ajax({
+//                     url: "rest/mike/getQiye",
+//                     data: {
+//                         lyname: lyname,
+//                         hlname: siji,
+//                         time: pcode2,
+//                         monizb:monizb
+//                     },
+//                     type: "POST",
+//                     dataType: "json",
+//                     success: function (data) {
+//
+//                         if(monizb == "COD"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("COD");
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//
+//
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else if(monizb == "ANDAN"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ANDAN");
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else{
+//                             var hhh="  <table id=\"tab1\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ZONGP");
+//
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }
+//
+//
+//
+//
+//                     }
+//                 });
+//
+//             } else if ($("#sanji").val() != 0 ) {
+//                 var sanji = $("#sanji").val();
+//
+//                 $.ajax({
+//                     url: "rest/mike/getQiye",
+//                     data: {
+//                         lyname: lyname,
+//                         hlname: sanji,
+//                         time: pcode2,
+//                         monizb:monizb
+//                     },
+//                     type: "POST",
+//                     dataType: "json",
+//                     success: function (data) {
+//
+//                         if(monizb == "COD"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("COD");
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//
+//
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else if(monizb == "ANDAN"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ANDAN");
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else{
+//                             var hhh="  <table id=\"tab1\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ZONGP");
+//
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }
+//
+//
+//
+//
+//                     }
+//                 });
+//
+//             } else if ($("#erji").val() != 0 ) {
+//                 var erji = $("#erji").val();
+//
+//                 $.ajax({
+//                     url: "rest/mike/getQiye",
+//                     data: {
+//                         lyname: lyname,
+//                         hlname: erji,
+//                         time: pcode2,
+//                         monizb:monizb
+//                     },
+//                     type: "POST",
+//                     dataType: "json",
+//                     success: function (data) {
+//
+//                         if(monizb == "COD"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("COD");
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//
+//
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else if(monizb == "ANDAN"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ANDAN");
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else{
+//                             var hhh="  <table id=\"tab1\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ZONGP");
+//
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }
+//
+//
+//
+//
+//                     }
+//                 });
+//
+//             } else if ($("#yiji").val() != 0 ) {
+//                 var yiji = $("#yiji").val();
+//
+//                 $.ajax({
+//                     url: "rest/mike/getQiye",
+//                     data: {
+//                         lyname: lyname,
+//                         hlname: yiji,
+//                         time: pcode2,
+//                         monizb:monizb
+//                     },
+//                     type: "POST",
+//                     dataType: "json",
+//                     success: function (data) {
+//
+//                         if(monizb == "COD"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("COD");
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//
+//
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else if(monizb == "ANDAN"){
+//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ANDAN");
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
+//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }else{
+//                             var hhh="  <table id=\"tab1\" >\n" +
+//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
+//                                 "        <tr id=\"tr1\">\n" +
+//                                 "            <th>企业名称</th>\n" +
+//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
+//                                 "            <th>详细地址乡(镇)</th>\n" +
+//                                 "            <th>经度</th>\n" +
+//                                 "            <th>纬度</th>\n" +
+//                                 "            <th>生产时间（小时/年）</th>\n" +
+//                                 "            <th>废水排放量（吨/年）</th>\n" +
+//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
+//                                 "        </thead>"
+//
+//                             alert("ZONGP");
+//
+//
+//                             for (var i = 0; i < data.length; i++) {
+//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+//                                 hhh += "<td>"+data[i].JD_G +"</td>";
+//                                 hhh += "<td>"+data[i].WD_G+"</td>";
+//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
+//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
+//                             }
+//                             $("#down").html(hhh);
+//                         }
+//
+//
+//
+//
+//                     }
+//                 });
+//
+//             }
+//         }
+//
+//
+//     }else{
+//         alert("请选择模拟指标");
+//     }
+//
+//     $('#tab1').fixedHeaderTable({ footer: true, altClass: 'odd' });
+//
+//
+//
+//
+// });
+
+
+$("#startmoni").click(function(){
+    var html="";
+    var monizb = $("#monizb").val();
+    if(monizb!= 0){
+        var pcode2 = $("#shujunf").val();
+        var lyname = $("#liuyu").val();
+        if ($("#liuyu").val() != 0 && $("#shuixi").val() != 0 && $("#ganliu").val() != 0 && pcode2 !=0) {
+            if ($("#wuji").val() != 0) {
+                var wuji = $("#wuji").val();
+                get(lyname,wuji,pcode2,monizb);
+                gettwo(lyname,wuji,pcode2,monizb);
+            } else if ($("#siji").val() != 0 && $("#siji").val() != null && $("#siji").val() != "") {
+                var siji = $("#siji").val();
+                get(lyname,siji,pcode2,monizb);
+                gettwo(lyname,siji,pcode2,monizb);
+            } else if ($("#sanji").val() != 0 ) {
+                var sanji = $("#sanji").val();
+                get(lyname,sanji,pcode2,monizb);
+                gettwo(lyname,sanji,pcode2,monizb);
+            } else if ($("#erji").val() != 0 ) {
+                var erji = $("#erji").val();
+                get(lyname,erji,pcode2,monizb);
+                gettwo(lyname,erji,pcode2,monizb);
+            } else if ($("#yiji").val() != 0 ) {
+                var yiji = $("#yiji").val();
+                get(lyname,yiji,pcode2,monizb);
+                gettwo(lyname,yiji,pcode2,monizb);
+            }else{
+                alert("请选择河流");
+            }
+
+        }else{
+            alert("请选择流域水系");
+        }
+    }else{
+        alert("请选择模拟指标");
+    }
+    $('#tab1').fixedHeaderTable({ footer: true, altClass: 'odd' });
+    $('#tab2').fixedHeaderTable({ footer: true, altClass: 'odd' });
+
+
+
+});
+
+
+function  get(lyname,hlname,pcode2,monizb){
+    $.ajax({
+        url: "rest/mike/getQiye",
+        data: {
+            lyname: lyname,
+            hlname: hlname,
+            time: pcode2,
+            monizb:monizb
+        },
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            if(monizb == "COD"){
+                var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
+                    "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+                    "        <tr id=\"tr1\">\n" +
+                    "            <th>企业名称</th>\n" +
+                    "            <th>详细地址县(区、市、旗)</th>\n" +
+                    "            <th>详细地址乡(镇)</th>\n" +
+                    "            <th>经度</th>\n" +
+                    "            <th>纬度</th>\n" +
+                    "            <th>生产时间（小时/年）</th>\n" +
+                    "            <th>废水排放量（吨/年）</th>\n" +
+                    "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
+                    "        </thead><tbody  style=\"width: 400px;height: 180px;\">"
+
+
+                alert("COD");
+                for (var i = 0; i < data.length; i++) {
+                    hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+                    hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+
+
+                    hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+                    hhh += "<td>"+data[i].JD_G +"</td>";
+                    hhh += "<td>"+data[i].WD_G+"</td>";
+                    hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+                    hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+                    hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
+                    hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr>";
+                }
+                hhh += "</tbody>";
+                $("#downin").html(hhh);
+            }else if(monizb == "ANDAN"){
+                var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
+                    "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+                    "        <tr id=\"tr1\">\n" +
+                    "            <th>企业名称</th>\n" +
+                    "            <th>详细地址县(区、市、旗)</th>\n" +
+                    "            <th>详细地址乡(镇)</th>\n" +
+                    "            <th>经度</th>\n" +
+                    "            <th>纬度</th>\n" +
+                    "            <th>生产时间（小时/年）</th>\n" +
+                    "            <th>废水排放量（吨/年）</th>\n" +
+                    "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
+                    "        </thead><tbody  style=\"width: 400px;height: 180px;\">"
+
+                alert("ANDAN");
+
+                for (var i = 0; i < data.length; i++) {
+                    hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+                    hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+                    hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+                    hhh += "<td>"+data[i].JD_G +"</td>";
+                    hhh += "<td>"+data[i].WD_G+"</td>";
+                    hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+                    hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+                    hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
+                    hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
+                }
+                hhh += "</tbody>";
+                $("#downin").html(hhh);
+            }else{
+                var hhh="  <table id=\"tab1\" >\n" +
+                    "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
+                    "        <tr id=\"tr1\">\n" +
+                    "            <th>企业名称</th>\n" +
+                    "            <th>详细地址县(区、市、旗)</th>\n" +
+                    "            <th>详细地址乡(镇)</th>\n" +
+                    "            <th>经度</th>\n" +
+                    "            <th>纬度</th>\n" +
+                    "            <th>生产时间（小时/年）</th>\n" +
+                    "            <th>废水排放量（吨/年）</th>\n" +
+                    "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
+                    "        </thead><tbody  style=\"width: 400px;height: 180px;\">"
+
+                alert("ZONGP");
+
+
+                for (var i = 0; i < data.length; i++) {
+                    hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
+                    hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
+                    hhh += "<td>"+data[i].XXDZX_Z+"</td>";
+                    hhh += "<td>"+data[i].JD_G +"</td>";
+                    hhh += "<td>"+data[i].WD_G+"</td>";
+                    hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
+                    hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
+                    hhh += "<td>"+data[i].ZPCSL_D +"</td>";
+                    hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
+                }
+                hhh += "</tbody>";
+                $('#tab1').fixedHeaderTable({ footer: true, altClass: 'odd' });
+                $("#downin").html(hhh);
+            }
         }
     });
 };
+function  gettwo(lyname,hlname,pcode2,monizb){
+    $.ajax({
+        url: "rest/mike/getWsc",
+        data: {
+            lyname: lyname,
+            hlname: hlname,
+            time: pcode2,
+            monizb:monizb
+        },
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            if (monizb == "COD") {
+                var qqq = "  <table id=\"tab2\"  class=\"fancyTable\">\n" +
+                    "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+                    "        <tr id=\"tr2\">\n" +
+                    "            <th>污水厂名称</th>\n" +
+                    "            <th>详细地址县(区、市、旗)</th>\n" +
+                    "            <th>详细地址乡(镇)</th>\n" +
+                    "            <th>经度</th>\n" +
+                    "            <th>纬度</th>\n" +
+                    "            <th>生产时间（天/年）</th>\n" +
+                    "            <th>污水处理级别</th>\n" +
+                    "            <th>设计处理能力（吨/日）</th>\n" +
+                    "            <th>废水实际处理量（万吨/年）</th>\n" +
+                    "       <th>COD出口浓度（毫克/升）</th><th>COD排放量（万吨/年）[化学需氧量去除量]</th> </tr>\n" +
+                    "        </thead><tbody  style=\"width: 400px;height: 180px;\">"
+
+
+                alert("COD");
+                for (var i = 0; i < data.length; i++) {
+                    qqq += "<tr><td>" + data[i].YYDWMC + "</td>";
+                    qqq += "<td>" + data[i].QYXXDZ_X_Q_S_Q + "</td>";
+                    qqq += "<td>" + data[i].QYXXDZ_X_Z + "</td>";
+                    qqq += "<td>" + data[i].JD + "</td>";
+                    qqq += "<td>" + data[i].WD + "</td>";
+                    qqq += "<td>" + data[i].YXTS_T + "</td>";
+                    qqq += "<td>" + data[i].WSCLJB + "</td>";
+                    qqq += "<td>" + data[i].WSSJCLNL_D_R + "</td>";
+                    qqq += "<td>" + data[i].WSSJCLL_WD + "</td>";
+                    qqq += "<td>" + data[i].HXXYLCKND_HK_S + "</td>";
+                    qqq += "<td>" + data[i].HXXYLQCL_D + "</td></tr>";
+                }
+                qqq += "</tbody>";
+                $("#downin").html(qqq);
+            } else if (monizb == "ANDAN") {
+                var qqq = "  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
+                    "        <thead style=\"width: 400px;height: 20px;\" >\n" +
+                    "        <tr id=\"tr2\">\n" +
+                    "            <th>污水厂名称</th>\n" +
+                    "            <th>详细地址县(区、市、旗)</th>\n" +
+                    "            <th>详细地址乡(镇)</th>\n" +
+                    "            <th>经度</th>\n" +
+                    "            <th>纬度</th>\n" +
+                    "            <th>生产时间（天/年）</th>\n" +
+                    "            <th>污水处理级别</th>\n" +
+                    "            <th>设计处理能力（吨/日）</th>\n" +
+                    "            <th>废水实际处理量（万吨/年）</th>\n" +
+                    "        <th>氨氮出口浓度（毫克/升）</th><th>氨氮排放量（万吨/年）</th></tr>\n" +
+                    "        </thead><tbody  style=\"width: 400px;height: 180px;\">"
+
+                alert("ANDAN");
+
+                for (var i = 0; i < data.length; i++) {
+                    qqq += "<tr><td>" + data[i].YYDWMC + "</td>";
+                    qqq += "<td>" + data[i].QYXXDZ_X_Q_S_Q + "</td>";
+                    qqq += "<td>" + data[i].QYXXDZ_X_Z + "</td>";
+                    qqq += "<td>" + data[i].JD + "</td>";
+                    qqq += "<td>" + data[i].WD + "</td>";
+                    qqq += "<td>" + data[i].YXTS_T + "</td>";
+                    qqq += "<td>" + data[i].WSCLJB + "</td>";
+                    qqq += "<td>" + data[i].WSSJCLNL_D_R + "</td>";
+                    qqq += "<td>" + data[i].WSSJCLL_WD + "</td>";
+                    qqq += "<td>" + data[i].ADCKND_HK_S + "</td>";
+                    qqq += "<td>" + data[i].ADQCL_D + "</td></tr>";
+                }
+                qqq += "</tbody>";
+                $("#downin").html(qqq);
+            } else {
+                var qqq = "  <table id=\"tab1\" >\n" +
+                    "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
+                    "        <tr id=\"tr2\">\n" +
+                    "            <th>污水厂名称</th>\n" +
+                    "            <th>详细地址县(区、市、旗)</th>\n" +
+                    "            <th>详细地址乡(镇)</th>\n" +
+                    "            <th>经度</th>\n" +
+                    "            <th>纬度</th>\n" +
+                    "            <th>生产时间（天/年）</th>\n" +
+                    "            <th>污水处理级别</th>\n" +
+                    "            <th>设计处理能力（吨/日）</th>\n" +
+                    "            <th>废水实际处理量（万吨/年）</th>\n" +
+                    "        <th>总磷出口浓度（毫克/升）</th><th>总磷排放量（万吨/年）</th></tr>\n" +
+                    "        </thead><tbody  style=\"width: 400px;height: 180px;\">"
+
+                alert("ZONGP");
+
+
+                for (var i = 0; i < data.length; i++) {
+                    qqq += "<tr><td>" + data[i].YYDWMC + "</td>";
+                    qqq += "<td>" + data[i].QYXXDZ_X_Q_S_Q + "</td>";
+
+
+                    qqq += "<td>" + data[i].QYXXDZ_X_Z + "</td>";
+                    qqq += "<td>" + data[i].JD + "</td>";
+                    qqq += "<td>" + data[i].WD + "</td>";
+                    qqq += "<td>" + data[i].YXTS_T + "</td>";
+                    qqq += "<td>" + data[i].WSCLJB + "</td>";
+                    qqq += "<td>" + data[i].WSSJCLNL_D_R + "</td>";
+                    qqq += "<td>" + data[i].WSSJCLL_WD + "</td>";
+                    qqq += "<td>" + data[i].ZLCKND_HK_S + "</td>";
+                    qqq += "<td>" + data[i].ZLQCL_QK + "</td></tr>";
+                }
+                qqq += "</tbody>";
+                $('#tab2').fixedHeaderTable({footer: true, altClass: 'odd'});
+                $("#downin").html(qqq);
+
+            }
+        }
+    });
+};
+
+
 $("#hr").change(function(){
 
 
@@ -580,5 +1662,61 @@ function updateQmpInMap(allData) {
 
         }
     });
+
+
+
+
+    var myChart2 = echarts.init(document.getElementById('right'));
+
+    myChart2.setOption({
+        title:{ text:'分布图'  },
+        xAxis:{ data:[] },
+        yAxis:{ type : 'value',//默认为值类型       
+            splitLine:{ show:true } },
+        series:[] });
+//实现点击某按钮显示图形
+    $("#mytype").click(function(){
+//给柱形图赋值 
+        $.ajax({ type: 'POST',
+            url: "rest/mike/getResShow",
+            cache : false, //禁用缓存
+            dataType: "json",
+            success: function(data) {
+//编辑组织数据，这里后台返回的data格式为{'categ': ['男', '女'], 'data': [[2, 136, 38, 4, 1, 0], [3, 75, 25, 5, 1, 0]], 'name': ['青少年', '青年人', '中年人', '老年前期', '老年人', '长寿老人']}
+                var series=[];
+                for (var i=0;i<data.data.length;i++){
+                    var item={
+                        name:data.categ[i],
+                        data:data.data[i],
+                        type:'bar',
+                        label: { normal: { show: true, position: 'top' } }
+                    };
+                    series.push(item); }
+//将数据加载到图形中
+                myChart2.setOption({
+                    title: {
+                        text: data.title,
+                        textStyle: {fontSize: 14}
+                    },
+                    legend: {
+                        data: data.categ,
+                        left: 'right'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: { type: 'shadow' }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: data.name,
+                        axisLabel: {interval: 0} //x轴数据显示完整
+                    },
+                    yAxis: {name: '人'},
+                    series: series
+                },true);
+            }
+        });
+    });
+
 
 }

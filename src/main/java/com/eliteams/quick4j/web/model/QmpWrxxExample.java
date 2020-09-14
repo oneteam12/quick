@@ -1184,52 +1184,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureEqualTo(Double value) {
+        public Criteria andWaterTemperatureEqualTo(String value) {
             addCriterion("water_temperature =", value, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureNotEqualTo(Double value) {
+        public Criteria andWaterTemperatureNotEqualTo(String value) {
             addCriterion("water_temperature <>", value, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureGreaterThan(Double value) {
+        public Criteria andWaterTemperatureGreaterThan(String value) {
             addCriterion("water_temperature >", value, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureGreaterThanOrEqualTo(Double value) {
+        public Criteria andWaterTemperatureGreaterThanOrEqualTo(String value) {
             addCriterion("water_temperature >=", value, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureLessThan(Double value) {
+        public Criteria andWaterTemperatureLessThan(String value) {
             addCriterion("water_temperature <", value, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureLessThanOrEqualTo(Double value) {
+        public Criteria andWaterTemperatureLessThanOrEqualTo(String value) {
             addCriterion("water_temperature <=", value, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureIn(List<Double> values) {
+        public Criteria andWaterTemperatureLike(String value) {
+            addCriterion("water_temperature like", value, "waterTemperature");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterTemperatureNotLike(String value) {
+            addCriterion("water_temperature not like", value, "waterTemperature");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterTemperatureIn(List<String> values) {
             addCriterion("water_temperature in", values, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureNotIn(List<Double> values) {
+        public Criteria andWaterTemperatureNotIn(List<String> values) {
             addCriterion("water_temperature not in", values, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureBetween(Double value1, Double value2) {
+        public Criteria andWaterTemperatureBetween(String value1, String value2) {
             addCriterion("water_temperature between", value1, value2, "waterTemperature");
             return (Criteria) this;
         }
 
-        public Criteria andWaterTemperatureNotBetween(Double value1, Double value2) {
+        public Criteria andWaterTemperatureNotBetween(String value1, String value2) {
             addCriterion("water_temperature not between", value1, value2, "waterTemperature");
             return (Criteria) this;
         }
@@ -1244,52 +1254,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateEqualTo(Double value) {
+        public Criteria andFlowRateEqualTo(String value) {
             addCriterion("flow_rate =", value, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateNotEqualTo(Double value) {
+        public Criteria andFlowRateNotEqualTo(String value) {
             addCriterion("flow_rate <>", value, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateGreaterThan(Double value) {
+        public Criteria andFlowRateGreaterThan(String value) {
             addCriterion("flow_rate >", value, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateGreaterThanOrEqualTo(Double value) {
+        public Criteria andFlowRateGreaterThanOrEqualTo(String value) {
             addCriterion("flow_rate >=", value, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateLessThan(Double value) {
+        public Criteria andFlowRateLessThan(String value) {
             addCriterion("flow_rate <", value, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateLessThanOrEqualTo(Double value) {
+        public Criteria andFlowRateLessThanOrEqualTo(String value) {
             addCriterion("flow_rate <=", value, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateIn(List<Double> values) {
+        public Criteria andFlowRateLike(String value) {
+            addCriterion("flow_rate like", value, "flowRate");
+            return (Criteria) this;
+        }
+
+        public Criteria andFlowRateNotLike(String value) {
+            addCriterion("flow_rate not like", value, "flowRate");
+            return (Criteria) this;
+        }
+
+        public Criteria andFlowRateIn(List<String> values) {
             addCriterion("flow_rate in", values, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateNotIn(List<Double> values) {
+        public Criteria andFlowRateNotIn(List<String> values) {
             addCriterion("flow_rate not in", values, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateBetween(Double value1, Double value2) {
+        public Criteria andFlowRateBetween(String value1, String value2) {
             addCriterion("flow_rate between", value1, value2, "flowRate");
             return (Criteria) this;
         }
 
-        public Criteria andFlowRateNotBetween(Double value1, Double value2) {
+        public Criteria andFlowRateNotBetween(String value1, String value2) {
             addCriterion("flow_rate not between", value1, value2, "flowRate");
             return (Criteria) this;
         }
@@ -1304,52 +1324,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andPhEqualTo(Double value) {
+        public Criteria andPhEqualTo(String value) {
             addCriterion("ph =", value, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhNotEqualTo(Double value) {
+        public Criteria andPhNotEqualTo(String value) {
             addCriterion("ph <>", value, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhGreaterThan(Double value) {
+        public Criteria andPhGreaterThan(String value) {
             addCriterion("ph >", value, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhGreaterThanOrEqualTo(Double value) {
+        public Criteria andPhGreaterThanOrEqualTo(String value) {
             addCriterion("ph >=", value, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhLessThan(Double value) {
+        public Criteria andPhLessThan(String value) {
             addCriterion("ph <", value, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhLessThanOrEqualTo(Double value) {
+        public Criteria andPhLessThanOrEqualTo(String value) {
             addCriterion("ph <=", value, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhIn(List<Double> values) {
+        public Criteria andPhLike(String value) {
+            addCriterion("ph like", value, "ph");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhNotLike(String value) {
+            addCriterion("ph not like", value, "ph");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhIn(List<String> values) {
             addCriterion("ph in", values, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhNotIn(List<Double> values) {
+        public Criteria andPhNotIn(List<String> values) {
             addCriterion("ph not in", values, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhBetween(Double value1, Double value2) {
+        public Criteria andPhBetween(String value1, String value2) {
             addCriterion("ph between", value1, value2, "ph");
             return (Criteria) this;
         }
 
-        public Criteria andPhNotBetween(Double value1, Double value2) {
+        public Criteria andPhNotBetween(String value1, String value2) {
             addCriterion("ph not between", value1, value2, "ph");
             return (Criteria) this;
         }
@@ -1364,52 +1394,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andDdlEqualTo(Double value) {
+        public Criteria andDdlEqualTo(String value) {
             addCriterion("ddl =", value, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlNotEqualTo(Double value) {
+        public Criteria andDdlNotEqualTo(String value) {
             addCriterion("ddl <>", value, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlGreaterThan(Double value) {
+        public Criteria andDdlGreaterThan(String value) {
             addCriterion("ddl >", value, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlGreaterThanOrEqualTo(Double value) {
+        public Criteria andDdlGreaterThanOrEqualTo(String value) {
             addCriterion("ddl >=", value, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlLessThan(Double value) {
+        public Criteria andDdlLessThan(String value) {
             addCriterion("ddl <", value, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlLessThanOrEqualTo(Double value) {
+        public Criteria andDdlLessThanOrEqualTo(String value) {
             addCriterion("ddl <=", value, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlIn(List<Double> values) {
+        public Criteria andDdlLike(String value) {
+            addCriterion("ddl like", value, "ddl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDdlNotLike(String value) {
+            addCriterion("ddl not like", value, "ddl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDdlIn(List<String> values) {
             addCriterion("ddl in", values, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlNotIn(List<Double> values) {
+        public Criteria andDdlNotIn(List<String> values) {
             addCriterion("ddl not in", values, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlBetween(Double value1, Double value2) {
+        public Criteria andDdlBetween(String value1, String value2) {
             addCriterion("ddl between", value1, value2, "ddl");
             return (Criteria) this;
         }
 
-        public Criteria andDdlNotBetween(Double value1, Double value2) {
+        public Criteria andDdlNotBetween(String value1, String value2) {
             addCriterion("ddl not between", value1, value2, "ddl");
             return (Criteria) this;
         }
@@ -1424,52 +1464,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andRjyEqualTo(Double value) {
+        public Criteria andRjyEqualTo(String value) {
             addCriterion("rjy =", value, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyNotEqualTo(Double value) {
+        public Criteria andRjyNotEqualTo(String value) {
             addCriterion("rjy <>", value, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyGreaterThan(Double value) {
+        public Criteria andRjyGreaterThan(String value) {
             addCriterion("rjy >", value, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyGreaterThanOrEqualTo(Double value) {
+        public Criteria andRjyGreaterThanOrEqualTo(String value) {
             addCriterion("rjy >=", value, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyLessThan(Double value) {
+        public Criteria andRjyLessThan(String value) {
             addCriterion("rjy <", value, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyLessThanOrEqualTo(Double value) {
+        public Criteria andRjyLessThanOrEqualTo(String value) {
             addCriterion("rjy <=", value, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyIn(List<Double> values) {
+        public Criteria andRjyLike(String value) {
+            addCriterion("rjy like", value, "rjy");
+            return (Criteria) this;
+        }
+
+        public Criteria andRjyNotLike(String value) {
+            addCriterion("rjy not like", value, "rjy");
+            return (Criteria) this;
+        }
+
+        public Criteria andRjyIn(List<String> values) {
             addCriterion("rjy in", values, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyNotIn(List<Double> values) {
+        public Criteria andRjyNotIn(List<String> values) {
             addCriterion("rjy not in", values, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyBetween(Double value1, Double value2) {
+        public Criteria andRjyBetween(String value1, String value2) {
             addCriterion("rjy between", value1, value2, "rjy");
             return (Criteria) this;
         }
 
-        public Criteria andRjyNotBetween(Double value1, Double value2) {
+        public Criteria andRjyNotBetween(String value1, String value2) {
             addCriterion("rjy not between", value1, value2, "rjy");
             return (Criteria) this;
         }
@@ -1484,52 +1534,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsEqualTo(Double value) {
+        public Criteria andGmsyzsEqualTo(String value) {
             addCriterion("gmsyzs =", value, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsNotEqualTo(Double value) {
+        public Criteria andGmsyzsNotEqualTo(String value) {
             addCriterion("gmsyzs <>", value, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsGreaterThan(Double value) {
+        public Criteria andGmsyzsGreaterThan(String value) {
             addCriterion("gmsyzs >", value, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsGreaterThanOrEqualTo(Double value) {
+        public Criteria andGmsyzsGreaterThanOrEqualTo(String value) {
             addCriterion("gmsyzs >=", value, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsLessThan(Double value) {
+        public Criteria andGmsyzsLessThan(String value) {
             addCriterion("gmsyzs <", value, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsLessThanOrEqualTo(Double value) {
+        public Criteria andGmsyzsLessThanOrEqualTo(String value) {
             addCriterion("gmsyzs <=", value, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsIn(List<Double> values) {
+        public Criteria andGmsyzsLike(String value) {
+            addCriterion("gmsyzs like", value, "gmsyzs");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmsyzsNotLike(String value) {
+            addCriterion("gmsyzs not like", value, "gmsyzs");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmsyzsIn(List<String> values) {
             addCriterion("gmsyzs in", values, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsNotIn(List<Double> values) {
+        public Criteria andGmsyzsNotIn(List<String> values) {
             addCriterion("gmsyzs not in", values, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsBetween(Double value1, Double value2) {
+        public Criteria andGmsyzsBetween(String value1, String value2) {
             addCriterion("gmsyzs between", value1, value2, "gmsyzs");
             return (Criteria) this;
         }
 
-        public Criteria andGmsyzsNotBetween(Double value1, Double value2) {
+        public Criteria andGmsyzsNotBetween(String value1, String value2) {
             addCriterion("gmsyzs not between", value1, value2, "gmsyzs");
             return (Criteria) this;
         }
@@ -1544,52 +1604,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andShxylEqualTo(Double value) {
+        public Criteria andShxylEqualTo(String value) {
             addCriterion("shxyl =", value, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylNotEqualTo(Double value) {
+        public Criteria andShxylNotEqualTo(String value) {
             addCriterion("shxyl <>", value, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylGreaterThan(Double value) {
+        public Criteria andShxylGreaterThan(String value) {
             addCriterion("shxyl >", value, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylGreaterThanOrEqualTo(Double value) {
+        public Criteria andShxylGreaterThanOrEqualTo(String value) {
             addCriterion("shxyl >=", value, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylLessThan(Double value) {
+        public Criteria andShxylLessThan(String value) {
             addCriterion("shxyl <", value, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylLessThanOrEqualTo(Double value) {
+        public Criteria andShxylLessThanOrEqualTo(String value) {
             addCriterion("shxyl <=", value, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylIn(List<Double> values) {
+        public Criteria andShxylLike(String value) {
+            addCriterion("shxyl like", value, "shxyl");
+            return (Criteria) this;
+        }
+
+        public Criteria andShxylNotLike(String value) {
+            addCriterion("shxyl not like", value, "shxyl");
+            return (Criteria) this;
+        }
+
+        public Criteria andShxylIn(List<String> values) {
             addCriterion("shxyl in", values, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylNotIn(List<Double> values) {
+        public Criteria andShxylNotIn(List<String> values) {
             addCriterion("shxyl not in", values, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylBetween(Double value1, Double value2) {
+        public Criteria andShxylBetween(String value1, String value2) {
             addCriterion("shxyl between", value1, value2, "shxyl");
             return (Criteria) this;
         }
 
-        public Criteria andShxylNotBetween(Double value1, Double value2) {
+        public Criteria andShxylNotBetween(String value1, String value2) {
             addCriterion("shxyl not between", value1, value2, "shxyl");
             return (Criteria) this;
         }
@@ -1604,52 +1674,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andAdEqualTo(Double value) {
+        public Criteria andAdEqualTo(String value) {
             addCriterion("ad =", value, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdNotEqualTo(Double value) {
+        public Criteria andAdNotEqualTo(String value) {
             addCriterion("ad <>", value, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdGreaterThan(Double value) {
+        public Criteria andAdGreaterThan(String value) {
             addCriterion("ad >", value, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdGreaterThanOrEqualTo(Double value) {
+        public Criteria andAdGreaterThanOrEqualTo(String value) {
             addCriterion("ad >=", value, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdLessThan(Double value) {
+        public Criteria andAdLessThan(String value) {
             addCriterion("ad <", value, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdLessThanOrEqualTo(Double value) {
+        public Criteria andAdLessThanOrEqualTo(String value) {
             addCriterion("ad <=", value, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdIn(List<Double> values) {
+        public Criteria andAdLike(String value) {
+            addCriterion("ad like", value, "ad");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdNotLike(String value) {
+            addCriterion("ad not like", value, "ad");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdIn(List<String> values) {
             addCriterion("ad in", values, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdNotIn(List<Double> values) {
+        public Criteria andAdNotIn(List<String> values) {
             addCriterion("ad not in", values, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdBetween(Double value1, Double value2) {
+        public Criteria andAdBetween(String value1, String value2) {
             addCriterion("ad between", value1, value2, "ad");
             return (Criteria) this;
         }
 
-        public Criteria andAdNotBetween(Double value1, Double value2) {
+        public Criteria andAdNotBetween(String value1, String value2) {
             addCriterion("ad not between", value1, value2, "ad");
             return (Criteria) this;
         }
@@ -1664,52 +1744,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andSylEqualTo(Double value) {
+        public Criteria andSylEqualTo(String value) {
             addCriterion("syl =", value, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylNotEqualTo(Double value) {
+        public Criteria andSylNotEqualTo(String value) {
             addCriterion("syl <>", value, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylGreaterThan(Double value) {
+        public Criteria andSylGreaterThan(String value) {
             addCriterion("syl >", value, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylGreaterThanOrEqualTo(Double value) {
+        public Criteria andSylGreaterThanOrEqualTo(String value) {
             addCriterion("syl >=", value, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylLessThan(Double value) {
+        public Criteria andSylLessThan(String value) {
             addCriterion("syl <", value, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylLessThanOrEqualTo(Double value) {
+        public Criteria andSylLessThanOrEqualTo(String value) {
             addCriterion("syl <=", value, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylIn(List<Double> values) {
+        public Criteria andSylLike(String value) {
+            addCriterion("syl like", value, "syl");
+            return (Criteria) this;
+        }
+
+        public Criteria andSylNotLike(String value) {
+            addCriterion("syl not like", value, "syl");
+            return (Criteria) this;
+        }
+
+        public Criteria andSylIn(List<String> values) {
             addCriterion("syl in", values, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylNotIn(List<Double> values) {
+        public Criteria andSylNotIn(List<String> values) {
             addCriterion("syl not in", values, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylBetween(Double value1, Double value2) {
+        public Criteria andSylBetween(String value1, String value2) {
             addCriterion("syl between", value1, value2, "syl");
             return (Criteria) this;
         }
 
-        public Criteria andSylNotBetween(Double value1, Double value2) {
+        public Criteria andSylNotBetween(String value1, String value2) {
             addCriterion("syl not between", value1, value2, "syl");
             return (Criteria) this;
         }
@@ -1724,52 +1814,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andHffEqualTo(Double value) {
+        public Criteria andHffEqualTo(String value) {
             addCriterion("hff =", value, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffNotEqualTo(Double value) {
+        public Criteria andHffNotEqualTo(String value) {
             addCriterion("hff <>", value, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffGreaterThan(Double value) {
+        public Criteria andHffGreaterThan(String value) {
             addCriterion("hff >", value, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffGreaterThanOrEqualTo(Double value) {
+        public Criteria andHffGreaterThanOrEqualTo(String value) {
             addCriterion("hff >=", value, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffLessThan(Double value) {
+        public Criteria andHffLessThan(String value) {
             addCriterion("hff <", value, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffLessThanOrEqualTo(Double value) {
+        public Criteria andHffLessThanOrEqualTo(String value) {
             addCriterion("hff <=", value, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffIn(List<Double> values) {
+        public Criteria andHffLike(String value) {
+            addCriterion("hff like", value, "hff");
+            return (Criteria) this;
+        }
+
+        public Criteria andHffNotLike(String value) {
+            addCriterion("hff not like", value, "hff");
+            return (Criteria) this;
+        }
+
+        public Criteria andHffIn(List<String> values) {
             addCriterion("hff in", values, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffNotIn(List<Double> values) {
+        public Criteria andHffNotIn(List<String> values) {
             addCriterion("hff not in", values, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffBetween(Double value1, Double value2) {
+        public Criteria andHffBetween(String value1, String value2) {
             addCriterion("hff between", value1, value2, "hff");
             return (Criteria) this;
         }
 
-        public Criteria andHffNotBetween(Double value1, Double value2) {
+        public Criteria andHffNotBetween(String value1, String value2) {
             addCriterion("hff not between", value1, value2, "hff");
             return (Criteria) this;
         }
@@ -1784,52 +1884,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andGongEqualTo(Double value) {
+        public Criteria andGongEqualTo(String value) {
             addCriterion("gong =", value, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongNotEqualTo(Double value) {
+        public Criteria andGongNotEqualTo(String value) {
             addCriterion("gong <>", value, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongGreaterThan(Double value) {
+        public Criteria andGongGreaterThan(String value) {
             addCriterion("gong >", value, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongGreaterThanOrEqualTo(Double value) {
+        public Criteria andGongGreaterThanOrEqualTo(String value) {
             addCriterion("gong >=", value, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongLessThan(Double value) {
+        public Criteria andGongLessThan(String value) {
             addCriterion("gong <", value, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongLessThanOrEqualTo(Double value) {
+        public Criteria andGongLessThanOrEqualTo(String value) {
             addCriterion("gong <=", value, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongIn(List<Double> values) {
+        public Criteria andGongLike(String value) {
+            addCriterion("gong like", value, "gong");
+            return (Criteria) this;
+        }
+
+        public Criteria andGongNotLike(String value) {
+            addCriterion("gong not like", value, "gong");
+            return (Criteria) this;
+        }
+
+        public Criteria andGongIn(List<String> values) {
             addCriterion("gong in", values, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongNotIn(List<Double> values) {
+        public Criteria andGongNotIn(List<String> values) {
             addCriterion("gong not in", values, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongBetween(Double value1, Double value2) {
+        public Criteria andGongBetween(String value1, String value2) {
             addCriterion("gong between", value1, value2, "gong");
             return (Criteria) this;
         }
 
-        public Criteria andGongNotBetween(Double value1, Double value2) {
+        public Criteria andGongNotBetween(String value1, String value2) {
             addCriterion("gong not between", value1, value2, "gong");
             return (Criteria) this;
         }
@@ -1844,52 +1954,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andQianEqualTo(Double value) {
+        public Criteria andQianEqualTo(String value) {
             addCriterion("qian =", value, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianNotEqualTo(Double value) {
+        public Criteria andQianNotEqualTo(String value) {
             addCriterion("qian <>", value, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianGreaterThan(Double value) {
+        public Criteria andQianGreaterThan(String value) {
             addCriterion("qian >", value, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianGreaterThanOrEqualTo(Double value) {
+        public Criteria andQianGreaterThanOrEqualTo(String value) {
             addCriterion("qian >=", value, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianLessThan(Double value) {
+        public Criteria andQianLessThan(String value) {
             addCriterion("qian <", value, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianLessThanOrEqualTo(Double value) {
+        public Criteria andQianLessThanOrEqualTo(String value) {
             addCriterion("qian <=", value, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianIn(List<Double> values) {
+        public Criteria andQianLike(String value) {
+            addCriterion("qian like", value, "qian");
+            return (Criteria) this;
+        }
+
+        public Criteria andQianNotLike(String value) {
+            addCriterion("qian not like", value, "qian");
+            return (Criteria) this;
+        }
+
+        public Criteria andQianIn(List<String> values) {
             addCriterion("qian in", values, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianNotIn(List<Double> values) {
+        public Criteria andQianNotIn(List<String> values) {
             addCriterion("qian not in", values, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianBetween(Double value1, Double value2) {
+        public Criteria andQianBetween(String value1, String value2) {
             addCriterion("qian between", value1, value2, "qian");
             return (Criteria) this;
         }
 
-        public Criteria andQianNotBetween(Double value1, Double value2) {
+        public Criteria andQianNotBetween(String value1, String value2) {
             addCriterion("qian not between", value1, value2, "qian");
             return (Criteria) this;
         }
@@ -1904,52 +2024,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andHxxylEqualTo(Double value) {
+        public Criteria andHxxylEqualTo(String value) {
             addCriterion("hxxyl =", value, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylNotEqualTo(Double value) {
+        public Criteria andHxxylNotEqualTo(String value) {
             addCriterion("hxxyl <>", value, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylGreaterThan(Double value) {
+        public Criteria andHxxylGreaterThan(String value) {
             addCriterion("hxxyl >", value, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylGreaterThanOrEqualTo(Double value) {
+        public Criteria andHxxylGreaterThanOrEqualTo(String value) {
             addCriterion("hxxyl >=", value, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylLessThan(Double value) {
+        public Criteria andHxxylLessThan(String value) {
             addCriterion("hxxyl <", value, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylLessThanOrEqualTo(Double value) {
+        public Criteria andHxxylLessThanOrEqualTo(String value) {
             addCriterion("hxxyl <=", value, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylIn(List<Double> values) {
+        public Criteria andHxxylLike(String value) {
+            addCriterion("hxxyl like", value, "hxxyl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHxxylNotLike(String value) {
+            addCriterion("hxxyl not like", value, "hxxyl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHxxylIn(List<String> values) {
             addCriterion("hxxyl in", values, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylNotIn(List<Double> values) {
+        public Criteria andHxxylNotIn(List<String> values) {
             addCriterion("hxxyl not in", values, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylBetween(Double value1, Double value2) {
+        public Criteria andHxxylBetween(String value1, String value2) {
             addCriterion("hxxyl between", value1, value2, "hxxyl");
             return (Criteria) this;
         }
 
-        public Criteria andHxxylNotBetween(Double value1, Double value2) {
+        public Criteria andHxxylNotBetween(String value1, String value2) {
             addCriterion("hxxyl not between", value1, value2, "hxxyl");
             return (Criteria) this;
         }
@@ -1964,52 +2094,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andZdEqualTo(Double value) {
+        public Criteria andZdEqualTo(String value) {
             addCriterion("zd =", value, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdNotEqualTo(Double value) {
+        public Criteria andZdNotEqualTo(String value) {
             addCriterion("zd <>", value, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdGreaterThan(Double value) {
+        public Criteria andZdGreaterThan(String value) {
             addCriterion("zd >", value, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdGreaterThanOrEqualTo(Double value) {
+        public Criteria andZdGreaterThanOrEqualTo(String value) {
             addCriterion("zd >=", value, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdLessThan(Double value) {
+        public Criteria andZdLessThan(String value) {
             addCriterion("zd <", value, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdLessThanOrEqualTo(Double value) {
+        public Criteria andZdLessThanOrEqualTo(String value) {
             addCriterion("zd <=", value, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdIn(List<Double> values) {
+        public Criteria andZdLike(String value) {
+            addCriterion("zd like", value, "zd");
+            return (Criteria) this;
+        }
+
+        public Criteria andZdNotLike(String value) {
+            addCriterion("zd not like", value, "zd");
+            return (Criteria) this;
+        }
+
+        public Criteria andZdIn(List<String> values) {
             addCriterion("zd in", values, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdNotIn(List<Double> values) {
+        public Criteria andZdNotIn(List<String> values) {
             addCriterion("zd not in", values, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdBetween(Double value1, Double value2) {
+        public Criteria andZdBetween(String value1, String value2) {
             addCriterion("zd between", value1, value2, "zd");
             return (Criteria) this;
         }
 
-        public Criteria andZdNotBetween(Double value1, Double value2) {
+        public Criteria andZdNotBetween(String value1, String value2) {
             addCriterion("zd not between", value1, value2, "zd");
             return (Criteria) this;
         }
@@ -2024,52 +2164,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andZlEqualTo(Double value) {
+        public Criteria andZlEqualTo(String value) {
             addCriterion("zl =", value, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlNotEqualTo(Double value) {
+        public Criteria andZlNotEqualTo(String value) {
             addCriterion("zl <>", value, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlGreaterThan(Double value) {
+        public Criteria andZlGreaterThan(String value) {
             addCriterion("zl >", value, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlGreaterThanOrEqualTo(Double value) {
+        public Criteria andZlGreaterThanOrEqualTo(String value) {
             addCriterion("zl >=", value, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlLessThan(Double value) {
+        public Criteria andZlLessThan(String value) {
             addCriterion("zl <", value, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlLessThanOrEqualTo(Double value) {
+        public Criteria andZlLessThanOrEqualTo(String value) {
             addCriterion("zl <=", value, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlIn(List<Double> values) {
+        public Criteria andZlLike(String value) {
+            addCriterion("zl like", value, "zl");
+            return (Criteria) this;
+        }
+
+        public Criteria andZlNotLike(String value) {
+            addCriterion("zl not like", value, "zl");
+            return (Criteria) this;
+        }
+
+        public Criteria andZlIn(List<String> values) {
             addCriterion("zl in", values, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlNotIn(List<Double> values) {
+        public Criteria andZlNotIn(List<String> values) {
             addCriterion("zl not in", values, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlBetween(Double value1, Double value2) {
+        public Criteria andZlBetween(String value1, String value2) {
             addCriterion("zl between", value1, value2, "zl");
             return (Criteria) this;
         }
 
-        public Criteria andZlNotBetween(Double value1, Double value2) {
+        public Criteria andZlNotBetween(String value1, String value2) {
             addCriterion("zl not between", value1, value2, "zl");
             return (Criteria) this;
         }
@@ -2084,52 +2234,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andTongEqualTo(Double value) {
+        public Criteria andTongEqualTo(String value) {
             addCriterion("tong =", value, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongNotEqualTo(Double value) {
+        public Criteria andTongNotEqualTo(String value) {
             addCriterion("tong <>", value, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongGreaterThan(Double value) {
+        public Criteria andTongGreaterThan(String value) {
             addCriterion("tong >", value, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongGreaterThanOrEqualTo(Double value) {
+        public Criteria andTongGreaterThanOrEqualTo(String value) {
             addCriterion("tong >=", value, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongLessThan(Double value) {
+        public Criteria andTongLessThan(String value) {
             addCriterion("tong <", value, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongLessThanOrEqualTo(Double value) {
+        public Criteria andTongLessThanOrEqualTo(String value) {
             addCriterion("tong <=", value, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongIn(List<Double> values) {
+        public Criteria andTongLike(String value) {
+            addCriterion("tong like", value, "tong");
+            return (Criteria) this;
+        }
+
+        public Criteria andTongNotLike(String value) {
+            addCriterion("tong not like", value, "tong");
+            return (Criteria) this;
+        }
+
+        public Criteria andTongIn(List<String> values) {
             addCriterion("tong in", values, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongNotIn(List<Double> values) {
+        public Criteria andTongNotIn(List<String> values) {
             addCriterion("tong not in", values, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongBetween(Double value1, Double value2) {
+        public Criteria andTongBetween(String value1, String value2) {
             addCriterion("tong between", value1, value2, "tong");
             return (Criteria) this;
         }
 
-        public Criteria andTongNotBetween(Double value1, Double value2) {
+        public Criteria andTongNotBetween(String value1, String value2) {
             addCriterion("tong not between", value1, value2, "tong");
             return (Criteria) this;
         }
@@ -2144,52 +2304,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andXinEqualTo(Double value) {
+        public Criteria andXinEqualTo(String value) {
             addCriterion("xin =", value, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinNotEqualTo(Double value) {
+        public Criteria andXinNotEqualTo(String value) {
             addCriterion("xin <>", value, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinGreaterThan(Double value) {
+        public Criteria andXinGreaterThan(String value) {
             addCriterion("xin >", value, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinGreaterThanOrEqualTo(Double value) {
+        public Criteria andXinGreaterThanOrEqualTo(String value) {
             addCriterion("xin >=", value, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinLessThan(Double value) {
+        public Criteria andXinLessThan(String value) {
             addCriterion("xin <", value, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinLessThanOrEqualTo(Double value) {
+        public Criteria andXinLessThanOrEqualTo(String value) {
             addCriterion("xin <=", value, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinIn(List<Double> values) {
+        public Criteria andXinLike(String value) {
+            addCriterion("xin like", value, "xin");
+            return (Criteria) this;
+        }
+
+        public Criteria andXinNotLike(String value) {
+            addCriterion("xin not like", value, "xin");
+            return (Criteria) this;
+        }
+
+        public Criteria andXinIn(List<String> values) {
             addCriterion("xin in", values, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinNotIn(List<Double> values) {
+        public Criteria andXinNotIn(List<String> values) {
             addCriterion("xin not in", values, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinBetween(Double value1, Double value2) {
+        public Criteria andXinBetween(String value1, String value2) {
             addCriterion("xin between", value1, value2, "xin");
             return (Criteria) this;
         }
 
-        public Criteria andXinNotBetween(Double value1, Double value2) {
+        public Criteria andXinNotBetween(String value1, String value2) {
             addCriterion("xin not between", value1, value2, "xin");
             return (Criteria) this;
         }
@@ -2204,52 +2374,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andQingEqualTo(Double value) {
+        public Criteria andQingEqualTo(String value) {
             addCriterion("qing =", value, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingNotEqualTo(Double value) {
+        public Criteria andQingNotEqualTo(String value) {
             addCriterion("qing <>", value, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingGreaterThan(Double value) {
+        public Criteria andQingGreaterThan(String value) {
             addCriterion("qing >", value, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingGreaterThanOrEqualTo(Double value) {
+        public Criteria andQingGreaterThanOrEqualTo(String value) {
             addCriterion("qing >=", value, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingLessThan(Double value) {
+        public Criteria andQingLessThan(String value) {
             addCriterion("qing <", value, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingLessThanOrEqualTo(Double value) {
+        public Criteria andQingLessThanOrEqualTo(String value) {
             addCriterion("qing <=", value, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingIn(List<Double> values) {
+        public Criteria andQingLike(String value) {
+            addCriterion("qing like", value, "qing");
+            return (Criteria) this;
+        }
+
+        public Criteria andQingNotLike(String value) {
+            addCriterion("qing not like", value, "qing");
+            return (Criteria) this;
+        }
+
+        public Criteria andQingIn(List<String> values) {
             addCriterion("qing in", values, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingNotIn(List<Double> values) {
+        public Criteria andQingNotIn(List<String> values) {
             addCriterion("qing not in", values, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingBetween(Double value1, Double value2) {
+        public Criteria andQingBetween(String value1, String value2) {
             addCriterion("qing between", value1, value2, "qing");
             return (Criteria) this;
         }
 
-        public Criteria andQingNotBetween(Double value1, Double value2) {
+        public Criteria andQingNotBetween(String value1, String value2) {
             addCriterion("qing not between", value1, value2, "qing");
             return (Criteria) this;
         }
@@ -2264,52 +2444,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andXiEqualTo(Double value) {
+        public Criteria andXiEqualTo(String value) {
             addCriterion("xi =", value, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiNotEqualTo(Double value) {
+        public Criteria andXiNotEqualTo(String value) {
             addCriterion("xi <>", value, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiGreaterThan(Double value) {
+        public Criteria andXiGreaterThan(String value) {
             addCriterion("xi >", value, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiGreaterThanOrEqualTo(Double value) {
+        public Criteria andXiGreaterThanOrEqualTo(String value) {
             addCriterion("xi >=", value, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiLessThan(Double value) {
+        public Criteria andXiLessThan(String value) {
             addCriterion("xi <", value, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiLessThanOrEqualTo(Double value) {
+        public Criteria andXiLessThanOrEqualTo(String value) {
             addCriterion("xi <=", value, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiIn(List<Double> values) {
+        public Criteria andXiLike(String value) {
+            addCriterion("xi like", value, "xi");
+            return (Criteria) this;
+        }
+
+        public Criteria andXiNotLike(String value) {
+            addCriterion("xi not like", value, "xi");
+            return (Criteria) this;
+        }
+
+        public Criteria andXiIn(List<String> values) {
             addCriterion("xi in", values, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiNotIn(List<Double> values) {
+        public Criteria andXiNotIn(List<String> values) {
             addCriterion("xi not in", values, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiBetween(Double value1, Double value2) {
+        public Criteria andXiBetween(String value1, String value2) {
             addCriterion("xi between", value1, value2, "xi");
             return (Criteria) this;
         }
 
-        public Criteria andXiNotBetween(Double value1, Double value2) {
+        public Criteria andXiNotBetween(String value1, String value2) {
             addCriterion("xi not between", value1, value2, "xi");
             return (Criteria) this;
         }
@@ -2324,52 +2514,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andShenEqualTo(Double value) {
+        public Criteria andShenEqualTo(String value) {
             addCriterion("shen =", value, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenNotEqualTo(Double value) {
+        public Criteria andShenNotEqualTo(String value) {
             addCriterion("shen <>", value, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenGreaterThan(Double value) {
+        public Criteria andShenGreaterThan(String value) {
             addCriterion("shen >", value, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenGreaterThanOrEqualTo(Double value) {
+        public Criteria andShenGreaterThanOrEqualTo(String value) {
             addCriterion("shen >=", value, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenLessThan(Double value) {
+        public Criteria andShenLessThan(String value) {
             addCriterion("shen <", value, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenLessThanOrEqualTo(Double value) {
+        public Criteria andShenLessThanOrEqualTo(String value) {
             addCriterion("shen <=", value, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenIn(List<Double> values) {
+        public Criteria andShenLike(String value) {
+            addCriterion("shen like", value, "shen");
+            return (Criteria) this;
+        }
+
+        public Criteria andShenNotLike(String value) {
+            addCriterion("shen not like", value, "shen");
+            return (Criteria) this;
+        }
+
+        public Criteria andShenIn(List<String> values) {
             addCriterion("shen in", values, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenNotIn(List<Double> values) {
+        public Criteria andShenNotIn(List<String> values) {
             addCriterion("shen not in", values, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenBetween(Double value1, Double value2) {
+        public Criteria andShenBetween(String value1, String value2) {
             addCriterion("shen between", value1, value2, "shen");
             return (Criteria) this;
         }
 
-        public Criteria andShenNotBetween(Double value1, Double value2) {
+        public Criteria andShenNotBetween(String value1, String value2) {
             addCriterion("shen not between", value1, value2, "shen");
             return (Criteria) this;
         }
@@ -2384,52 +2584,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andGeEqualTo(Double value) {
+        public Criteria andGeEqualTo(String value) {
             addCriterion("ge =", value, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeNotEqualTo(Double value) {
+        public Criteria andGeNotEqualTo(String value) {
             addCriterion("ge <>", value, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeGreaterThan(Double value) {
+        public Criteria andGeGreaterThan(String value) {
             addCriterion("ge >", value, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeGreaterThanOrEqualTo(Double value) {
+        public Criteria andGeGreaterThanOrEqualTo(String value) {
             addCriterion("ge >=", value, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeLessThan(Double value) {
+        public Criteria andGeLessThan(String value) {
             addCriterion("ge <", value, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeLessThanOrEqualTo(Double value) {
+        public Criteria andGeLessThanOrEqualTo(String value) {
             addCriterion("ge <=", value, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeIn(List<Double> values) {
+        public Criteria andGeLike(String value) {
+            addCriterion("ge like", value, "ge");
+            return (Criteria) this;
+        }
+
+        public Criteria andGeNotLike(String value) {
+            addCriterion("ge not like", value, "ge");
+            return (Criteria) this;
+        }
+
+        public Criteria andGeIn(List<String> values) {
             addCriterion("ge in", values, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeNotIn(List<Double> values) {
+        public Criteria andGeNotIn(List<String> values) {
             addCriterion("ge not in", values, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeBetween(Double value1, Double value2) {
+        public Criteria andGeBetween(String value1, String value2) {
             addCriterion("ge between", value1, value2, "ge");
             return (Criteria) this;
         }
 
-        public Criteria andGeNotBetween(Double value1, Double value2) {
+        public Criteria andGeNotBetween(String value1, String value2) {
             addCriterion("ge not between", value1, value2, "ge");
             return (Criteria) this;
         }
@@ -2444,52 +2654,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andLjgEqualTo(Double value) {
+        public Criteria andLjgEqualTo(String value) {
             addCriterion("ljg =", value, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgNotEqualTo(Double value) {
+        public Criteria andLjgNotEqualTo(String value) {
             addCriterion("ljg <>", value, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgGreaterThan(Double value) {
+        public Criteria andLjgGreaterThan(String value) {
             addCriterion("ljg >", value, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgGreaterThanOrEqualTo(Double value) {
+        public Criteria andLjgGreaterThanOrEqualTo(String value) {
             addCriterion("ljg >=", value, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgLessThan(Double value) {
+        public Criteria andLjgLessThan(String value) {
             addCriterion("ljg <", value, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgLessThanOrEqualTo(Double value) {
+        public Criteria andLjgLessThanOrEqualTo(String value) {
             addCriterion("ljg <=", value, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgIn(List<Double> values) {
+        public Criteria andLjgLike(String value) {
+            addCriterion("ljg like", value, "ljg");
+            return (Criteria) this;
+        }
+
+        public Criteria andLjgNotLike(String value) {
+            addCriterion("ljg not like", value, "ljg");
+            return (Criteria) this;
+        }
+
+        public Criteria andLjgIn(List<String> values) {
             addCriterion("ljg in", values, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgNotIn(List<Double> values) {
+        public Criteria andLjgNotIn(List<String> values) {
             addCriterion("ljg not in", values, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgBetween(Double value1, Double value2) {
+        public Criteria andLjgBetween(String value1, String value2) {
             addCriterion("ljg between", value1, value2, "ljg");
             return (Criteria) this;
         }
 
-        public Criteria andLjgNotBetween(Double value1, Double value2) {
+        public Criteria andLjgNotBetween(String value1, String value2) {
             addCriterion("ljg not between", value1, value2, "ljg");
             return (Criteria) this;
         }
@@ -2504,52 +2724,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andQhwEqualTo(Double value) {
+        public Criteria andQhwEqualTo(String value) {
             addCriterion("qhw =", value, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwNotEqualTo(Double value) {
+        public Criteria andQhwNotEqualTo(String value) {
             addCriterion("qhw <>", value, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwGreaterThan(Double value) {
+        public Criteria andQhwGreaterThan(String value) {
             addCriterion("qhw >", value, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwGreaterThanOrEqualTo(Double value) {
+        public Criteria andQhwGreaterThanOrEqualTo(String value) {
             addCriterion("qhw >=", value, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwLessThan(Double value) {
+        public Criteria andQhwLessThan(String value) {
             addCriterion("qhw <", value, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwLessThanOrEqualTo(Double value) {
+        public Criteria andQhwLessThanOrEqualTo(String value) {
             addCriterion("qhw <=", value, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwIn(List<Double> values) {
+        public Criteria andQhwLike(String value) {
+            addCriterion("qhw like", value, "qhw");
+            return (Criteria) this;
+        }
+
+        public Criteria andQhwNotLike(String value) {
+            addCriterion("qhw not like", value, "qhw");
+            return (Criteria) this;
+        }
+
+        public Criteria andQhwIn(List<String> values) {
             addCriterion("qhw in", values, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwNotIn(List<Double> values) {
+        public Criteria andQhwNotIn(List<String> values) {
             addCriterion("qhw not in", values, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwBetween(Double value1, Double value2) {
+        public Criteria andQhwBetween(String value1, String value2) {
             addCriterion("qhw between", value1, value2, "qhw");
             return (Criteria) this;
         }
 
-        public Criteria andQhwNotBetween(Double value1, Double value2) {
+        public Criteria andQhwNotBetween(String value1, String value2) {
             addCriterion("qhw not between", value1, value2, "qhw");
             return (Criteria) this;
         }
@@ -2564,52 +2794,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjEqualTo(Double value) {
+        public Criteria andYlzxdjEqualTo(String value) {
             addCriterion("ylzxdj =", value, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjNotEqualTo(Double value) {
+        public Criteria andYlzxdjNotEqualTo(String value) {
             addCriterion("ylzxdj <>", value, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjGreaterThan(Double value) {
+        public Criteria andYlzxdjGreaterThan(String value) {
             addCriterion("ylzxdj >", value, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjGreaterThanOrEqualTo(Double value) {
+        public Criteria andYlzxdjGreaterThanOrEqualTo(String value) {
             addCriterion("ylzxdj >=", value, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjLessThan(Double value) {
+        public Criteria andYlzxdjLessThan(String value) {
             addCriterion("ylzxdj <", value, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjLessThanOrEqualTo(Double value) {
+        public Criteria andYlzxdjLessThanOrEqualTo(String value) {
             addCriterion("ylzxdj <=", value, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjIn(List<Double> values) {
+        public Criteria andYlzxdjLike(String value) {
+            addCriterion("ylzxdj like", value, "ylzxdj");
+            return (Criteria) this;
+        }
+
+        public Criteria andYlzxdjNotLike(String value) {
+            addCriterion("ylzxdj not like", value, "ylzxdj");
+            return (Criteria) this;
+        }
+
+        public Criteria andYlzxdjIn(List<String> values) {
             addCriterion("ylzxdj in", values, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjNotIn(List<Double> values) {
+        public Criteria andYlzxdjNotIn(List<String> values) {
             addCriterion("ylzxdj not in", values, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjBetween(Double value1, Double value2) {
+        public Criteria andYlzxdjBetween(String value1, String value2) {
             addCriterion("ylzxdj between", value1, value2, "ylzxdj");
             return (Criteria) this;
         }
 
-        public Criteria andYlzxdjNotBetween(Double value1, Double value2) {
+        public Criteria andYlzxdjNotBetween(String value1, String value2) {
             addCriterion("ylzxdj not between", value1, value2, "ylzxdj");
             return (Criteria) this;
         }
@@ -2624,52 +2864,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andLhwEqualTo(Double value) {
+        public Criteria andLhwEqualTo(String value) {
             addCriterion("lhw =", value, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwNotEqualTo(Double value) {
+        public Criteria andLhwNotEqualTo(String value) {
             addCriterion("lhw <>", value, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwGreaterThan(Double value) {
+        public Criteria andLhwGreaterThan(String value) {
             addCriterion("lhw >", value, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwGreaterThanOrEqualTo(Double value) {
+        public Criteria andLhwGreaterThanOrEqualTo(String value) {
             addCriterion("lhw >=", value, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwLessThan(Double value) {
+        public Criteria andLhwLessThan(String value) {
             addCriterion("lhw <", value, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwLessThanOrEqualTo(Double value) {
+        public Criteria andLhwLessThanOrEqualTo(String value) {
             addCriterion("lhw <=", value, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwIn(List<Double> values) {
+        public Criteria andLhwLike(String value) {
+            addCriterion("lhw like", value, "lhw");
+            return (Criteria) this;
+        }
+
+        public Criteria andLhwNotLike(String value) {
+            addCriterion("lhw not like", value, "lhw");
+            return (Criteria) this;
+        }
+
+        public Criteria andLhwIn(List<String> values) {
             addCriterion("lhw in", values, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwNotIn(List<Double> values) {
+        public Criteria andLhwNotIn(List<String> values) {
             addCriterion("lhw not in", values, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwBetween(Double value1, Double value2) {
+        public Criteria andLhwBetween(String value1, String value2) {
             addCriterion("lhw between", value1, value2, "lhw");
             return (Criteria) this;
         }
 
-        public Criteria andLhwNotBetween(Double value1, Double value2) {
+        public Criteria andLhwNotBetween(String value1, String value2) {
             addCriterion("lhw not between", value1, value2, "lhw");
             return (Criteria) this;
         }
@@ -2684,52 +2934,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqEqualTo(Integer value) {
+        public Criteria andFdcjqEqualTo(String value) {
             addCriterion("fdcjq =", value, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqNotEqualTo(Integer value) {
+        public Criteria andFdcjqNotEqualTo(String value) {
             addCriterion("fdcjq <>", value, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqGreaterThan(Integer value) {
+        public Criteria andFdcjqGreaterThan(String value) {
             addCriterion("fdcjq >", value, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqGreaterThanOrEqualTo(Integer value) {
+        public Criteria andFdcjqGreaterThanOrEqualTo(String value) {
             addCriterion("fdcjq >=", value, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqLessThan(Integer value) {
+        public Criteria andFdcjqLessThan(String value) {
             addCriterion("fdcjq <", value, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqLessThanOrEqualTo(Integer value) {
+        public Criteria andFdcjqLessThanOrEqualTo(String value) {
             addCriterion("fdcjq <=", value, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqIn(List<Integer> values) {
+        public Criteria andFdcjqLike(String value) {
+            addCriterion("fdcjq like", value, "fdcjq");
+            return (Criteria) this;
+        }
+
+        public Criteria andFdcjqNotLike(String value) {
+            addCriterion("fdcjq not like", value, "fdcjq");
+            return (Criteria) this;
+        }
+
+        public Criteria andFdcjqIn(List<String> values) {
             addCriterion("fdcjq in", values, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqNotIn(List<Integer> values) {
+        public Criteria andFdcjqNotIn(List<String> values) {
             addCriterion("fdcjq not in", values, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqBetween(Integer value1, Integer value2) {
+        public Criteria andFdcjqBetween(String value1, String value2) {
             addCriterion("fdcjq between", value1, value2, "fdcjq");
             return (Criteria) this;
         }
 
-        public Criteria andFdcjqNotBetween(Integer value1, Integer value2) {
+        public Criteria andFdcjqNotBetween(String value1, String value2) {
             addCriterion("fdcjq not between", value1, value2, "fdcjq");
             return (Criteria) this;
         }
@@ -4284,52 +4544,62 @@ public class QmpWrxxExample {
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsEqualTo(Double value) {
+        public Criteria andCbyzjbsEqualTo(String value) {
             addCriterion("cbyzjbs =", value, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsNotEqualTo(Double value) {
+        public Criteria andCbyzjbsNotEqualTo(String value) {
             addCriterion("cbyzjbs <>", value, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsGreaterThan(Double value) {
+        public Criteria andCbyzjbsGreaterThan(String value) {
             addCriterion("cbyzjbs >", value, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsGreaterThanOrEqualTo(Double value) {
+        public Criteria andCbyzjbsGreaterThanOrEqualTo(String value) {
             addCriterion("cbyzjbs >=", value, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsLessThan(Double value) {
+        public Criteria andCbyzjbsLessThan(String value) {
             addCriterion("cbyzjbs <", value, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsLessThanOrEqualTo(Double value) {
+        public Criteria andCbyzjbsLessThanOrEqualTo(String value) {
             addCriterion("cbyzjbs <=", value, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsIn(List<Double> values) {
+        public Criteria andCbyzjbsLike(String value) {
+            addCriterion("cbyzjbs like", value, "cbyzjbs");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbyzjbsNotLike(String value) {
+            addCriterion("cbyzjbs not like", value, "cbyzjbs");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbyzjbsIn(List<String> values) {
             addCriterion("cbyzjbs in", values, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsNotIn(List<Double> values) {
+        public Criteria andCbyzjbsNotIn(List<String> values) {
             addCriterion("cbyzjbs not in", values, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsBetween(Double value1, Double value2) {
+        public Criteria andCbyzjbsBetween(String value1, String value2) {
             addCriterion("cbyzjbs between", value1, value2, "cbyzjbs");
             return (Criteria) this;
         }
 
-        public Criteria andCbyzjbsNotBetween(Double value1, Double value2) {
+        public Criteria andCbyzjbsNotBetween(String value1, String value2) {
             addCriterion("cbyzjbs not between", value1, value2, "cbyzjbs");
             return (Criteria) this;
         }

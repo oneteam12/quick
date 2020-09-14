@@ -12,8 +12,9 @@
     <script type="text/javascript" src="app/js/bootstrap-treeview.js"></script>
         <script type="text/javascript" src='app/js/jquery/jquery.easyui.min.js'></script>
         <script type="text/javascript" src='app/js/jquery/locale/easyui-lang-zh_CN.js'></script>
+    <script type="text/javascript" src="app/js/echart/echarts-all.js"></script>
+    <script type="text/javascript"  src="app/js/mike/mikeXzpf.js"></script>
 
-    <script type="text/javascript" src='app/js/mike/mikeXzpf.js'></script>
 
 
 
@@ -28,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="app/js/jquery/themes/icon.css">
     <link  rel="stylesheet" type="text/css" href="app/css/mike/jquery-ui.min.css" />
     <link  rel="stylesheet" type="text/css"  href="app/css/mike/xzpf.css" />
-    <link rel="stylesheet" type="text/css" href="app/css/mike/public.css">
+<%--    <link rel="stylesheet" type="text/css" href="app/css/mike/public.css">--%>
 
 
     <link type="text/javascript" href="app/js/3.20/init.js">
@@ -78,10 +79,13 @@
 </br>
 
 <div id="btn">
-    <button id="startmoni">开始模拟</button>
-    <button id="resultshow">结果查看</button>
+
+    <button id="startmoni">条件检测</button>
+    <input id="inp12" value="请输入模拟方案名称" style="display: none">
+    <button id="sts" style="display: none">开始模拟</button>
+    <button id="mytype">结果查看</button>
 </div>
-<div id="pic">
+<div id="pic" style="height: 400px;width: 500px">
 
 </div>
 <div id="map">
@@ -90,15 +94,18 @@
 <div id="left">
 
 </div>
-<div id="right"   style="height:400px;width: 550px;border: 1px solid#000">
-    <button id="mytype">展示</button>
-</div>
+
+
 <div id="up">
 
 </div>
 <div id="down" style="height: 600px;width: 600px">
     原始数据：</br>
     <div id="downin"  style="height: 400px;width: 400px">
+
+
+    </div>
+    <div id="downintwo"  style="height: 400px;width: 400px">
 
 
     </div>
@@ -132,96 +139,7 @@
             </tr>
             </thead>
             <tbody style="width: 400px;height: 80px;" id="tbd1" >
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
+
             </tbody>
         </table>
 </div>

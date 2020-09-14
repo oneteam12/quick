@@ -287,260 +287,115 @@ function sjxz(){
 
 }
 function shujunf(){
-
-    var pcode2 = $("#sjxz").val();
     var html="<option value=\"0\" selected>==请选择==</option>";
+    var pcode2 = $("#sjxz").val();
+
     $("#shujunf").html(html);
-
-
+    var lyname = $("#liuyu").val();
+    var hlname ="";
     if($("#liuyu").val()!=0 && $("#shuixi").val()!=0 && $("#ganliu").val()!=0 ){
         if($("#wuji").val()!=0 && $("#wuji").val()!=null &&$("#wuji").val()!=""){
-            var wuji = $("#wuji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url:"rest/mike/getShujunf",
-                data:{
-                    lyname:lyname,
-                    hlname:wuji,
-                    sj:pcode2
-                },
-                type:"POST",
-                dataType:"json",
-                success: function(data){
-                    var html="<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
-                    };
-
-                    $("#shujunf").html(html);
-
-                }
-            });
+            hlname =  $("#wuji").val();
+            getshujunf(lyname,hlname,pcode2)
         }else if($("#siji").val()!=0 && $("#siji").val()!=null &&$("#siji").val()!=""){
-            var siji = $("#siji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url:"rest/mike/getShujunf",
-                data:{
-                    lyname:lyname,
-                    hlname:siji,
-                    sj:pcode2
-                },
-                type:"POST",
-                dataType:"json",
-                success: function(data){
-
-                    var html="<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
-                    };
-
-                    $("#shujunf").html(html);
-                }
-            });
-
+            hlname = $("#siji").val();
+            getshujunf(lyname,hlname,pcode2)
         }else if($("#sanji").val()!=0 && $("#sanji").val()!=null &&$("#sanji").val()!=""){
-            var sanji = $("#sanji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url:"rest/mike/getShujunf",
-                data:{
-                    lyname:lyname,
-                    hlname:sanji,
-                    sj:pcode2
-                },
-                type:"POST",
-                dataType:"json",
-                success: function(data){
-
-                    var html="<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
-                    };
-
-                    $("#shujunf").html(html);
-                }
-            });
-
+            hlname= $("#sanji").val();
+            getshujunf(lyname,hlname,pcode2)
         }else if($("#erji").val()!=0  && $("#erji").val()!=null &&$("#erji").val()!="" ){
-            var erji = $("#erji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url:"rest/mike/getShujunf",
-                data:{
-                    lyname:lyname,
-                    hlname:erji,
-                    sj:pcode2
-                },
-                type:"POST",
-                dataType:"json",
-                success: function(data){
-                    var html="<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
-                    };
-
-                    $("#shujunf").html(html);
-                }
-            });
-
+            hlname = $("#erji").val();
+            getshujunf(lyname,hlname,pcode2)
         }else if($("#yiji").val()!=0  && $("#yiji").val()!=null &&$("#yiji").val()!=""){
-            var yiji = $("#yiji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url:"rest/mike/getShujunf",
-                data:{
-                    lyname:lyname,
-                    hlname:yiji,
-                    sj:pcode2
-                },
-                type:"POST",
-                dataType:"json",
-                success: function(data){
-                    var html="<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
-                    };
-
-                    $("#shujunf").html(html);
-                }
-            });
-
+            hlname= $("#yiji").val();
+            getshujunf(lyname,hlname,pcode2)
         }else{
             alert("请选择河流");
         }
 
     }
+
     $("#shujunf").html(html);
+}
+function getshujunf(lyname,hlname,pcode2) {
+    var html="<option value=\"0\" selected>==请选择==</option>";
+    $.ajax({
+        url:"rest/mike/getShujunf",
+        data:{
+            lyname:lyname,
+            hlname:hlname,
+            sj:pcode2
+        },
+        type:"POST",
+        dataType:"json",
+        success: function(data){
+
+            if(data.length == 0){
+                html+="<option value='"+99+"'>无企业数据（必须点选）</option>";
+                $("#shujunf").html(html);
+            }else{
+                for (var i = 0; i < data.length; i++) {
+                html+="<option value='"+data[i].TJNF+"'>"+data[i].TJNF+"</option>";
+                };
+               $("#shujunf").html(html);
+            }
+        }
+    });
+
 }
 
 function jisuannf() {
     var pcode2 = $("#shujunf").val();
     var lyname = $("#liuyu").val();
-
+    var hlname="";
 
     var html = "<option value=\"0\" selected>==请选择==</option>";
     $("#jisuannf").html(html);
 
     if ($("#liuyu").val() != 0 && $("#shuixi").val() != 0 && $("#ganliu").val() != 0 && pcode2 !=0) {
         if ($("#wuji").val() != 0 && $("#wuji").val() != null && $("#wuji").val() != "") {
-            var wuji = $("#wuji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url: "rest/mike/getShuiwennf",
-                data: {
-                    lyname: lyname,
-                    hlname: wuji,
-                    time: pcode2
-                },
-                type: "POST",
-                dataType: "json",
-                success: function (data) {
-                    var html = "<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
-                    }
-                    ;
+            hlname = $("#wuji").val();
 
-                    $("#jisuannf").html(html);
-                }
-            });
         } else if ($("#siji").val() != 0 && $("#siji").val() != null && $("#siji").val() != "") {
-            var siji = $("#siji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url: "rest/mike/getShuiwennf",
-                data: {
-                    lyname: lyname,
-                    hlname: siji,
-                    time: pcode2
-                },
-                type: "POST",
-                dataType: "json",
-                success: function (data) {
-                    var html = "<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
-                    }
-                    ;
-
-                    $("#jisuannf").html(html);
-                }
-            });
+            hlname = $("#siji").val();
+            getjisuannf(lyname,hlname,pcode2)
 
         } else if ($("#sanji").val() != 0 && $("#sanji").val() != null && $("#sanji").val() != "") {
-            var sanji = $("#sanji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url: "rest/mike/getShuiwennf",
-                data: {
-                    lyname: lyname,
-                    hlname: sanji,
-                    time: pcode2
-                },
-                type: "POST",
-                dataType: "json",
-                success: function (data) {
-                    var html = "<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
-                    }
-                    ;
-
-                    $("#jisuannf").html(html);
-                }
-            });
+            hlname = $("#sanji").val();
+            getjisuannf(lyname,hlname,pcode2)
 
         } else if ($("#erji").val() != 0 && $("#erji").val() != null && $("#erji").val() != "") {
-            var erji = $("#erji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url: "rest/mike/getShuiwennf",
-                data: {
-                    lyname: lyname,
-                    hlname: erji,
-                    time: pcode2
-                },
-                type: "POST",
-                dataType: "json",
-                success: function (data) {
-                    var html = "<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
-                    }
-                    ;
-
-                    $("#jisuannf").html(html);
-                }
-            });
+            hlname = $("#erji").val();
+            getjisuannf(lyname,hlname,pcode2)
 
         } else if ($("#yiji").val() != 0 && $("#yiji").val() != null && $("#yiji").val() != "") {
-            var yiji = $("#yiji").val();
-            var lyname = $("#liuyu").val();
-            $.ajax({
-                url: "rest/mike/getShuiwennf",
-                data: {
-                    lyname: lyname,
-                    hlname: yiji,
-                    time: pcode2
-                },
-                type: "POST",
-                dataType: "json",
-                success: function (data) {
-                    var html = "<option value=\"0\" selected>==请选择==</option>";
-                    for (var i = 0; i < data.length; i++) {
-                        html += "<option value='" + data[i]+ "'>" + data[i]+ "</option>";
-                    }
-                    ;
-
-                    $("#jisuannf").html(html);
-                }
-            });
-
+            hlname = $("#yiji").val();
+            getjisuannf(lyname,hlname,pcode2)
         }
         $("#jisuannf").html(html);
     }
 
+}
+function getjisuannf(lyname,hlname,pcode2) {
+    $.ajax({
+        url: "rest/mike/getShuiwennf",
+        data: {
+            lyname: lyname,
+            hlname: wuji,
+            time: pcode2
+        },
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+            var html = "<option value=\"0\" selected>==请选择==</option>";
+            for (var i = 0; i < data.length; i++) {
+                html += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+            }
+            ;
+
+            $("#jisuannf").html(html);
+        }
+    });
 }
 function monizb(){
     var html="<option value=\"0\" selected>==请选择==</option>";
@@ -552,579 +407,66 @@ function monizb(){
     $("#monizb").html(html);
 
 }
-// $("#startmoni").click(function(){
-//
-//     var html="";
-//     var monizb = $("#monizb").val();
-//     if(monizb!= 0){
-//         var pcode2 = $("#shujunf").val();
-//         var lyname = $("#liuyu").val();
-//
-//
-//         if ($("#liuyu").val() != 0 && $("#shuixi").val() != 0 && $("#ganliu").val() != 0 && pcode2 !=0) {
-//             if ($("#wuji").val() != 0) {
-//                 var wuji = $("#wuji").val();
-//
-//                 $.ajax({
-//                     url: "rest/mike/getQiye",
-//                     data: {
-//                         lyname: lyname,
-//                         hlname: wuji,
-//                         time: pcode2,
-//                         monizb:monizb
-//                     },
-//                     type: "POST",
-//                     dataType: "json",
-//                     success: function (data) {
-//
-//                         if(monizb == "COD"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("COD");
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//
-//
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else if(monizb == "ANDAN"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ANDAN");
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else{
-//                             var hhh="  <table id=\"tab1\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ZONGP");
-//
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }
-//
-//
-//
-//
-//                     }
-//                 });
-//             } else if ($("#siji").val() != 0 && $("#siji").val() != null && $("#siji").val() != "") {
-//                 var siji = $("#siji").val();
-//
-//                 $.ajax({
-//                     url: "rest/mike/getQiye",
-//                     data: {
-//                         lyname: lyname,
-//                         hlname: siji,
-//                         time: pcode2,
-//                         monizb:monizb
-//                     },
-//                     type: "POST",
-//                     dataType: "json",
-//                     success: function (data) {
-//
-//                         if(monizb == "COD"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("COD");
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//
-//
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else if(monizb == "ANDAN"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ANDAN");
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else{
-//                             var hhh="  <table id=\"tab1\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ZONGP");
-//
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }
-//
-//
-//
-//
-//                     }
-//                 });
-//
-//             } else if ($("#sanji").val() != 0 ) {
-//                 var sanji = $("#sanji").val();
-//
-//                 $.ajax({
-//                     url: "rest/mike/getQiye",
-//                     data: {
-//                         lyname: lyname,
-//                         hlname: sanji,
-//                         time: pcode2,
-//                         monizb:monizb
-//                     },
-//                     type: "POST",
-//                     dataType: "json",
-//                     success: function (data) {
-//
-//                         if(monizb == "COD"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("COD");
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//
-//
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else if(monizb == "ANDAN"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ANDAN");
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else{
-//                             var hhh="  <table id=\"tab1\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ZONGP");
-//
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }
-//
-//
-//
-//
-//                     }
-//                 });
-//
-//             } else if ($("#erji").val() != 0 ) {
-//                 var erji = $("#erji").val();
-//
-//                 $.ajax({
-//                     url: "rest/mike/getQiye",
-//                     data: {
-//                         lyname: lyname,
-//                         hlname: erji,
-//                         time: pcode2,
-//                         monizb:monizb
-//                     },
-//                     type: "POST",
-//                     dataType: "json",
-//                     success: function (data) {
-//
-//                         if(monizb == "COD"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("COD");
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//
-//
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else if(monizb == "ANDAN"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ANDAN");
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else{
-//                             var hhh="  <table id=\"tab1\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ZONGP");
-//
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }
-//
-//
-//
-//
-//                     }
-//                 });
-//
-//             } else if ($("#yiji").val() != 0 ) {
-//                 var yiji = $("#yiji").val();
-//
-//                 $.ajax({
-//                     url: "rest/mike/getQiye",
-//                     data: {
-//                         lyname: lyname,
-//                         hlname: yiji,
-//                         time: pcode2,
-//                         monizb:monizb
-//                     },
-//                     type: "POST",
-//                     dataType: "json",
-//                     success: function (data) {
-//
-//                         if(monizb == "COD"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\">\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("COD");
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tbody><tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//
-//
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDHXXYLND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].HXXYLPFL_D +"</td></tr></tbody>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else if(monizb == "ANDAN"){
-//                             var hhh="  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>氨氮排放浓度（毫克/升）</th><th>氨氮排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ANDAN");
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].PRWSCLCDADND_HK_S +"</td>";
-//                                 hhh += "<td>"+data[i].ADPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }else{
-//                             var hhh="  <table id=\"tab1\" >\n" +
-//                                 "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
-//                                 "        <tr id=\"tr1\">\n" +
-//                                 "            <th>企业名称</th>\n" +
-//                                 "            <th>详细地址县(区、市、旗)</th>\n" +
-//                                 "            <th>详细地址乡(镇)</th>\n" +
-//                                 "            <th>经度</th>\n" +
-//                                 "            <th>纬度</th>\n" +
-//                                 "            <th>生产时间（小时/年）</th>\n" +
-//                                 "            <th>废水排放量（吨/年）</th>\n" +
-//                                 "        <th>总磷排放浓度（毫克/升）</th><th>总磷排放量（吨/年）</th></tr>\n" +
-//                                 "        </thead>"
-//
-//                             alert("ZONGP");
-//
-//
-//                             for (var i = 0; i < data.length; i++) {
-//                                 hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-//                                 hhh += "<td>"+data[i].XXDZX_Z+"</td>";
-//                                 hhh += "<td>"+data[i].JD_G +"</td>";
-//                                 hhh += "<td>"+data[i].WD_G+"</td>";
-//                                 hhh += "<td>"+data[i].NZCSCSJ_XS +"</td>";
-//                                 hhh += "<td>"+data[i].GYFSPFL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPCSL_D +"</td>";
-//                                 hhh += "<td>"+data[i].ZPPFL_D +"</td></tr>";
-//                             }
-//                             $("#down").html(hhh);
-//                         }
-//
-//
-//
-//
-//                     }
-//                 });
-//
-//             }
-//         }
-//
-//
-//     }else{
-//         alert("请选择模拟指标");
-//     }
-//
-//     $('#tab1').fixedHeaderTable({ footer: true, altClass: 'odd' });
-//
-//
-//
-//
-// });
+$("#sts").click(function() {
+    var pcode2 = $("#shujunf").val();
+    var lyname = $("#liuyu").val();
+    var hlswtime= $("#jisuannf").val();
+    var name =$("#inp12").val();
+    var shujuly=$("#sjxz").val();
+    var shuixi=$("#shuixi").val();
+    var ganliu=$("#ganliu").val();
 
+    var hlname="";
 
+        if($("#wuji").val()!=0 && $("#wuji").val()!=null &&$("#wuji").val()!=""){
+            hlname = $("#wuji").val();
+        }else if($("#siji").val()!=0 && $("#siji").val()!=null &&$("#siji").val()!=""){
+            hlname = $("#siji").val();
+
+        }else if($("#sanji").val()!=0 && $("#sanji").val()!=null &&$("#sanji").val()!=""){
+            hlname = $("#sanji").val();
+
+        }else if($("#erji").val()!=0  && $("#erji").val()!=null &&$("#erji").val()!="" ){
+            hlname = $("#erji").val();
+
+        }else if($("#yiji").val()!=0  && $("#yiji").val()!=null &&$("#yiji").val()!=""){
+            hlname = $("#yiji").val();
+
+        }
+        var yiji= $("#yiji").val();
+        var erji= $("#erji").val();
+        var sanji= $("#sanji").val();
+        var siji= $("#siji").val();
+        var wuji= $("#wuji").val();
+
+    $.ajax({
+        url: "rest/mike/startmoni",
+        data: {
+            lyname: lyname,
+            hlname: hlname,
+            hlswtime:hlswtime,
+            time: pcode2,
+            name:name,
+            yiji:yiji,
+            erji:erji,
+            sanji:sanji,
+            siji:siji,
+            wuji:wuji,
+            shujuly:shujuly,
+            shuixi:shuixi,
+            ganliu:ganliu
+        },
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+          alert("生成成功");
+        }
+    })
+});
 $("#startmoni").click(function(){
     var html="";
     var monizb = $("#monizb").val();
+    var name =$("#inp12").val();
     if(monizb!= 0){
         var pcode2 = $("#shujunf").val();
         var lyname = $("#liuyu").val();
@@ -1133,22 +475,34 @@ $("#startmoni").click(function(){
                 var wuji = $("#wuji").val();
                 get(lyname,wuji,pcode2,monizb);
                 gettwo(lyname,wuji,pcode2,monizb);
+                showMap(lyname,wuji,pcode2);
+                test(lyname,wuji,pcode2);
             } else if ($("#siji").val() != 0 && $("#siji").val() != null && $("#siji").val() != "") {
                 var siji = $("#siji").val();
                 get(lyname,siji,pcode2,monizb);
                 gettwo(lyname,siji,pcode2,monizb);
+                showMap(lyname,siji,pcode2);
+                test(lyname,siji,pcode2);
             } else if ($("#sanji").val() != 0 ) {
                 var sanji = $("#sanji").val();
                 get(lyname,sanji,pcode2,monizb);
                 gettwo(lyname,sanji,pcode2,monizb);
+                showMap(lyname,sanji,pcode2);
+                test(lyname,sanji,pcode2);
             } else if ($("#erji").val() != 0 ) {
                 var erji = $("#erji").val();
                 get(lyname,erji,pcode2,monizb);
                 gettwo(lyname,erji,pcode2,monizb);
+                showMap(lyname,erji,pcode2);
+                test(lyname,erji,pcode2);
             } else if ($("#yiji").val() != 0 ) {
                 var yiji = $("#yiji").val();
+                 name = $("#inp12").val();
+                 alert(name);
                 get(lyname,yiji,pcode2,monizb);
                 gettwo(lyname,yiji,pcode2,monizb);
+                showMap(lyname,yiji,pcode2);
+                test(lyname,yiji,pcode2);
             }else{
                 alert("请选择河流");
             }
@@ -1159,14 +513,35 @@ $("#startmoni").click(function(){
     }else{
         alert("请选择模拟指标");
     }
+
     $('#tab1').fixedHeaderTable({ footer: true, altClass: 'odd' });
     $('#tab2').fixedHeaderTable({ footer: true, altClass: 'odd' });
 
 
 
 });
+function  test(lyname,hlname,pcode2) {
+    $.ajax({
+        url: "rest/mike/test",
+        data: {
+            lyname: lyname,
+            hlname: hlname,
+            time: pcode2,
+        },
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+            if(data.h== "1"){
 
-
+            alert("已有当前条件模拟,请点击结果直接查看");
+            }else{
+                $("#sts").show();
+                $("#inp12").show();
+                alert("当前条件并没有模拟结果，请点击开始模拟");
+            }
+        }
+    })
+}
 function  get(lyname,hlname,pcode2,monizb){
     $.ajax({
         url: "rest/mike/getQiye",
@@ -1193,14 +568,10 @@ function  get(lyname,hlname,pcode2,monizb){
                     "            <th>废水排放量（吨/年）</th>\n" +
                     "       <th>COD排放浓度（毫克/升）</th><th>COD排放量（吨/年）</th> </tr>\n" +
                     "        </thead><tbody  style=\"width: 400px;height: 180px;\">"
-
-
                 alert("COD");
                 for (var i = 0; i < data.length; i++) {
                     hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
                     hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
-
-
                     hhh += "<td>"+data[i].XXDZX_Z+"</td>";
                     hhh += "<td>"+data[i].JD_G +"</td>";
                     hhh += "<td>"+data[i].WD_G+"</td>";
@@ -1255,8 +626,6 @@ function  get(lyname,hlname,pcode2,monizb){
                     "        </thead><tbody  style=\"width: 400px;height: 180px;\">"
 
                 alert("ZONGP");
-
-
                 for (var i = 0; i < data.length; i++) {
                     hhh += "<tr><td>"+data[i].TBDWXXMC+"</td>";
                     hhh += "<td>"+data[i].XXDZX_Q_S_Q +"</td>";
@@ -1322,7 +691,7 @@ function  gettwo(lyname,hlname,pcode2,monizb){
                 qqq += "</tbody>";
                 $("#downin").html(qqq);
             } else if (monizb == "ANDAN") {
-                var qqq = "  <table id=\"tab1\"  class=\"fancyTable\" >\n" +
+                var qqq = "  <table id=\"tab2\"  class=\"fancyTable\" >\n" +
                     "        <thead style=\"width: 400px;height: 20px;\" >\n" +
                     "        <tr id=\"tr2\">\n" +
                     "            <th>污水厂名称</th>\n" +
@@ -1355,7 +724,7 @@ function  gettwo(lyname,hlname,pcode2,monizb){
                 qqq += "</tbody>";
                 $("#downin").html(qqq);
             } else {
-                var qqq = "  <table id=\"tab1\" >\n" +
+                var qqq = "  <table id=\"tab2\" >\n" +
                     "        <thead style=\"width: 400px;height: 20px;\"  class=\"fancyTable\" >\n" +
                     "        <tr id=\"tr2\">\n" +
                     "            <th>污水厂名称</th>\n" +
@@ -1390,7 +759,7 @@ function  gettwo(lyname,hlname,pcode2,monizb){
                 }
                 qqq += "</tbody>";
                 $('#tab2').fixedHeaderTable({footer: true, altClass: 'odd'});
-                $("#downin").html(qqq);
+                $("#downintwo").html(qqq);
 
             }
         }
@@ -1398,92 +767,7 @@ function  gettwo(lyname,hlname,pcode2,monizb){
 };
 
 
-$("#hr").change(function(){
 
-
-    var sheng = $("#sheng").val();
-    var shi = $("#shi").val();
-    var qu = $("#qu").val();
-    var hr = $("#hr").val();
-    if(sheng  != 0 && shi !=0 && qu !=0 && hr ==99){
-        var html ="<button id=\"show\">边界条件设置</button>\n" +
-            "        </br>\n" +
-            "        </br>\n" +
-            "        <button id=\"start\">开始模拟</button>\n" +
-            "        </br>\n" +
-            "        </br>\n" +
-            "        <button id=\"result\">模拟结果查看</button>\n" +
-            "        </br>\n" +
-            "        </br>\n" +
-            "        <button id=\"export\">模拟结果导出</button>";
-
-        $("#divbutton").html(html);
-
-        $.ajax({
-            url:"rest/mike/newOne",
-            data:{
-                sheng:sheng,
-                shi:shi,
-                qu:qu
-            },
-            type:"POST",
-            async:false,
-            dateType: "json",
-            success: function(data){
-
-                var ht="";
-                for (var i = 0; i < data.length; i++) {
-                    ht+="<tr><td>"+data[i].qiyename+"</td>";
-                    ht+="<td>"+data[i].liuliang+"</td>";
-                    if(data[i].codnd==null){
-                        ht+="<td>无</td>";
-                    }else{
-                        ht+="<td>"+data[i].codnd+"</td>";
-                    }
-                    if(data[i].codpfl==null){
-                        ht+="<td>无</td>";
-                    }else{
-                        ht+="<td>"+data[i].codpfl+"</td>";
-                    }
-                    if(data[i].tnnd==null){
-                        ht+="<td>无</td>";
-                    }else{
-                        ht+="<td>"+data[i].tnnd+"</td>";
-                    }
-                    if(data[i].tnpfl==null){
-                        ht+="<td>无</td>";
-                    }else{
-                        ht+="<td>"+data[i].tnpfl+"</td>";
-                    }
-                    if(data[i].tpnd==null){
-                        ht+="<td>无</td>";
-                    }else{
-                        ht+="<td>"+data[i].tpnd+"</td>";
-                    }
-                    if(data[i].tppflc==null){
-                        ht+="<td>无</td></tr>";
-                    }else{
-                        ht+="<td>"+data[i].tppfl+"</td></tr>";
-                    }
-                    // ht+="<td>"+data[i].codnd+"</td>";
-                    // ht+="<td>"+data[i].codpfl+"</td>";
-                    // ht+="<td>"+data[i].tnnd+"</td>";
-                    // ht+="<td>"+data[i].tnpfl+"</td>";
-                    // ht+="<td>"+data[i].tpnd+"</td>";
-                    // ht+="<td>"+data[i].tppfl+"</td></tr>";
-                };
-
-                $('#tbl1').fixedHeaderTable({ footer: true, altClass: 'odd' });
-
-                $("#tbd1").html(ht);
-                alert("新建成功");
-
-            }
-        });
-
-    }
-
-});
 
 
 
@@ -1508,6 +792,7 @@ var extents = {
 };
 init();
 function init() {
+
     require(["esri/map", "esri/layers/ArcGISDynamicMapServiceLayer", "esri/layers/FeatureLayer",
             "esri/InfoTemplate", "esri/renderers/ClassBreaksRenderer", "esri/symbols/SimpleFillSymbol", "esri/dijit/Legend",
             "esri/Color", "esri/tasks/query", "esri/geometry/Extent", "esri/renderers/SimpleRenderer", "esri/symbols/SimpleLineSymbol",
@@ -1530,92 +815,51 @@ function init() {
                 extent : extent,
                 logo: false, //取消地图默认的logo
             });
-            var url = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer";
+            var url = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer";
             agoLayer = new ArcGISDynamicMapServiceLayer(url);
 
-            agoLayer.setVisibleLayers([0,1,5,6,7,8,9,10,11,12,13,14,15,16,17,20,22,23,24,25]);//设置china(9)
+            agoLayer.setVisibleLayers([14,15,16,17,18,19,20,21,22,23,24]);//设置china(9)
             map.addLayer(agoLayer);
 
         });
 
 
 }
-$("#select").click(function(){
-    var Heliu =$("#haha").val();
+function showMap(lyname,hlname,tjnf){
     $.ajax({
         type: "POST",
         url: "rest/mike/searchAllQiYe",
         async:false,
         dateType: "json",
         data: {
-            "snscmc": Heliu,
-            "tjnf": "2017"
+            "szlymc":lyname,
+            "snscmc": hlname,
+            "tjnf": tjnf
         },
         success: function (allData) {
 
 
 
             html += "<table border='0' class='table-bordered table-striped'>";
-            html += "<tr><td>企业名称</td><td>${qiyename}</td></tr>";
-            html += "<tr><td>流量</td><td>${liuliang}</td></tr>";
-            html += "<tr><td>经度</td><td>${jd}</td></tr>";
-            html += "<tr><td>纬度</td><td>${wd}</td></tr>";
-            html += "<tr><td>cod排放量</td><td>${codpfl}</td></tr>";
-            html += "<tr><td>cod浓度</td><td>${codnd}</td></tr>";
-            html += "<tr><td>总氮排放量</td><td>${tnpfl}</td></tr>";
-            html += "<tr><td>总氮浓度</td><td>${tnnd}</td></tr>";
-            html += "<tr><td>总磷排放量</td><td>${tppfl}</td></tr>";
-            html += "<tr><td>总磷浓度</td><td>${tpnd}</td></tr>";
+            html += "<tr><td>企业名称</td><td>${tbdwxxmc}</td></tr>";
+            html += "<tr><td>详细地址县(区、市、旗)</td><td>${xxdzxQSQ}</td></tr>";
+            html += "<tr><td>详细地址乡(镇)</td><td>${xxdzxZ}</td></tr>";
+            html += "<tr><td>经度</td><td>${jdG}</td></tr>";
+            html += "<tr><td>纬度</td><td>${wdG}</td></tr>";
+            html += "<tr><td>生产时间（小时/年）</td><td>${nzcscsjXs}</td></tr>";
+            html += "<tr><td>废水排放量（吨/年）</td><td>${gyfspflD}</td></tr>";
+            html += "<tr><td>COD排放浓度（毫克/升）</td><td>${hxxylpflD}</td></tr>";
+            html += "<tr><td>COD排放量（吨/年）</td><td>${hxxylpflD}</td></tr>";
+            html += "<tr><td>氨氮排放浓度（毫克/升）</td><td>${adpflD}</td></tr>";
+            html += "<tr><td>氨氮排放量（吨/年）\n</td><td>${adpflD}</td></tr>";
+            html += "<tr><td>总磷排放浓度（毫克/升）\n</td><td>${zppflD}</td></tr>";
+            html += "<tr><td>总磷浓度</td><td>${zppflD}</td></tr>";
             html += "</table><br/>";
             updateQmpInMap(allData);
         }
     });
-});
-
-
-function displayPoints(allData){
-
-    // allDataGlobal = allData;
-
-    for (var i = 0; i < allData.length; i++) {
-        var attrs = {
-            "qiyename": allData[i].qiyename,
-            "liuliang": allData[i].liuliang,
-            "jd":allData[i].jd,
-            "wd":allData[i].wd,
-            "codpfl": allData[i].codpfl,
-            "codnd": allData[i].codnd,
-            "tnpfl": allData[i].tnpfl,
-            "tnnd": allData[i].tnnd,
-            "tppfl": allData[i].tppfl,
-            "tpnd": allData[i].tpnd,
-        };
-        var lon=attrs.jd;
-        var lat=attrs.wd;
-        point = new poi(lon, lat, map.spatialReference);
-        var infoTemplate = new infotem("污染点源信息", html);
-        var symbol1 = new PicMarkerSymbol("app/img/qmp5rep.png", 10, 10);
-        graphic = new grap(point, symbol1, attrs, infoTemplate);
-        var histogramsymbol = new PicMarkerSymbol("app/img/histogram_orange.png", 6, 23);
-        histogramsymbol.setOffset(-10, 18);
-        histogramgraph = new grap(point, histogramsymbol, attrs);
-        graphicLayer = new esri.layers.GraphicsLayer();
-        graphicLayer.add(graphic);
-    }
-    // var layer = esri.layers.GraphicsLayer({id:"layer"});
-    // $.each(attrs, function(){
-    //     var lon= this.jd;
-    //     var lat = this.wd;
-    //     var pt = new esri.geometry.Point([lon, lat]);
-    //     var pictureMarkerSymbol = new esri.symbol.PictureMarkerSymbol("app/img/qmp5rep.png", 20, 20);
-    //     var g = new esri.Graphic(pt, pictureMarkerSymbol);
-    //     var template = new esri.InfoTemplate();
-    //     g.setInfoTemplate(template);
-    //     layer.add(g);
-    // });
-    // map.addLayer(layer);
-
 }
+
 function updateQmpInMap(allData) {
 
 
@@ -1635,23 +879,24 @@ function updateQmpInMap(allData) {
         var attr = "";
         var graphicLayer = new esri.layers.GraphicsLayer();
         graphicLayer.clear();
-
-
         for (var i = 0; i < allData.length; i++) {
-            lon = allData[i].jd;
-            lat = allData[i].wd;
+            lon = allData[i].jdG;
+            lat = allData[i].wdG;
 
             attr= {
-                "qiyename": allData[i].qiyename,
-                "liuliang": allData[i].liuliang,
-                "jd":allData[i].jd,
-                "wd":allData[i].wd,
-                "codpfl": allData[i].codpfl,
-                "codnd": allData[i].codnd,
-                "tnpfl": allData[i].tnpfl,
-                "tnnd": allData[i].tnnd,
-                "tppfl": allData[i].tppfl,
-                "tpnd": allData[i].tpnd,
+                "tbdwxxmc": allData[i].tbdwxxmc,
+                "xxdzxQSQ": allData[i].xxdzxQSQ,
+                "xxdzxZ":allData[i].xxdzxZ,
+                "jdG":allData[i].jdG,
+                "wdG": allData[i].wdG,
+                "nzcscsjXs": allData[i].nzcscsjXs,
+                "gyfspflD": allData[i].gyfspflD,
+                "hxxylpflD": allData[i].hxxylpflD,
+                "hxxylpflD": allData[i].hxxylpflD,
+                "adpflD": allData[i].adpflD,
+                "adpflD": allData[i].adpflD,
+                "zppflD": allData[i].zppflD,
+                "zppflD": allData[i].zppflD,
             };
             var point = new Point(lon, lat, map.spatialReference);
             var infoTemplate = new InfoTemplate("企业点源信息", html);
@@ -1662,61 +907,122 @@ function updateQmpInMap(allData) {
 
         }
     });
-
-
-
-
-    var myChart2 = echarts.init(document.getElementById('right'));
-
-    myChart2.setOption({
-        title:{ text:'分布图'  },
-        xAxis:{ data:[] },
-        yAxis:{ type : 'value',//默认为值类型       
-            splitLine:{ show:true } },
-        series:[] });
-//实现点击某按钮显示图形
-    $("#mytype").click(function(){
-//给柱形图赋值 
-        $.ajax({ type: 'POST',
-            url: "rest/mike/getResShow",
-            cache : false, //禁用缓存
-            dataType: "json",
-            success: function(data) {
-//编辑组织数据，这里后台返回的data格式为{'categ': ['男', '女'], 'data': [[2, 136, 38, 4, 1, 0], [3, 75, 25, 5, 1, 0]], 'name': ['青少年', '青年人', '中年人', '老年前期', '老年人', '长寿老人']}
-                var series=[];
-                for (var i=0;i<data.data.length;i++){
-                    var item={
-                        name:data.categ[i],
-                        data:data.data[i],
-                        type:'bar',
-                        label: { normal: { show: true, position: 'top' } }
-                    };
-                    series.push(item); }
-//将数据加载到图形中
-                myChart2.setOption({
-                    title: {
-                        text: data.title,
-                        textStyle: {fontSize: 14}
-                    },
-                    legend: {
-                        data: data.categ,
-                        left: 'right'
-                    },
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer: { type: 'shadow' }
-                    },
-                    xAxis: {
-                        type: 'category',
-                        data: data.name,
-                        axisLabel: {interval: 0} //x轴数据显示完整
-                    },
-                    yAxis: {name: '人'},
-                    series: series
-                },true);
-            }
-        });
-    });
-
-
 }
+
+
+
+
+var myChart2 = echarts.init(document.getElementById('pic'));
+
+myChart2.setOption({
+    title:{ text:'COD排放与水质响应分析图' ,    x:'center',
+        y:'top',
+        textAlign:'center' },
+    toolbox: {
+        show:true,
+        feature: {
+            magicType: { show:true,type: ['line', 'bar']},//图表类型切换
+            /* line是折线图，bar是柱形图*/
+            dataView: {show:true,readOnly: false},   //  缩放
+            restore: {show:true}, // 重置
+            saveAsImage: {show:true}, // 导出图片
+        }
+    },
+    dataZoom:{
+        show:true,
+        realtime:true, //拖动滚动条时是否动态的更新图表数据
+        height:25,//滚动条高度
+        start:40,//滚动条开始位置（共100等份）
+        end:65//结束位置（共100等份）
+    },
+    xAxis:{ data:[]
+    },
+    yAxis:{ type : 'value',//默认为值类型       
+        splitLine:{ show:true } },
+    series:[]
+
+
+});
+//实现点击某按钮显示图形
+$("#mytype").click(function(){
+//给柱形图赋值 
+    $.ajax({ type: 'POST',
+        url: "rest/mike/getResShow",
+        cache : false, //禁用缓存
+        dataType: "json",
+        success: function(data) {
+//编辑组织数据，这里后台返回的data格式为{'categ': ['男', '女'], 'data': [[2, 136, 38, 4, 1, 0], [3, 75, 25, 5, 1, 0]], 'name': ['青少年', '青年人', '中年人', '老年前期', '老年人', '长寿老人']}
+            var series=[];
+            for (var i=0;i<data.data.length;i++){
+                var item={
+                    table:data.title,
+                    name:data.categ[i],
+                    data:data.data[i],
+                    type:'bar',
+                    center:['50%','30%'],
+                    label: { normal: { show: true, position: 'top' } }
+                };
+                series.push(item); }
+//将数据加载到图形中
+            myChart2.setOption({
+                title: {
+                    text: data.title,
+                    textStyle: {fontSize: 16},
+                    x:'center',
+                    y:'top',
+                    textAlign:'center'
+
+                },
+                toolbox: {
+                    show:true,
+                    showTitle:false,
+                    feature: {
+                        magicType: { show:true,type: ['line', 'bar']},//图表类型切换
+                        /* line是折线图，bar是柱形图*/
+                        dataView: {readOnly: false,show: true,
+                            title: '缩放'},   //  缩放
+                        restore: {show: true,
+                            title: '重置'}, // 重置
+                        saveAsImage: {show: true,
+                            title: '导出图片'}, // 导出图片
+                    },
+                    tooltip: { // 和 option.tooltip 的配置项相同
+                        show: true,
+
+                        backgroundColor: '#222',
+                        textStyle: {
+                            fontSize: 12,
+                        },
+                        extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);' // 自定义的 CSS 样式
+                    }
+                },
+                dataZoom:{
+                    show:true,
+                    realtime:true, //拖动滚动条时是否动态的更新图表数据
+                    height:25,//滚动条高度
+                    start:40,//滚动条开始位置（共100等份）
+                    end:65//结束位置（共100等份）
+                },
+                legend: {
+                    data: data.categ,
+                    orient: 'vertical',
+                    x:'left',      //可设定图例在左、右、居中
+                    y:'top',     //可设定图例在上、下、居中
+                    padding:[0,0,0,0],//[（距离上方距离），（距离右方距离）、（距离下方距离）、（距离左方距离）]
+                },
+                tooltip: {
+                    show:true,
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: data.name,
+                    axisLabel: {interval: 0 ,rotate:-90},//x轴数据显示完整
+                },
+                yAxis: {name: '人'},
+                series: series
+            },true);
+        }
+    });
+});

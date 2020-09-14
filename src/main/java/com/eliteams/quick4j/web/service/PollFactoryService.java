@@ -6,10 +6,7 @@ import java.util.Map;
 import com.eliteams.quick4j.core.generic.GenericService;
 import com.eliteams.quick4j.core.page.Page;
 import com.eliteams.quick4j.web.model.PollFactory;
-import com.eliteams.quick4j.web.model.PollSource;
-import com.eliteams.quick4j.web.model.Qmp;
- 
- 
+
 
 public interface PollFactoryService extends GenericService<PollFactory, Long> {
 

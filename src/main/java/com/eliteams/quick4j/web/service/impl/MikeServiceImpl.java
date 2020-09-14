@@ -32,4 +32,9 @@ import java.util.Map;
     public List<MikeJbxx> selectOne(Map map) {
         return mikeJbxxMapper.selectOne(map);
     }
+
+    @Override
+    public int insertSelective(MikeJbxx m) {
+        return mikeJbxxMapper.insertSelective(m);
+    }
 }

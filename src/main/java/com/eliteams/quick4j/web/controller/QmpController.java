@@ -60,7 +60,6 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 import com.eliteams.quick4j.web.model.Qmp;
-import com.eliteams.quick4j.web.model.QmpWrxx;
 import com.eliteams.quick4j.web.service.QmpService;
 import com.eliteams.quick4j.web.service.QmpBaseInfoService;
 

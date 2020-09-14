@@ -52,7 +52,7 @@ public class PollSourceServiceImpl extends GenericServiceImpl<PollSource, Long> 
 
     @Override
     public GenericDao<PollSource, Long> getDao() {
-        return pollsourceMapper;
+        return (GenericDao<PollSource, Long>) pollsourceMapper;
     }
 
 	@Override
@@ -172,6 +172,11 @@ public class PollSourceServiceImpl extends GenericServiceImpl<PollSource, Long> 
 		}
 
 		return pollsourceMapper.selectForMap(map);
+	}
+
+	@Override
+	public List<PollSource> selectForM(Map map) {
+		return pollsourceMapper.selectForM(map);
 	}
 
 	@Override

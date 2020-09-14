@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.eliteams.quick4j.web.dao.PollFactoryMapper">
-  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.PollFactory">
-    <id column="id" jdbcType="INTEGER" property="id" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.PollFactoryMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.PollFactory" >
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="TJNF" property="tjnf" jdbcType="INTEGER" />
     <result column="XZQHDM" property="xzqhdm" jdbcType="VARCHAR" />
     <result column="XZQHMC" property="xzqhmc" jdbcType="VARCHAR" />
@@ -156,25 +156,25 @@
     <result column="poll_bl9" property="pollBl9" jdbcType="VARCHAR" />
     <result column="poll_bl10" property="pollBl10" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -185,25 +185,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -214,167 +214,166 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
-    id, TJNF, XZQHDM, XZQHMC, SHXYDM, ZZJGDM, DWMC_GZ, SSDM, SSKZDY, YYDWMC, FDDBR, QYXXDZ_S_ZZQ_ZXS,
-    QYXXDZ_DQ_S_Z_M, QYXXDZ_X_Q_S_Q, QYXXDZ_X_Z, QYXXDZ_J_C_MPH, ZXJD_D, ZXJD_F, ZXJD_M,
-    JD, ZXWD_D, ZXWD_F, ZXWD_M, WD, LXFSDHHM, LXFSLXR, LXFSCZHM, LXFSYZBM, WSCLSSLX,
-    WSCLCSMC, JCSJ, WSCLJB, WSCLFFMC1, WSCLFFDM1, WSCLFFMC2, WSCLFFDM2, WSCLFFMC3, WSCLFFDM3,
-    PSQXLXMC, PSQXLXDM, SNSTMC, SNSTDM, WNYYXHZZ, WNYYXHZZMC, ZXPFBZ, ZXPFBZMC, ZXPFBZXZJB,
-    ZXPFBZXZJBMC, YXTS_T, LJWCTZ_WY, XZGDZCTZ_WY, YXFY_WY, YDL_WQWS, WSSJCLNL_D_R, WSSJCLL_WD,
-    QZ_CLSHWSL_WD, QZ_CLGYFSL_WD, QZ_CLBXQWDSL_WD, ZSSSCL_WD, ZSSLYL_WD, QZ_GYYSL_WD,
-    QZ_SZYS_WD, QZ_JGYSL_WD, WNCSL_D, WNCZL_D, QZ_TDLYL_D, QZ_TMCZL_D, QZ_JZCLLYL_D,
-    QZ_FSCZL_D, WNQDDQL_D, WNYYXHCQL_LFM, HXXYLQCL_D, HXXYLJKND_HK_S, HXXYLCKND_HK_S,
-    SHXYLQCL_D, SHXYLJKND_HK_S, SHXYLCKND_HK_S, XFWQCL_D, XFWJKND_HK_S, XFWCKND_HK_S,
-    DZWYQCL_D, DZWYJKND_HK_S, DZWYCKND_HK_S, SYLQCL_D, SYLJKND_HK_S, SYLCKND_HK_S, YLZHXJQCL_D,
-    YLZHXJJKND_HK_S, YLZHXJCKND_HK_S, ADQCL_D, ADJKND_HK_S, ADCKND_HK_S, YLQCL_D, YLJKND_HK_S,
-    YLCKND_HK_S, ZDQCL_D, ZDJKND_HK_S, ZDCKND_HK_S, ZLQCL_QK, ZLJKND_HK_S, ZLCKND_HK_S,
-    HFFQCL_QK, HFFJKND_HK_S, HFFCKND_HK_S, QHWQCL_QK, QHWJKND_HK_S, QHWCKND_HK_S, SQCL_QK,
-    SJKND_HK_S, SCKND_HK_S, QQCL_QK, QJKND_HK_S, QCKND_HK_S, GQCL_QK, GJKND_HK_S, GCKND_HK_S,
-    GQCL_QK_dup1, GJKND_WK_S, GCKND_WK_S, ZGQCL_QK, ZGJKND_HK_S, ZGCKND_HK_S, LJGQCL_QK,
-    LJGJKND_HK_S, LJGCKND_HK_S, GY_CLSL_WD_R, GY_XZCLSL_WD_R, GY_YXTS_T, GY_CODJKND_HK_S,
-    GY_CODCKND_HK_S, GY_ADJKND_HK_S, GY_ADCKND_HK_S, SH_CLSL_WD_R, SH_XZCLSL_WD_R, SH_CODJKND_HK_S,
-    SH_CODCKND_HK_S, SH_ADJKND_HK_S, SH_ADCKND_HK_S, HDXZSHCODQCL_D, HDXZSHADQCL_D, JYTLC_M,
-    BZ, is_del, poll_bl1, poll_bl2, poll_bl3, poll_bl4, poll_bl5, poll_bl6, poll_bl7,
+  <sql id="Base_Column_List" >
+    id, TJNF, XZQHDM, XZQHMC, SHXYDM, ZZJGDM, DWMC_GZ, SSDM, SSKZDY, YYDWMC, FDDBR, QYXXDZ_S_ZZQ_ZXS, 
+    QYXXDZ_DQ_S_Z_M, QYXXDZ_X_Q_S_Q, QYXXDZ_X_Z, QYXXDZ_J_C_MPH, ZXJD_D, ZXJD_F, ZXJD_M, 
+    JD, ZXWD_D, ZXWD_F, ZXWD_M, WD, LXFSDHHM, LXFSLXR, LXFSCZHM, LXFSYZBM, WSCLSSLX, 
+    WSCLCSMC, JCSJ, WSCLJB, WSCLFFMC1, WSCLFFDM1, WSCLFFMC2, WSCLFFDM2, WSCLFFMC3, WSCLFFDM3, 
+    PSQXLXMC, PSQXLXDM, SNSTMC, SNSTDM, WNYYXHZZ, WNYYXHZZMC, ZXPFBZ, ZXPFBZMC, ZXPFBZXZJB, 
+    ZXPFBZXZJBMC, YXTS_T, LJWCTZ_WY, XZGDZCTZ_WY, YXFY_WY, YDL_WQWS, WSSJCLNL_D_R, WSSJCLL_WD, 
+    QZ_CLSHWSL_WD, QZ_CLGYFSL_WD, QZ_CLBXQWDSL_WD, ZSSSCL_WD, ZSSLYL_WD, QZ_GYYSL_WD, 
+    QZ_SZYS_WD, QZ_JGYSL_WD, WNCSL_D, WNCZL_D, QZ_TDLYL_D, QZ_TMCZL_D, QZ_JZCLLYL_D, 
+    QZ_FSCZL_D, WNQDDQL_D, WNYYXHCQL_LFM, HXXYLQCL_D, HXXYLJKND_HK_S, HXXYLCKND_HK_S, 
+    SHXYLQCL_D, SHXYLJKND_HK_S, SHXYLCKND_HK_S, XFWQCL_D, XFWJKND_HK_S, XFWCKND_HK_S, 
+    DZWYQCL_D, DZWYJKND_HK_S, DZWYCKND_HK_S, SYLQCL_D, SYLJKND_HK_S, SYLCKND_HK_S, YLZHXJQCL_D, 
+    YLZHXJJKND_HK_S, YLZHXJCKND_HK_S, ADQCL_D, ADJKND_HK_S, ADCKND_HK_S, YLQCL_D, YLJKND_HK_S, 
+    YLCKND_HK_S, ZDQCL_D, ZDJKND_HK_S, ZDCKND_HK_S, ZLQCL_QK, ZLJKND_HK_S, ZLCKND_HK_S, 
+    HFFQCL_QK, HFFJKND_HK_S, HFFCKND_HK_S, QHWQCL_QK, QHWJKND_HK_S, QHWCKND_HK_S, SQCL_QK, 
+    SJKND_HK_S, SCKND_HK_S, QQCL_QK, QJKND_HK_S, QCKND_HK_S, GQCL_QK, GJKND_HK_S, GCKND_HK_S, 
+    GQCL_QK_dup1, GJKND_WK_S, GCKND_WK_S, ZGQCL_QK, ZGJKND_HK_S, ZGCKND_HK_S, LJGQCL_QK, 
+    LJGJKND_HK_S, LJGCKND_HK_S, GY_CLSL_WD_R, GY_XZCLSL_WD_R, GY_YXTS_T, GY_CODJKND_HK_S, 
+    GY_CODCKND_HK_S, GY_ADJKND_HK_S, GY_ADCKND_HK_S, SH_CLSL_WD_R, SH_XZCLSL_WD_R, SH_CODJKND_HK_S, 
+    SH_CODCKND_HK_S, SH_ADJKND_HK_S, SH_ADCKND_HK_S, HDXZSHCODQCL_D, HDXZSHADQCL_D, JYTLC_M, 
+    BZ, is_del, poll_bl1, poll_bl2, poll_bl3, poll_bl4, poll_bl5, poll_bl6, poll_bl7, 
     poll_bl8, poll_bl9, poll_bl10
   </sql>
-  <select id="selectByExample" parameterType="com.eliteams.quick4j.web.model.PollFactoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.PollFactoryExample" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
-    'true' as QUERYID,
     <include refid="Base_Column_List" />
     from poll_factory
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from poll_factory
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from poll_factory
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.PollFactoryExample">
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.PollFactoryExample" >
     delete from poll_factory
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.PollFactory">
-    insert into poll_factory (id, TJNF, XZQHDM,
-                              XZQHMC, SHXYDM, ZZJGDM,
-                              DWMC_GZ, SSDM, SSKZDY,
-                              YYDWMC, FDDBR, QYXXDZ_S_ZZQ_ZXS,
-                              QYXXDZ_DQ_S_Z_M, QYXXDZ_X_Q_S_Q, QYXXDZ_X_Z,
-                              QYXXDZ_J_C_MPH, ZXJD_D, ZXJD_F,
-                              ZXJD_M, JD, ZXWD_D, ZXWD_F,
-                              ZXWD_M, WD, LXFSDHHM,
-                              LXFSLXR, LXFSCZHM, LXFSYZBM,
-                              WSCLSSLX, WSCLCSMC, JCSJ,
-                              WSCLJB, WSCLFFMC1, WSCLFFDM1,
-                              WSCLFFMC2, WSCLFFDM2, WSCLFFMC3,
-                              WSCLFFDM3, PSQXLXMC, PSQXLXDM,
-                              SNSTMC, SNSTDM, WNYYXHZZ,
-                              WNYYXHZZMC, ZXPFBZ, ZXPFBZMC,
-                              ZXPFBZXZJB, ZXPFBZXZJBMC, YXTS_T,
-                              LJWCTZ_WY, XZGDZCTZ_WY, YXFY_WY,
-                              YDL_WQWS, WSSJCLNL_D_R, WSSJCLL_WD,
-                              QZ_CLSHWSL_WD, QZ_CLGYFSL_WD, QZ_CLBXQWDSL_WD,
-                              ZSSSCL_WD, ZSSLYL_WD, QZ_GYYSL_WD,
-                              QZ_SZYS_WD, QZ_JGYSL_WD, WNCSL_D,
-                              WNCZL_D, QZ_TDLYL_D, QZ_TMCZL_D,
-                              QZ_JZCLLYL_D, QZ_FSCZL_D, WNQDDQL_D,
-                              WNYYXHCQL_LFM, HXXYLQCL_D, HXXYLJKND_HK_S,
-                              HXXYLCKND_HK_S, SHXYLQCL_D, SHXYLJKND_HK_S,
-                              SHXYLCKND_HK_S, XFWQCL_D, XFWJKND_HK_S,
-                              XFWCKND_HK_S, DZWYQCL_D, DZWYJKND_HK_S,
-                              DZWYCKND_HK_S, SYLQCL_D, SYLJKND_HK_S,
-                              SYLCKND_HK_S, YLZHXJQCL_D, YLZHXJJKND_HK_S,
-                              YLZHXJCKND_HK_S, ADQCL_D, ADJKND_HK_S,
-                              ADCKND_HK_S, YLQCL_D, YLJKND_HK_S,
-                              YLCKND_HK_S, ZDQCL_D, ZDJKND_HK_S,
-                              ZDCKND_HK_S, ZLQCL_QK, ZLJKND_HK_S,
-                              ZLCKND_HK_S, HFFQCL_QK, HFFJKND_HK_S,
-                              HFFCKND_HK_S, QHWQCL_QK, QHWJKND_HK_S,
-                              QHWCKND_HK_S, SQCL_QK, SJKND_HK_S,
-                              SCKND_HK_S, QQCL_QK, QJKND_HK_S,
-                              QCKND_HK_S, GQCL_QK, GJKND_HK_S,
-                              GCKND_HK_S, GQCL_QK_dup1, GJKND_WK_S,
-                              GCKND_WK_S, ZGQCL_QK, ZGJKND_HK_S,
-                              ZGCKND_HK_S, LJGQCL_QK, LJGJKND_HK_S,
-                              LJGCKND_HK_S, GY_CLSL_WD_R, GY_XZCLSL_WD_R,
-                              GY_YXTS_T, GY_CODJKND_HK_S, GY_CODCKND_HK_S,
-                              GY_ADJKND_HK_S, GY_ADCKND_HK_S, SH_CLSL_WD_R,
-                              SH_XZCLSL_WD_R, SH_CODJKND_HK_S, SH_CODCKND_HK_S,
-                              SH_ADJKND_HK_S, SH_ADCKND_HK_S, HDXZSHCODQCL_D,
-                              HDXZSHADQCL_D, JYTLC_M, BZ,
-                              is_del, poll_bl1, poll_bl2,
-                              poll_bl3, poll_bl4, poll_bl5,
-                              poll_bl6, poll_bl7, poll_bl8,
-                              poll_bl9, poll_bl10)
-    values (#{id,jdbcType=INTEGER}, #{tjnf,jdbcType=INTEGER}, #{xzqhdm,jdbcType=VARCHAR},
-            #{xzqhmc,jdbcType=VARCHAR}, #{shxydm,jdbcType=VARCHAR}, #{zzjgdm,jdbcType=VARCHAR},
-            #{dwmcGz,jdbcType=VARCHAR}, #{ssdm,jdbcType=VARCHAR}, #{sskzdy,jdbcType=VARCHAR},
-            #{yydwmc,jdbcType=VARCHAR}, #{fddbr,jdbcType=VARCHAR}, #{qyxxdzSZzqZxs,jdbcType=VARCHAR},
-            #{qyxxdzDqSZM,jdbcType=VARCHAR}, #{qyxxdzXQSQ,jdbcType=VARCHAR}, #{qyxxdzXZ,jdbcType=VARCHAR},
-            #{qyxxdzJCMph,jdbcType=VARCHAR}, #{zxjdD,jdbcType=INTEGER}, #{zxjdF,jdbcType=INTEGER},
-            #{zxjdM,jdbcType=INTEGER}, #{jd,jdbcType=DOUBLE}, #{zxwdD,jdbcType=INTEGER}, #{zxwdF,jdbcType=INTEGER},
-            #{zxwdM,jdbcType=INTEGER}, #{wd,jdbcType=DOUBLE}, #{lxfsdhhm,jdbcType=VARCHAR},
-            #{lxfslxr,jdbcType=VARCHAR}, #{lxfsczhm,jdbcType=VARCHAR}, #{lxfsyzbm,jdbcType=VARCHAR},
-            #{wsclsslx,jdbcType=VARCHAR}, #{wsclcsmc,jdbcType=VARCHAR}, #{jcsj,jdbcType=INTEGER},
-            #{wscljb,jdbcType=VARCHAR}, #{wsclffmc1,jdbcType=VARCHAR}, #{wsclffdm1,jdbcType=VARCHAR},
-            #{wsclffmc2,jdbcType=VARCHAR}, #{wsclffdm2,jdbcType=VARCHAR}, #{wsclffmc3,jdbcType=VARCHAR},
-            #{wsclffdm3,jdbcType=VARCHAR}, #{psqxlxmc,jdbcType=VARCHAR}, #{psqxlxdm,jdbcType=VARCHAR},
-            #{snstmc,jdbcType=VARCHAR}, #{snstdm,jdbcType=VARCHAR}, #{wnyyxhzz,jdbcType=VARCHAR},
-            #{wnyyxhzzmc,jdbcType=VARCHAR}, #{zxpfbz,jdbcType=VARCHAR}, #{zxpfbzmc,jdbcType=VARCHAR},
-            #{zxpfbzxzjb,jdbcType=VARCHAR}, #{zxpfbzxzjbmc,jdbcType=VARCHAR}, #{yxtsT,jdbcType=INTEGER},
-            #{ljwctzWy,jdbcType=DOUBLE}, #{xzgdzctzWy,jdbcType=DOUBLE}, #{yxfyWy,jdbcType=DOUBLE},
-            #{ydlWqws,jdbcType=DECIMAL}, #{wssjclnlDR,jdbcType=DOUBLE}, #{wssjcllWd,jdbcType=DOUBLE},
-            #{qzClshwslWd,jdbcType=DOUBLE}, #{qzClgyfslWd,jdbcType=DOUBLE}, #{qzClbxqwdslWd,jdbcType=DOUBLE},
-            #{zsssclWd,jdbcType=DOUBLE}, #{zsslylWd,jdbcType=DOUBLE}, #{qzGyyslWd,jdbcType=DOUBLE},
-            #{qzSzysWd,jdbcType=DOUBLE}, #{qzJgyslWd,jdbcType=DOUBLE}, #{wncslD,jdbcType=DOUBLE},
-            #{wnczlD,jdbcType=DOUBLE}, #{qzTdlylD,jdbcType=DOUBLE}, #{qzTmczlD,jdbcType=DOUBLE},
-            #{qzJzcllylD,jdbcType=DOUBLE}, #{qzFsczlD,jdbcType=DOUBLE}, #{wnqddqlD,jdbcType=DOUBLE},
-            #{wnyyxhcqlLfm,jdbcType=DOUBLE}, #{hxxylqclD,jdbcType=DOUBLE}, #{hxxyljkndHkS,jdbcType=DOUBLE},
-            #{hxxylckndHkS,jdbcType=DOUBLE}, #{shxylqclD,jdbcType=DOUBLE}, #{shxyljkndHkS,jdbcType=DOUBLE},
-            #{shxylckndHkS,jdbcType=DOUBLE}, #{xfwqclD,jdbcType=DOUBLE}, #{xfwjkndHkS,jdbcType=DOUBLE},
-            #{xfwckndHkS,jdbcType=DOUBLE}, #{dzwyqclD,jdbcType=DOUBLE}, #{dzwyjkndHkS,jdbcType=DOUBLE},
-            #{dzwyckndHkS,jdbcType=DOUBLE}, #{sylqclD,jdbcType=DOUBLE}, #{syljkndHkS,jdbcType=DOUBLE},
-            #{sylckndHkS,jdbcType=DOUBLE}, #{ylzhxjqclD,jdbcType=DOUBLE}, #{ylzhxjjkndHkS,jdbcType=DOUBLE},
-            #{ylzhxjckndHkS,jdbcType=DOUBLE}, #{adqclD,jdbcType=DOUBLE}, #{adjkndHkS,jdbcType=DOUBLE},
-            #{adckndHkS,jdbcType=DOUBLE}, #{ylqclD,jdbcType=DOUBLE}, #{yljkndHkS,jdbcType=DOUBLE},
-            #{ylckndHkS,jdbcType=DOUBLE}, #{zdqclD,jdbcType=DOUBLE}, #{zdjkndHkS,jdbcType=DOUBLE},
-            #{zdckndHkS,jdbcType=DOUBLE}, #{zlqclQk,jdbcType=DOUBLE}, #{zljkndHkS,jdbcType=DOUBLE},
-            #{zlckndHkS,jdbcType=DOUBLE}, #{hffqclQk,jdbcType=DOUBLE}, #{hffjkndHkS,jdbcType=DOUBLE},
-            #{hffckndHkS,jdbcType=DOUBLE}, #{qhwqclQk,jdbcType=DOUBLE}, #{qhwjkndHkS,jdbcType=DOUBLE},
-            #{qhwckndHkS,jdbcType=DOUBLE}, #{sqclQk,jdbcType=DOUBLE}, #{sjkndHkS,jdbcType=DOUBLE},
-            #{sckndHkS,jdbcType=DOUBLE}, #{qqclQk,jdbcType=DOUBLE}, #{qjkndHkS,jdbcType=DOUBLE},
-            #{qckndHkS,jdbcType=DOUBLE}, #{gqclQk,jdbcType=DOUBLE}, #{gjkndHkS,jdbcType=DOUBLE},
-            #{gckndHkS,jdbcType=DOUBLE}, #{gqclQkDup1,jdbcType=DOUBLE}, #{gjkndWkS,jdbcType=DOUBLE},
-            #{gckndWkS,jdbcType=DOUBLE}, #{zgqclQk,jdbcType=DOUBLE}, #{zgjkndHkS,jdbcType=DOUBLE},
-            #{zgckndHkS,jdbcType=DOUBLE}, #{ljgqclQk,jdbcType=DOUBLE}, #{ljgjkndHkS,jdbcType=DOUBLE},
-            #{ljgckndHkS,jdbcType=DOUBLE}, #{gyClslWdR,jdbcType=DOUBLE}, #{gyXzclslWdR,jdbcType=DOUBLE},
-            #{gyYxtsT,jdbcType=DOUBLE}, #{gyCodjkndHkS,jdbcType=DOUBLE}, #{gyCodckndHkS,jdbcType=DOUBLE},
-            #{gyAdjkndHkS,jdbcType=DOUBLE}, #{gyAdckndHkS,jdbcType=DOUBLE}, #{shClslWdR,jdbcType=DOUBLE},
-            #{shXzclslWdR,jdbcType=DOUBLE}, #{shCodjkndHkS,jdbcType=DOUBLE}, #{shCodckndHkS,jdbcType=DOUBLE},
-            #{shAdjkndHkS,jdbcType=DOUBLE}, #{shAdckndHkS,jdbcType=DOUBLE}, #{hdxzshcodqclD,jdbcType=DOUBLE},
-            #{hdxzshadqclD,jdbcType=DOUBLE}, #{jytlcM,jdbcType=DOUBLE}, #{bz,jdbcType=VARCHAR},
-            #{isDel,jdbcType=INTEGER}, #{pollBl1,jdbcType=VARCHAR}, #{pollBl2,jdbcType=VARCHAR},
-            #{pollBl3,jdbcType=VARCHAR}, #{pollBl4,jdbcType=VARCHAR}, #{pollBl5,jdbcType=VARCHAR},
-            #{pollBl6,jdbcType=VARCHAR}, #{pollBl7,jdbcType=VARCHAR}, #{pollBl8,jdbcType=VARCHAR},
-            #{pollBl9,jdbcType=VARCHAR}, #{pollBl10,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.PollFactory" >
+    insert into poll_factory (id, TJNF, XZQHDM, 
+      XZQHMC, SHXYDM, ZZJGDM, 
+      DWMC_GZ, SSDM, SSKZDY, 
+      YYDWMC, FDDBR, QYXXDZ_S_ZZQ_ZXS, 
+      QYXXDZ_DQ_S_Z_M, QYXXDZ_X_Q_S_Q, QYXXDZ_X_Z, 
+      QYXXDZ_J_C_MPH, ZXJD_D, ZXJD_F, 
+      ZXJD_M, JD, ZXWD_D, ZXWD_F, 
+      ZXWD_M, WD, LXFSDHHM, 
+      LXFSLXR, LXFSCZHM, LXFSYZBM, 
+      WSCLSSLX, WSCLCSMC, JCSJ, 
+      WSCLJB, WSCLFFMC1, WSCLFFDM1, 
+      WSCLFFMC2, WSCLFFDM2, WSCLFFMC3, 
+      WSCLFFDM3, PSQXLXMC, PSQXLXDM, 
+      SNSTMC, SNSTDM, WNYYXHZZ, 
+      WNYYXHZZMC, ZXPFBZ, ZXPFBZMC, 
+      ZXPFBZXZJB, ZXPFBZXZJBMC, YXTS_T, 
+      LJWCTZ_WY, XZGDZCTZ_WY, YXFY_WY, 
+      YDL_WQWS, WSSJCLNL_D_R, WSSJCLL_WD, 
+      QZ_CLSHWSL_WD, QZ_CLGYFSL_WD, QZ_CLBXQWDSL_WD, 
+      ZSSSCL_WD, ZSSLYL_WD, QZ_GYYSL_WD, 
+      QZ_SZYS_WD, QZ_JGYSL_WD, WNCSL_D, 
+      WNCZL_D, QZ_TDLYL_D, QZ_TMCZL_D, 
+      QZ_JZCLLYL_D, QZ_FSCZL_D, WNQDDQL_D, 
+      WNYYXHCQL_LFM, HXXYLQCL_D, HXXYLJKND_HK_S, 
+      HXXYLCKND_HK_S, SHXYLQCL_D, SHXYLJKND_HK_S, 
+      SHXYLCKND_HK_S, XFWQCL_D, XFWJKND_HK_S, 
+      XFWCKND_HK_S, DZWYQCL_D, DZWYJKND_HK_S, 
+      DZWYCKND_HK_S, SYLQCL_D, SYLJKND_HK_S, 
+      SYLCKND_HK_S, YLZHXJQCL_D, YLZHXJJKND_HK_S, 
+      YLZHXJCKND_HK_S, ADQCL_D, ADJKND_HK_S, 
+      ADCKND_HK_S, YLQCL_D, YLJKND_HK_S, 
+      YLCKND_HK_S, ZDQCL_D, ZDJKND_HK_S, 
+      ZDCKND_HK_S, ZLQCL_QK, ZLJKND_HK_S, 
+      ZLCKND_HK_S, HFFQCL_QK, HFFJKND_HK_S, 
+      HFFCKND_HK_S, QHWQCL_QK, QHWJKND_HK_S, 
+      QHWCKND_HK_S, SQCL_QK, SJKND_HK_S, 
+      SCKND_HK_S, QQCL_QK, QJKND_HK_S, 
+      QCKND_HK_S, GQCL_QK, GJKND_HK_S, 
+      GCKND_HK_S, GQCL_QK_dup1, GJKND_WK_S, 
+      GCKND_WK_S, ZGQCL_QK, ZGJKND_HK_S, 
+      ZGCKND_HK_S, LJGQCL_QK, LJGJKND_HK_S, 
+      LJGCKND_HK_S, GY_CLSL_WD_R, GY_XZCLSL_WD_R, 
+      GY_YXTS_T, GY_CODJKND_HK_S, GY_CODCKND_HK_S, 
+      GY_ADJKND_HK_S, GY_ADCKND_HK_S, SH_CLSL_WD_R, 
+      SH_XZCLSL_WD_R, SH_CODJKND_HK_S, SH_CODCKND_HK_S, 
+      SH_ADJKND_HK_S, SH_ADCKND_HK_S, HDXZSHCODQCL_D, 
+      HDXZSHADQCL_D, JYTLC_M, BZ, 
+      is_del, poll_bl1, poll_bl2, 
+      poll_bl3, poll_bl4, poll_bl5, 
+      poll_bl6, poll_bl7, poll_bl8, 
+      poll_bl9, poll_bl10)
+    values (#{id,jdbcType=INTEGER}, #{tjnf,jdbcType=INTEGER}, #{xzqhdm,jdbcType=VARCHAR}, 
+      #{xzqhmc,jdbcType=VARCHAR}, #{shxydm,jdbcType=VARCHAR}, #{zzjgdm,jdbcType=VARCHAR}, 
+      #{dwmcGz,jdbcType=VARCHAR}, #{ssdm,jdbcType=VARCHAR}, #{sskzdy,jdbcType=VARCHAR}, 
+      #{yydwmc,jdbcType=VARCHAR}, #{fddbr,jdbcType=VARCHAR}, #{qyxxdzSZzqZxs,jdbcType=VARCHAR}, 
+      #{qyxxdzDqSZM,jdbcType=VARCHAR}, #{qyxxdzXQSQ,jdbcType=VARCHAR}, #{qyxxdzXZ,jdbcType=VARCHAR}, 
+      #{qyxxdzJCMph,jdbcType=VARCHAR}, #{zxjdD,jdbcType=INTEGER}, #{zxjdF,jdbcType=INTEGER}, 
+      #{zxjdM,jdbcType=INTEGER}, #{jd,jdbcType=DOUBLE}, #{zxwdD,jdbcType=INTEGER}, #{zxwdF,jdbcType=INTEGER}, 
+      #{zxwdM,jdbcType=INTEGER}, #{wd,jdbcType=DOUBLE}, #{lxfsdhhm,jdbcType=VARCHAR}, 
+      #{lxfslxr,jdbcType=VARCHAR}, #{lxfsczhm,jdbcType=VARCHAR}, #{lxfsyzbm,jdbcType=VARCHAR}, 
+      #{wsclsslx,jdbcType=VARCHAR}, #{wsclcsmc,jdbcType=VARCHAR}, #{jcsj,jdbcType=INTEGER}, 
+      #{wscljb,jdbcType=VARCHAR}, #{wsclffmc1,jdbcType=VARCHAR}, #{wsclffdm1,jdbcType=VARCHAR}, 
+      #{wsclffmc2,jdbcType=VARCHAR}, #{wsclffdm2,jdbcType=VARCHAR}, #{wsclffmc3,jdbcType=VARCHAR}, 
+      #{wsclffdm3,jdbcType=VARCHAR}, #{psqxlxmc,jdbcType=VARCHAR}, #{psqxlxdm,jdbcType=VARCHAR}, 
+      #{snstmc,jdbcType=VARCHAR}, #{snstdm,jdbcType=VARCHAR}, #{wnyyxhzz,jdbcType=VARCHAR}, 
+      #{wnyyxhzzmc,jdbcType=VARCHAR}, #{zxpfbz,jdbcType=VARCHAR}, #{zxpfbzmc,jdbcType=VARCHAR}, 
+      #{zxpfbzxzjb,jdbcType=VARCHAR}, #{zxpfbzxzjbmc,jdbcType=VARCHAR}, #{yxtsT,jdbcType=INTEGER}, 
+      #{ljwctzWy,jdbcType=DOUBLE}, #{xzgdzctzWy,jdbcType=DOUBLE}, #{yxfyWy,jdbcType=DOUBLE}, 
+      #{ydlWqws,jdbcType=DECIMAL}, #{wssjclnlDR,jdbcType=DOUBLE}, #{wssjcllWd,jdbcType=DOUBLE}, 
+      #{qzClshwslWd,jdbcType=DOUBLE}, #{qzClgyfslWd,jdbcType=DOUBLE}, #{qzClbxqwdslWd,jdbcType=DOUBLE}, 
+      #{zsssclWd,jdbcType=DOUBLE}, #{zsslylWd,jdbcType=DOUBLE}, #{qzGyyslWd,jdbcType=DOUBLE}, 
+      #{qzSzysWd,jdbcType=DOUBLE}, #{qzJgyslWd,jdbcType=DOUBLE}, #{wncslD,jdbcType=DOUBLE}, 
+      #{wnczlD,jdbcType=DOUBLE}, #{qzTdlylD,jdbcType=DOUBLE}, #{qzTmczlD,jdbcType=DOUBLE}, 
+      #{qzJzcllylD,jdbcType=DOUBLE}, #{qzFsczlD,jdbcType=DOUBLE}, #{wnqddqlD,jdbcType=DOUBLE}, 
+      #{wnyyxhcqlLfm,jdbcType=DOUBLE}, #{hxxylqclD,jdbcType=DOUBLE}, #{hxxyljkndHkS,jdbcType=DOUBLE}, 
+      #{hxxylckndHkS,jdbcType=DOUBLE}, #{shxylqclD,jdbcType=DOUBLE}, #{shxyljkndHkS,jdbcType=DOUBLE}, 
+      #{shxylckndHkS,jdbcType=DOUBLE}, #{xfwqclD,jdbcType=DOUBLE}, #{xfwjkndHkS,jdbcType=DOUBLE}, 
+      #{xfwckndHkS,jdbcType=DOUBLE}, #{dzwyqclD,jdbcType=DOUBLE}, #{dzwyjkndHkS,jdbcType=DOUBLE}, 
+      #{dzwyckndHkS,jdbcType=DOUBLE}, #{sylqclD,jdbcType=DOUBLE}, #{syljkndHkS,jdbcType=DOUBLE}, 
+      #{sylckndHkS,jdbcType=DOUBLE}, #{ylzhxjqclD,jdbcType=DOUBLE}, #{ylzhxjjkndHkS,jdbcType=DOUBLE}, 
+      #{ylzhxjckndHkS,jdbcType=DOUBLE}, #{adqclD,jdbcType=DOUBLE}, #{adjkndHkS,jdbcType=DOUBLE}, 
+      #{adckndHkS,jdbcType=DOUBLE}, #{ylqclD,jdbcType=DOUBLE}, #{yljkndHkS,jdbcType=DOUBLE}, 
+      #{ylckndHkS,jdbcType=DOUBLE}, #{zdqclD,jdbcType=DOUBLE}, #{zdjkndHkS,jdbcType=DOUBLE}, 
+      #{zdckndHkS,jdbcType=DOUBLE}, #{zlqclQk,jdbcType=DOUBLE}, #{zljkndHkS,jdbcType=DOUBLE}, 
+      #{zlckndHkS,jdbcType=DOUBLE}, #{hffqclQk,jdbcType=DOUBLE}, #{hffjkndHkS,jdbcType=DOUBLE}, 
+      #{hffckndHkS,jdbcType=DOUBLE}, #{qhwqclQk,jdbcType=DOUBLE}, #{qhwjkndHkS,jdbcType=DOUBLE}, 
+      #{qhwckndHkS,jdbcType=DOUBLE}, #{sqclQk,jdbcType=DOUBLE}, #{sjkndHkS,jdbcType=DOUBLE}, 
+      #{sckndHkS,jdbcType=DOUBLE}, #{qqclQk,jdbcType=DOUBLE}, #{qjkndHkS,jdbcType=DOUBLE}, 
+      #{qckndHkS,jdbcType=DOUBLE}, #{gqclQk,jdbcType=DOUBLE}, #{gjkndHkS,jdbcType=DOUBLE}, 
+      #{gckndHkS,jdbcType=DOUBLE}, #{gqclQkDup1,jdbcType=DOUBLE}, #{gjkndWkS,jdbcType=DOUBLE}, 
+      #{gckndWkS,jdbcType=DOUBLE}, #{zgqclQk,jdbcType=DOUBLE}, #{zgjkndHkS,jdbcType=DOUBLE}, 
+      #{zgckndHkS,jdbcType=DOUBLE}, #{ljgqclQk,jdbcType=DOUBLE}, #{ljgjkndHkS,jdbcType=DOUBLE}, 
+      #{ljgckndHkS,jdbcType=DOUBLE}, #{gyClslWdR,jdbcType=DOUBLE}, #{gyXzclslWdR,jdbcType=DOUBLE}, 
+      #{gyYxtsT,jdbcType=DOUBLE}, #{gyCodjkndHkS,jdbcType=DOUBLE}, #{gyCodckndHkS,jdbcType=DOUBLE}, 
+      #{gyAdjkndHkS,jdbcType=DOUBLE}, #{gyAdckndHkS,jdbcType=DOUBLE}, #{shClslWdR,jdbcType=DOUBLE}, 
+      #{shXzclslWdR,jdbcType=DOUBLE}, #{shCodjkndHkS,jdbcType=DOUBLE}, #{shCodckndHkS,jdbcType=DOUBLE}, 
+      #{shAdjkndHkS,jdbcType=DOUBLE}, #{shAdckndHkS,jdbcType=DOUBLE}, #{hdxzshcodqclD,jdbcType=DOUBLE}, 
+      #{hdxzshadqclD,jdbcType=DOUBLE}, #{jytlcM,jdbcType=DOUBLE}, #{bz,jdbcType=VARCHAR}, 
+      #{isDel,jdbcType=INTEGER}, #{pollBl1,jdbcType=VARCHAR}, #{pollBl2,jdbcType=VARCHAR}, 
+      #{pollBl3,jdbcType=VARCHAR}, #{pollBl4,jdbcType=VARCHAR}, #{pollBl5,jdbcType=VARCHAR}, 
+      #{pollBl6,jdbcType=VARCHAR}, #{pollBl7,jdbcType=VARCHAR}, #{pollBl8,jdbcType=VARCHAR}, 
+      #{pollBl9,jdbcType=VARCHAR}, #{pollBl10,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.PollFactory">
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.PollFactory" >
     insert into poll_factory
-    <trim prefix="(" suffix=")" suffixOverrides=",">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
@@ -835,7 +834,7 @@
         poll_bl10,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
@@ -1297,13 +1296,13 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.PollFactoryExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.PollFactoryExample" resultType="java.lang.Integer" >
     select count(*) from poll_factory
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update poll_factory
     <set >
       <if test="record.id != null" >
@@ -1766,170 +1765,170 @@
         poll_bl10 = #{record.pollBl10,jdbcType=VARCHAR},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update poll_factory
     set id = #{record.id,jdbcType=INTEGER},
-    TJNF = #{record.tjnf,jdbcType=INTEGER},
-    XZQHDM = #{record.xzqhdm,jdbcType=VARCHAR},
-    XZQHMC = #{record.xzqhmc,jdbcType=VARCHAR},
-    SHXYDM = #{record.shxydm,jdbcType=VARCHAR},
-    ZZJGDM = #{record.zzjgdm,jdbcType=VARCHAR},
-    DWMC_GZ = #{record.dwmcGz,jdbcType=VARCHAR},
-    SSDM = #{record.ssdm,jdbcType=VARCHAR},
-    SSKZDY = #{record.sskzdy,jdbcType=VARCHAR},
-    YYDWMC = #{record.yydwmc,jdbcType=VARCHAR},
-    FDDBR = #{record.fddbr,jdbcType=VARCHAR},
-    QYXXDZ_S_ZZQ_ZXS = #{record.qyxxdzSZzqZxs,jdbcType=VARCHAR},
-    QYXXDZ_DQ_S_Z_M = #{record.qyxxdzDqSZM,jdbcType=VARCHAR},
-    QYXXDZ_X_Q_S_Q = #{record.qyxxdzXQSQ,jdbcType=VARCHAR},
-    QYXXDZ_X_Z = #{record.qyxxdzXZ,jdbcType=VARCHAR},
-    QYXXDZ_J_C_MPH = #{record.qyxxdzJCMph,jdbcType=VARCHAR},
-    ZXJD_D = #{record.zxjdD,jdbcType=INTEGER},
-    ZXJD_F = #{record.zxjdF,jdbcType=INTEGER},
-    ZXJD_M = #{record.zxjdM,jdbcType=INTEGER},
-    JD = #{record.jd,jdbcType=DOUBLE},
-    ZXWD_D = #{record.zxwdD,jdbcType=INTEGER},
-    ZXWD_F = #{record.zxwdF,jdbcType=INTEGER},
-    ZXWD_M = #{record.zxwdM,jdbcType=INTEGER},
-    WD = #{record.wd,jdbcType=DOUBLE},
-    LXFSDHHM = #{record.lxfsdhhm,jdbcType=VARCHAR},
-    LXFSLXR = #{record.lxfslxr,jdbcType=VARCHAR},
-    LXFSCZHM = #{record.lxfsczhm,jdbcType=VARCHAR},
-    LXFSYZBM = #{record.lxfsyzbm,jdbcType=VARCHAR},
-    WSCLSSLX = #{record.wsclsslx,jdbcType=VARCHAR},
-    WSCLCSMC = #{record.wsclcsmc,jdbcType=VARCHAR},
-    JCSJ = #{record.jcsj,jdbcType=INTEGER},
-    WSCLJB = #{record.wscljb,jdbcType=VARCHAR},
-    WSCLFFMC1 = #{record.wsclffmc1,jdbcType=VARCHAR},
-    WSCLFFDM1 = #{record.wsclffdm1,jdbcType=VARCHAR},
-    WSCLFFMC2 = #{record.wsclffmc2,jdbcType=VARCHAR},
-    WSCLFFDM2 = #{record.wsclffdm2,jdbcType=VARCHAR},
-    WSCLFFMC3 = #{record.wsclffmc3,jdbcType=VARCHAR},
-    WSCLFFDM3 = #{record.wsclffdm3,jdbcType=VARCHAR},
-    PSQXLXMC = #{record.psqxlxmc,jdbcType=VARCHAR},
-    PSQXLXDM = #{record.psqxlxdm,jdbcType=VARCHAR},
-    SNSTMC = #{record.snstmc,jdbcType=VARCHAR},
-    SNSTDM = #{record.snstdm,jdbcType=VARCHAR},
-    WNYYXHZZ = #{record.wnyyxhzz,jdbcType=VARCHAR},
-    WNYYXHZZMC = #{record.wnyyxhzzmc,jdbcType=VARCHAR},
-    ZXPFBZ = #{record.zxpfbz,jdbcType=VARCHAR},
-    ZXPFBZMC = #{record.zxpfbzmc,jdbcType=VARCHAR},
-    ZXPFBZXZJB = #{record.zxpfbzxzjb,jdbcType=VARCHAR},
-    ZXPFBZXZJBMC = #{record.zxpfbzxzjbmc,jdbcType=VARCHAR},
-    YXTS_T = #{record.yxtsT,jdbcType=INTEGER},
-    LJWCTZ_WY = #{record.ljwctzWy,jdbcType=DOUBLE},
-    XZGDZCTZ_WY = #{record.xzgdzctzWy,jdbcType=DOUBLE},
-    YXFY_WY = #{record.yxfyWy,jdbcType=DOUBLE},
-    YDL_WQWS = #{record.ydlWqws,jdbcType=DECIMAL},
-    WSSJCLNL_D_R = #{record.wssjclnlDR,jdbcType=DOUBLE},
-    WSSJCLL_WD = #{record.wssjcllWd,jdbcType=DOUBLE},
-    QZ_CLSHWSL_WD = #{record.qzClshwslWd,jdbcType=DOUBLE},
-    QZ_CLGYFSL_WD = #{record.qzClgyfslWd,jdbcType=DOUBLE},
-    QZ_CLBXQWDSL_WD = #{record.qzClbxqwdslWd,jdbcType=DOUBLE},
-    ZSSSCL_WD = #{record.zsssclWd,jdbcType=DOUBLE},
-    ZSSLYL_WD = #{record.zsslylWd,jdbcType=DOUBLE},
-    QZ_GYYSL_WD = #{record.qzGyyslWd,jdbcType=DOUBLE},
-    QZ_SZYS_WD = #{record.qzSzysWd,jdbcType=DOUBLE},
-    QZ_JGYSL_WD = #{record.qzJgyslWd,jdbcType=DOUBLE},
-    WNCSL_D = #{record.wncslD,jdbcType=DOUBLE},
-    WNCZL_D = #{record.wnczlD,jdbcType=DOUBLE},
-    QZ_TDLYL_D = #{record.qzTdlylD,jdbcType=DOUBLE},
-    QZ_TMCZL_D = #{record.qzTmczlD,jdbcType=DOUBLE},
-    QZ_JZCLLYL_D = #{record.qzJzcllylD,jdbcType=DOUBLE},
-    QZ_FSCZL_D = #{record.qzFsczlD,jdbcType=DOUBLE},
-    WNQDDQL_D = #{record.wnqddqlD,jdbcType=DOUBLE},
-    WNYYXHCQL_LFM = #{record.wnyyxhcqlLfm,jdbcType=DOUBLE},
-    HXXYLQCL_D = #{record.hxxylqclD,jdbcType=DOUBLE},
-    HXXYLJKND_HK_S = #{record.hxxyljkndHkS,jdbcType=DOUBLE},
-    HXXYLCKND_HK_S = #{record.hxxylckndHkS,jdbcType=DOUBLE},
-    SHXYLQCL_D = #{record.shxylqclD,jdbcType=DOUBLE},
-    SHXYLJKND_HK_S = #{record.shxyljkndHkS,jdbcType=DOUBLE},
-    SHXYLCKND_HK_S = #{record.shxylckndHkS,jdbcType=DOUBLE},
-    XFWQCL_D = #{record.xfwqclD,jdbcType=DOUBLE},
-    XFWJKND_HK_S = #{record.xfwjkndHkS,jdbcType=DOUBLE},
-    XFWCKND_HK_S = #{record.xfwckndHkS,jdbcType=DOUBLE},
-    DZWYQCL_D = #{record.dzwyqclD,jdbcType=DOUBLE},
-    DZWYJKND_HK_S = #{record.dzwyjkndHkS,jdbcType=DOUBLE},
-    DZWYCKND_HK_S = #{record.dzwyckndHkS,jdbcType=DOUBLE},
-    SYLQCL_D = #{record.sylqclD,jdbcType=DOUBLE},
-    SYLJKND_HK_S = #{record.syljkndHkS,jdbcType=DOUBLE},
-    SYLCKND_HK_S = #{record.sylckndHkS,jdbcType=DOUBLE},
-    YLZHXJQCL_D = #{record.ylzhxjqclD,jdbcType=DOUBLE},
-    YLZHXJJKND_HK_S = #{record.ylzhxjjkndHkS,jdbcType=DOUBLE},
-    YLZHXJCKND_HK_S = #{record.ylzhxjckndHkS,jdbcType=DOUBLE},
-    ADQCL_D = #{record.adqclD,jdbcType=DOUBLE},
-    ADJKND_HK_S = #{record.adjkndHkS,jdbcType=DOUBLE},
-    ADCKND_HK_S = #{record.adckndHkS,jdbcType=DOUBLE},
-    YLQCL_D = #{record.ylqclD,jdbcType=DOUBLE},
-    YLJKND_HK_S = #{record.yljkndHkS,jdbcType=DOUBLE},
-    YLCKND_HK_S = #{record.ylckndHkS,jdbcType=DOUBLE},
-    ZDQCL_D = #{record.zdqclD,jdbcType=DOUBLE},
-    ZDJKND_HK_S = #{record.zdjkndHkS,jdbcType=DOUBLE},
-    ZDCKND_HK_S = #{record.zdckndHkS,jdbcType=DOUBLE},
-    ZLQCL_QK = #{record.zlqclQk,jdbcType=DOUBLE},
-    ZLJKND_HK_S = #{record.zljkndHkS,jdbcType=DOUBLE},
-    ZLCKND_HK_S = #{record.zlckndHkS,jdbcType=DOUBLE},
-    HFFQCL_QK = #{record.hffqclQk,jdbcType=DOUBLE},
-    HFFJKND_HK_S = #{record.hffjkndHkS,jdbcType=DOUBLE},
-    HFFCKND_HK_S = #{record.hffckndHkS,jdbcType=DOUBLE},
-    QHWQCL_QK = #{record.qhwqclQk,jdbcType=DOUBLE},
-    QHWJKND_HK_S = #{record.qhwjkndHkS,jdbcType=DOUBLE},
-    QHWCKND_HK_S = #{record.qhwckndHkS,jdbcType=DOUBLE},
-    SQCL_QK = #{record.sqclQk,jdbcType=DOUBLE},
-    SJKND_HK_S = #{record.sjkndHkS,jdbcType=DOUBLE},
-    SCKND_HK_S = #{record.sckndHkS,jdbcType=DOUBLE},
-    QQCL_QK = #{record.qqclQk,jdbcType=DOUBLE},
-    QJKND_HK_S = #{record.qjkndHkS,jdbcType=DOUBLE},
-    QCKND_HK_S = #{record.qckndHkS,jdbcType=DOUBLE},
-    GQCL_QK = #{record.gqclQk,jdbcType=DOUBLE},
-    GJKND_HK_S = #{record.gjkndHkS,jdbcType=DOUBLE},
-    GCKND_HK_S = #{record.gckndHkS,jdbcType=DOUBLE},
-    GQCL_QK_dup1 = #{record.gqclQkDup1,jdbcType=DOUBLE},
-    GJKND_WK_S = #{record.gjkndWkS,jdbcType=DOUBLE},
-    GCKND_WK_S = #{record.gckndWkS,jdbcType=DOUBLE},
-    ZGQCL_QK = #{record.zgqclQk,jdbcType=DOUBLE},
-    ZGJKND_HK_S = #{record.zgjkndHkS,jdbcType=DOUBLE},
-    ZGCKND_HK_S = #{record.zgckndHkS,jdbcType=DOUBLE},
-    LJGQCL_QK = #{record.ljgqclQk,jdbcType=DOUBLE},
-    LJGJKND_HK_S = #{record.ljgjkndHkS,jdbcType=DOUBLE},
-    LJGCKND_HK_S = #{record.ljgckndHkS,jdbcType=DOUBLE},
-    GY_CLSL_WD_R = #{record.gyClslWdR,jdbcType=DOUBLE},
-    GY_XZCLSL_WD_R = #{record.gyXzclslWdR,jdbcType=DOUBLE},
-    GY_YXTS_T = #{record.gyYxtsT,jdbcType=DOUBLE},
-    GY_CODJKND_HK_S = #{record.gyCodjkndHkS,jdbcType=DOUBLE},
-    GY_CODCKND_HK_S = #{record.gyCodckndHkS,jdbcType=DOUBLE},
-    GY_ADJKND_HK_S = #{record.gyAdjkndHkS,jdbcType=DOUBLE},
-    GY_ADCKND_HK_S = #{record.gyAdckndHkS,jdbcType=DOUBLE},
-    SH_CLSL_WD_R = #{record.shClslWdR,jdbcType=DOUBLE},
-    SH_XZCLSL_WD_R = #{record.shXzclslWdR,jdbcType=DOUBLE},
-    SH_CODJKND_HK_S = #{record.shCodjkndHkS,jdbcType=DOUBLE},
-    SH_CODCKND_HK_S = #{record.shCodckndHkS,jdbcType=DOUBLE},
-    SH_ADJKND_HK_S = #{record.shAdjkndHkS,jdbcType=DOUBLE},
-    SH_ADCKND_HK_S = #{record.shAdckndHkS,jdbcType=DOUBLE},
-    HDXZSHCODQCL_D = #{record.hdxzshcodqclD,jdbcType=DOUBLE},
-    HDXZSHADQCL_D = #{record.hdxzshadqclD,jdbcType=DOUBLE},
-    JYTLC_M = #{record.jytlcM,jdbcType=DOUBLE},
-    BZ = #{record.bz,jdbcType=VARCHAR},
-    is_del = #{record.isDel,jdbcType=INTEGER},
-    poll_bl1 = #{record.pollBl1,jdbcType=VARCHAR},
-    poll_bl2 = #{record.pollBl2,jdbcType=VARCHAR},
-    poll_bl3 = #{record.pollBl3,jdbcType=VARCHAR},
-    poll_bl4 = #{record.pollBl4,jdbcType=VARCHAR},
-    poll_bl5 = #{record.pollBl5,jdbcType=VARCHAR},
-    poll_bl6 = #{record.pollBl6,jdbcType=VARCHAR},
-    poll_bl7 = #{record.pollBl7,jdbcType=VARCHAR},
-    poll_bl8 = #{record.pollBl8,jdbcType=VARCHAR},
-    poll_bl9 = #{record.pollBl9,jdbcType=VARCHAR},
-    poll_bl10 = #{record.pollBl10,jdbcType=VARCHAR}
-    <if test="_parameter != null">
+      TJNF = #{record.tjnf,jdbcType=INTEGER},
+      XZQHDM = #{record.xzqhdm,jdbcType=VARCHAR},
+      XZQHMC = #{record.xzqhmc,jdbcType=VARCHAR},
+      SHXYDM = #{record.shxydm,jdbcType=VARCHAR},
+      ZZJGDM = #{record.zzjgdm,jdbcType=VARCHAR},
+      DWMC_GZ = #{record.dwmcGz,jdbcType=VARCHAR},
+      SSDM = #{record.ssdm,jdbcType=VARCHAR},
+      SSKZDY = #{record.sskzdy,jdbcType=VARCHAR},
+      YYDWMC = #{record.yydwmc,jdbcType=VARCHAR},
+      FDDBR = #{record.fddbr,jdbcType=VARCHAR},
+      QYXXDZ_S_ZZQ_ZXS = #{record.qyxxdzSZzqZxs,jdbcType=VARCHAR},
+      QYXXDZ_DQ_S_Z_M = #{record.qyxxdzDqSZM,jdbcType=VARCHAR},
+      QYXXDZ_X_Q_S_Q = #{record.qyxxdzXQSQ,jdbcType=VARCHAR},
+      QYXXDZ_X_Z = #{record.qyxxdzXZ,jdbcType=VARCHAR},
+      QYXXDZ_J_C_MPH = #{record.qyxxdzJCMph,jdbcType=VARCHAR},
+      ZXJD_D = #{record.zxjdD,jdbcType=INTEGER},
+      ZXJD_F = #{record.zxjdF,jdbcType=INTEGER},
+      ZXJD_M = #{record.zxjdM,jdbcType=INTEGER},
+      JD = #{record.jd,jdbcType=DOUBLE},
+      ZXWD_D = #{record.zxwdD,jdbcType=INTEGER},
+      ZXWD_F = #{record.zxwdF,jdbcType=INTEGER},
+      ZXWD_M = #{record.zxwdM,jdbcType=INTEGER},
+      WD = #{record.wd,jdbcType=DOUBLE},
+      LXFSDHHM = #{record.lxfsdhhm,jdbcType=VARCHAR},
+      LXFSLXR = #{record.lxfslxr,jdbcType=VARCHAR},
+      LXFSCZHM = #{record.lxfsczhm,jdbcType=VARCHAR},
+      LXFSYZBM = #{record.lxfsyzbm,jdbcType=VARCHAR},
+      WSCLSSLX = #{record.wsclsslx,jdbcType=VARCHAR},
+      WSCLCSMC = #{record.wsclcsmc,jdbcType=VARCHAR},
+      JCSJ = #{record.jcsj,jdbcType=INTEGER},
+      WSCLJB = #{record.wscljb,jdbcType=VARCHAR},
+      WSCLFFMC1 = #{record.wsclffmc1,jdbcType=VARCHAR},
+      WSCLFFDM1 = #{record.wsclffdm1,jdbcType=VARCHAR},
+      WSCLFFMC2 = #{record.wsclffmc2,jdbcType=VARCHAR},
+      WSCLFFDM2 = #{record.wsclffdm2,jdbcType=VARCHAR},
+      WSCLFFMC3 = #{record.wsclffmc3,jdbcType=VARCHAR},
+      WSCLFFDM3 = #{record.wsclffdm3,jdbcType=VARCHAR},
+      PSQXLXMC = #{record.psqxlxmc,jdbcType=VARCHAR},
+      PSQXLXDM = #{record.psqxlxdm,jdbcType=VARCHAR},
+      SNSTMC = #{record.snstmc,jdbcType=VARCHAR},
+      SNSTDM = #{record.snstdm,jdbcType=VARCHAR},
+      WNYYXHZZ = #{record.wnyyxhzz,jdbcType=VARCHAR},
+      WNYYXHZZMC = #{record.wnyyxhzzmc,jdbcType=VARCHAR},
+      ZXPFBZ = #{record.zxpfbz,jdbcType=VARCHAR},
+      ZXPFBZMC = #{record.zxpfbzmc,jdbcType=VARCHAR},
+      ZXPFBZXZJB = #{record.zxpfbzxzjb,jdbcType=VARCHAR},
+      ZXPFBZXZJBMC = #{record.zxpfbzxzjbmc,jdbcType=VARCHAR},
+      YXTS_T = #{record.yxtsT,jdbcType=INTEGER},
+      LJWCTZ_WY = #{record.ljwctzWy,jdbcType=DOUBLE},
+      XZGDZCTZ_WY = #{record.xzgdzctzWy,jdbcType=DOUBLE},
+      YXFY_WY = #{record.yxfyWy,jdbcType=DOUBLE},
+      YDL_WQWS = #{record.ydlWqws,jdbcType=DECIMAL},
+      WSSJCLNL_D_R = #{record.wssjclnlDR,jdbcType=DOUBLE},
+      WSSJCLL_WD = #{record.wssjcllWd,jdbcType=DOUBLE},
+      QZ_CLSHWSL_WD = #{record.qzClshwslWd,jdbcType=DOUBLE},
+      QZ_CLGYFSL_WD = #{record.qzClgyfslWd,jdbcType=DOUBLE},
+      QZ_CLBXQWDSL_WD = #{record.qzClbxqwdslWd,jdbcType=DOUBLE},
+      ZSSSCL_WD = #{record.zsssclWd,jdbcType=DOUBLE},
+      ZSSLYL_WD = #{record.zsslylWd,jdbcType=DOUBLE},
+      QZ_GYYSL_WD = #{record.qzGyyslWd,jdbcType=DOUBLE},
+      QZ_SZYS_WD = #{record.qzSzysWd,jdbcType=DOUBLE},
+      QZ_JGYSL_WD = #{record.qzJgyslWd,jdbcType=DOUBLE},
+      WNCSL_D = #{record.wncslD,jdbcType=DOUBLE},
+      WNCZL_D = #{record.wnczlD,jdbcType=DOUBLE},
+      QZ_TDLYL_D = #{record.qzTdlylD,jdbcType=DOUBLE},
+      QZ_TMCZL_D = #{record.qzTmczlD,jdbcType=DOUBLE},
+      QZ_JZCLLYL_D = #{record.qzJzcllylD,jdbcType=DOUBLE},
+      QZ_FSCZL_D = #{record.qzFsczlD,jdbcType=DOUBLE},
+      WNQDDQL_D = #{record.wnqddqlD,jdbcType=DOUBLE},
+      WNYYXHCQL_LFM = #{record.wnyyxhcqlLfm,jdbcType=DOUBLE},
+      HXXYLQCL_D = #{record.hxxylqclD,jdbcType=DOUBLE},
+      HXXYLJKND_HK_S = #{record.hxxyljkndHkS,jdbcType=DOUBLE},
+      HXXYLCKND_HK_S = #{record.hxxylckndHkS,jdbcType=DOUBLE},
+      SHXYLQCL_D = #{record.shxylqclD,jdbcType=DOUBLE},
+      SHXYLJKND_HK_S = #{record.shxyljkndHkS,jdbcType=DOUBLE},
+      SHXYLCKND_HK_S = #{record.shxylckndHkS,jdbcType=DOUBLE},
+      XFWQCL_D = #{record.xfwqclD,jdbcType=DOUBLE},
+      XFWJKND_HK_S = #{record.xfwjkndHkS,jdbcType=DOUBLE},
+      XFWCKND_HK_S = #{record.xfwckndHkS,jdbcType=DOUBLE},
+      DZWYQCL_D = #{record.dzwyqclD,jdbcType=DOUBLE},
+      DZWYJKND_HK_S = #{record.dzwyjkndHkS,jdbcType=DOUBLE},
+      DZWYCKND_HK_S = #{record.dzwyckndHkS,jdbcType=DOUBLE},
+      SYLQCL_D = #{record.sylqclD,jdbcType=DOUBLE},
+      SYLJKND_HK_S = #{record.syljkndHkS,jdbcType=DOUBLE},
+      SYLCKND_HK_S = #{record.sylckndHkS,jdbcType=DOUBLE},
+      YLZHXJQCL_D = #{record.ylzhxjqclD,jdbcType=DOUBLE},
+      YLZHXJJKND_HK_S = #{record.ylzhxjjkndHkS,jdbcType=DOUBLE},
+      YLZHXJCKND_HK_S = #{record.ylzhxjckndHkS,jdbcType=DOUBLE},
+      ADQCL_D = #{record.adqclD,jdbcType=DOUBLE},
+      ADJKND_HK_S = #{record.adjkndHkS,jdbcType=DOUBLE},
+      ADCKND_HK_S = #{record.adckndHkS,jdbcType=DOUBLE},
+      YLQCL_D = #{record.ylqclD,jdbcType=DOUBLE},
+      YLJKND_HK_S = #{record.yljkndHkS,jdbcType=DOUBLE},
+      YLCKND_HK_S = #{record.ylckndHkS,jdbcType=DOUBLE},
+      ZDQCL_D = #{record.zdqclD,jdbcType=DOUBLE},
+      ZDJKND_HK_S = #{record.zdjkndHkS,jdbcType=DOUBLE},
+      ZDCKND_HK_S = #{record.zdckndHkS,jdbcType=DOUBLE},
+      ZLQCL_QK = #{record.zlqclQk,jdbcType=DOUBLE},
+      ZLJKND_HK_S = #{record.zljkndHkS,jdbcType=DOUBLE},
+      ZLCKND_HK_S = #{record.zlckndHkS,jdbcType=DOUBLE},
+      HFFQCL_QK = #{record.hffqclQk,jdbcType=DOUBLE},
+      HFFJKND_HK_S = #{record.hffjkndHkS,jdbcType=DOUBLE},
+      HFFCKND_HK_S = #{record.hffckndHkS,jdbcType=DOUBLE},
+      QHWQCL_QK = #{record.qhwqclQk,jdbcType=DOUBLE},
+      QHWJKND_HK_S = #{record.qhwjkndHkS,jdbcType=DOUBLE},
+      QHWCKND_HK_S = #{record.qhwckndHkS,jdbcType=DOUBLE},
+      SQCL_QK = #{record.sqclQk,jdbcType=DOUBLE},
+      SJKND_HK_S = #{record.sjkndHkS,jdbcType=DOUBLE},
+      SCKND_HK_S = #{record.sckndHkS,jdbcType=DOUBLE},
+      QQCL_QK = #{record.qqclQk,jdbcType=DOUBLE},
+      QJKND_HK_S = #{record.qjkndHkS,jdbcType=DOUBLE},
+      QCKND_HK_S = #{record.qckndHkS,jdbcType=DOUBLE},
+      GQCL_QK = #{record.gqclQk,jdbcType=DOUBLE},
+      GJKND_HK_S = #{record.gjkndHkS,jdbcType=DOUBLE},
+      GCKND_HK_S = #{record.gckndHkS,jdbcType=DOUBLE},
+      GQCL_QK_dup1 = #{record.gqclQkDup1,jdbcType=DOUBLE},
+      GJKND_WK_S = #{record.gjkndWkS,jdbcType=DOUBLE},
+      GCKND_WK_S = #{record.gckndWkS,jdbcType=DOUBLE},
+      ZGQCL_QK = #{record.zgqclQk,jdbcType=DOUBLE},
+      ZGJKND_HK_S = #{record.zgjkndHkS,jdbcType=DOUBLE},
+      ZGCKND_HK_S = #{record.zgckndHkS,jdbcType=DOUBLE},
+      LJGQCL_QK = #{record.ljgqclQk,jdbcType=DOUBLE},
+      LJGJKND_HK_S = #{record.ljgjkndHkS,jdbcType=DOUBLE},
+      LJGCKND_HK_S = #{record.ljgckndHkS,jdbcType=DOUBLE},
+      GY_CLSL_WD_R = #{record.gyClslWdR,jdbcType=DOUBLE},
+      GY_XZCLSL_WD_R = #{record.gyXzclslWdR,jdbcType=DOUBLE},
+      GY_YXTS_T = #{record.gyYxtsT,jdbcType=DOUBLE},
+      GY_CODJKND_HK_S = #{record.gyCodjkndHkS,jdbcType=DOUBLE},
+      GY_CODCKND_HK_S = #{record.gyCodckndHkS,jdbcType=DOUBLE},
+      GY_ADJKND_HK_S = #{record.gyAdjkndHkS,jdbcType=DOUBLE},
+      GY_ADCKND_HK_S = #{record.gyAdckndHkS,jdbcType=DOUBLE},
+      SH_CLSL_WD_R = #{record.shClslWdR,jdbcType=DOUBLE},
+      SH_XZCLSL_WD_R = #{record.shXzclslWdR,jdbcType=DOUBLE},
+      SH_CODJKND_HK_S = #{record.shCodjkndHkS,jdbcType=DOUBLE},
+      SH_CODCKND_HK_S = #{record.shCodckndHkS,jdbcType=DOUBLE},
+      SH_ADJKND_HK_S = #{record.shAdjkndHkS,jdbcType=DOUBLE},
+      SH_ADCKND_HK_S = #{record.shAdckndHkS,jdbcType=DOUBLE},
+      HDXZSHCODQCL_D = #{record.hdxzshcodqclD,jdbcType=DOUBLE},
+      HDXZSHADQCL_D = #{record.hdxzshadqclD,jdbcType=DOUBLE},
+      JYTLC_M = #{record.jytlcM,jdbcType=DOUBLE},
+      BZ = #{record.bz,jdbcType=VARCHAR},
+      is_del = #{record.isDel,jdbcType=INTEGER},
+      poll_bl1 = #{record.pollBl1,jdbcType=VARCHAR},
+      poll_bl2 = #{record.pollBl2,jdbcType=VARCHAR},
+      poll_bl3 = #{record.pollBl3,jdbcType=VARCHAR},
+      poll_bl4 = #{record.pollBl4,jdbcType=VARCHAR},
+      poll_bl5 = #{record.pollBl5,jdbcType=VARCHAR},
+      poll_bl6 = #{record.pollBl6,jdbcType=VARCHAR},
+      poll_bl7 = #{record.pollBl7,jdbcType=VARCHAR},
+      poll_bl8 = #{record.pollBl8,jdbcType=VARCHAR},
+      poll_bl9 = #{record.pollBl9,jdbcType=VARCHAR},
+      poll_bl10 = #{record.pollBl10,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.PollFactory">
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.PollFactory" >
     update poll_factory
     <set >
       <if test="tjnf != null" >
@@ -2391,623 +2390,622 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.PollFactory">
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.PollFactory" >
     update poll_factory
     set TJNF = #{tjnf,jdbcType=INTEGER},
-        XZQHDM = #{xzqhdm,jdbcType=VARCHAR},
-        XZQHMC = #{xzqhmc,jdbcType=VARCHAR},
-        SHXYDM = #{shxydm,jdbcType=VARCHAR},
-        ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
-        DWMC_GZ = #{dwmcGz,jdbcType=VARCHAR},
-        SSDM = #{ssdm,jdbcType=VARCHAR},
-        SSKZDY = #{sskzdy,jdbcType=VARCHAR},
-        YYDWMC = #{yydwmc,jdbcType=VARCHAR},
-        FDDBR = #{fddbr,jdbcType=VARCHAR},
-        QYXXDZ_S_ZZQ_ZXS = #{qyxxdzSZzqZxs,jdbcType=VARCHAR},
-        QYXXDZ_DQ_S_Z_M = #{qyxxdzDqSZM,jdbcType=VARCHAR},
-        QYXXDZ_X_Q_S_Q = #{qyxxdzXQSQ,jdbcType=VARCHAR},
-        QYXXDZ_X_Z = #{qyxxdzXZ,jdbcType=VARCHAR},
-        QYXXDZ_J_C_MPH = #{qyxxdzJCMph,jdbcType=VARCHAR},
-        ZXJD_D = #{zxjdD,jdbcType=INTEGER},
-        ZXJD_F = #{zxjdF,jdbcType=INTEGER},
-        ZXJD_M = #{zxjdM,jdbcType=INTEGER},
-        JD = #{jd,jdbcType=DOUBLE},
-        ZXWD_D = #{zxwdD,jdbcType=INTEGER},
-        ZXWD_F = #{zxwdF,jdbcType=INTEGER},
-        ZXWD_M = #{zxwdM,jdbcType=INTEGER},
-        WD = #{wd,jdbcType=DOUBLE},
-        LXFSDHHM = #{lxfsdhhm,jdbcType=VARCHAR},
-        LXFSLXR = #{lxfslxr,jdbcType=VARCHAR},
-        LXFSCZHM = #{lxfsczhm,jdbcType=VARCHAR},
-        LXFSYZBM = #{lxfsyzbm,jdbcType=VARCHAR},
-        WSCLSSLX = #{wsclsslx,jdbcType=VARCHAR},
-        WSCLCSMC = #{wsclcsmc,jdbcType=VARCHAR},
-        JCSJ = #{jcsj,jdbcType=INTEGER},
-        WSCLJB = #{wscljb,jdbcType=VARCHAR},
-        WSCLFFMC1 = #{wsclffmc1,jdbcType=VARCHAR},
-        WSCLFFDM1 = #{wsclffdm1,jdbcType=VARCHAR},
-        WSCLFFMC2 = #{wsclffmc2,jdbcType=VARCHAR},
-        WSCLFFDM2 = #{wsclffdm2,jdbcType=VARCHAR},
-        WSCLFFMC3 = #{wsclffmc3,jdbcType=VARCHAR},
-        WSCLFFDM3 = #{wsclffdm3,jdbcType=VARCHAR},
-        PSQXLXMC = #{psqxlxmc,jdbcType=VARCHAR},
-        PSQXLXDM = #{psqxlxdm,jdbcType=VARCHAR},
-        SNSTMC = #{snstmc,jdbcType=VARCHAR},
-        SNSTDM = #{snstdm,jdbcType=VARCHAR},
-        WNYYXHZZ = #{wnyyxhzz,jdbcType=VARCHAR},
-        WNYYXHZZMC = #{wnyyxhzzmc,jdbcType=VARCHAR},
-        ZXPFBZ = #{zxpfbz,jdbcType=VARCHAR},
-        ZXPFBZMC = #{zxpfbzmc,jdbcType=VARCHAR},
-        ZXPFBZXZJB = #{zxpfbzxzjb,jdbcType=VARCHAR},
-        ZXPFBZXZJBMC = #{zxpfbzxzjbmc,jdbcType=VARCHAR},
-        YXTS_T = #{yxtsT,jdbcType=INTEGER},
-        LJWCTZ_WY = #{ljwctzWy,jdbcType=DOUBLE},
-        XZGDZCTZ_WY = #{xzgdzctzWy,jdbcType=DOUBLE},
-        YXFY_WY = #{yxfyWy,jdbcType=DOUBLE},
-        YDL_WQWS = #{ydlWqws,jdbcType=DECIMAL},
-        WSSJCLNL_D_R = #{wssjclnlDR,jdbcType=DOUBLE},
-        WSSJCLL_WD = #{wssjcllWd,jdbcType=DOUBLE},
-        QZ_CLSHWSL_WD = #{qzClshwslWd,jdbcType=DOUBLE},
-        QZ_CLGYFSL_WD = #{qzClgyfslWd,jdbcType=DOUBLE},
-        QZ_CLBXQWDSL_WD = #{qzClbxqwdslWd,jdbcType=DOUBLE},
-        ZSSSCL_WD = #{zsssclWd,jdbcType=DOUBLE},
-        ZSSLYL_WD = #{zsslylWd,jdbcType=DOUBLE},
-        QZ_GYYSL_WD = #{qzGyyslWd,jdbcType=DOUBLE},
-        QZ_SZYS_WD = #{qzSzysWd,jdbcType=DOUBLE},
-        QZ_JGYSL_WD = #{qzJgyslWd,jdbcType=DOUBLE},
-        WNCSL_D = #{wncslD,jdbcType=DOUBLE},
-        WNCZL_D = #{wnczlD,jdbcType=DOUBLE},
-        QZ_TDLYL_D = #{qzTdlylD,jdbcType=DOUBLE},
-        QZ_TMCZL_D = #{qzTmczlD,jdbcType=DOUBLE},
-        QZ_JZCLLYL_D = #{qzJzcllylD,jdbcType=DOUBLE},
-        QZ_FSCZL_D = #{qzFsczlD,jdbcType=DOUBLE},
-        WNQDDQL_D = #{wnqddqlD,jdbcType=DOUBLE},
-        WNYYXHCQL_LFM = #{wnyyxhcqlLfm,jdbcType=DOUBLE},
-        HXXYLQCL_D = #{hxxylqclD,jdbcType=DOUBLE},
-        HXXYLJKND_HK_S = #{hxxyljkndHkS,jdbcType=DOUBLE},
-        HXXYLCKND_HK_S = #{hxxylckndHkS,jdbcType=DOUBLE},
-        SHXYLQCL_D = #{shxylqclD,jdbcType=DOUBLE},
-        SHXYLJKND_HK_S = #{shxyljkndHkS,jdbcType=DOUBLE},
-        SHXYLCKND_HK_S = #{shxylckndHkS,jdbcType=DOUBLE},
-        XFWQCL_D = #{xfwqclD,jdbcType=DOUBLE},
-        XFWJKND_HK_S = #{xfwjkndHkS,jdbcType=DOUBLE},
-        XFWCKND_HK_S = #{xfwckndHkS,jdbcType=DOUBLE},
-        DZWYQCL_D = #{dzwyqclD,jdbcType=DOUBLE},
-        DZWYJKND_HK_S = #{dzwyjkndHkS,jdbcType=DOUBLE},
-        DZWYCKND_HK_S = #{dzwyckndHkS,jdbcType=DOUBLE},
-        SYLQCL_D = #{sylqclD,jdbcType=DOUBLE},
-        SYLJKND_HK_S = #{syljkndHkS,jdbcType=DOUBLE},
-        SYLCKND_HK_S = #{sylckndHkS,jdbcType=DOUBLE},
-        YLZHXJQCL_D = #{ylzhxjqclD,jdbcType=DOUBLE},
-        YLZHXJJKND_HK_S = #{ylzhxjjkndHkS,jdbcType=DOUBLE},
-        YLZHXJCKND_HK_S = #{ylzhxjckndHkS,jdbcType=DOUBLE},
-        ADQCL_D = #{adqclD,jdbcType=DOUBLE},
-        ADJKND_HK_S = #{adjkndHkS,jdbcType=DOUBLE},
-        ADCKND_HK_S = #{adckndHkS,jdbcType=DOUBLE},
-        YLQCL_D = #{ylqclD,jdbcType=DOUBLE},
-        YLJKND_HK_S = #{yljkndHkS,jdbcType=DOUBLE},
-        YLCKND_HK_S = #{ylckndHkS,jdbcType=DOUBLE},
-        ZDQCL_D = #{zdqclD,jdbcType=DOUBLE},
-        ZDJKND_HK_S = #{zdjkndHkS,jdbcType=DOUBLE},
-        ZDCKND_HK_S = #{zdckndHkS,jdbcType=DOUBLE},
-        ZLQCL_QK = #{zlqclQk,jdbcType=DOUBLE},
-        ZLJKND_HK_S = #{zljkndHkS,jdbcType=DOUBLE},
-        ZLCKND_HK_S = #{zlckndHkS,jdbcType=DOUBLE},
-        HFFQCL_QK = #{hffqclQk,jdbcType=DOUBLE},
-        HFFJKND_HK_S = #{hffjkndHkS,jdbcType=DOUBLE},
-        HFFCKND_HK_S = #{hffckndHkS,jdbcType=DOUBLE},
-        QHWQCL_QK = #{qhwqclQk,jdbcType=DOUBLE},
-        QHWJKND_HK_S = #{qhwjkndHkS,jdbcType=DOUBLE},
-        QHWCKND_HK_S = #{qhwckndHkS,jdbcType=DOUBLE},
-        SQCL_QK = #{sqclQk,jdbcType=DOUBLE},
-        SJKND_HK_S = #{sjkndHkS,jdbcType=DOUBLE},
-        SCKND_HK_S = #{sckndHkS,jdbcType=DOUBLE},
-        QQCL_QK = #{qqclQk,jdbcType=DOUBLE},
-        QJKND_HK_S = #{qjkndHkS,jdbcType=DOUBLE},
-        QCKND_HK_S = #{qckndHkS,jdbcType=DOUBLE},
-        GQCL_QK = #{gqclQk,jdbcType=DOUBLE},
-        GJKND_HK_S = #{gjkndHkS,jdbcType=DOUBLE},
-        GCKND_HK_S = #{gckndHkS,jdbcType=DOUBLE},
-        GQCL_QK_dup1 = #{gqclQkDup1,jdbcType=DOUBLE},
-        GJKND_WK_S = #{gjkndWkS,jdbcType=DOUBLE},
-        GCKND_WK_S = #{gckndWkS,jdbcType=DOUBLE},
-        ZGQCL_QK = #{zgqclQk,jdbcType=DOUBLE},
-        ZGJKND_HK_S = #{zgjkndHkS,jdbcType=DOUBLE},
-        ZGCKND_HK_S = #{zgckndHkS,jdbcType=DOUBLE},
-        LJGQCL_QK = #{ljgqclQk,jdbcType=DOUBLE},
-        LJGJKND_HK_S = #{ljgjkndHkS,jdbcType=DOUBLE},
-        LJGCKND_HK_S = #{ljgckndHkS,jdbcType=DOUBLE},
-        GY_CLSL_WD_R = #{gyClslWdR,jdbcType=DOUBLE},
-        GY_XZCLSL_WD_R = #{gyXzclslWdR,jdbcType=DOUBLE},
-        GY_YXTS_T = #{gyYxtsT,jdbcType=DOUBLE},
-        GY_CODJKND_HK_S = #{gyCodjkndHkS,jdbcType=DOUBLE},
-        GY_CODCKND_HK_S = #{gyCodckndHkS,jdbcType=DOUBLE},
-        GY_ADJKND_HK_S = #{gyAdjkndHkS,jdbcType=DOUBLE},
-        GY_ADCKND_HK_S = #{gyAdckndHkS,jdbcType=DOUBLE},
-        SH_CLSL_WD_R = #{shClslWdR,jdbcType=DOUBLE},
-        SH_XZCLSL_WD_R = #{shXzclslWdR,jdbcType=DOUBLE},
-        SH_CODJKND_HK_S = #{shCodjkndHkS,jdbcType=DOUBLE},
-        SH_CODCKND_HK_S = #{shCodckndHkS,jdbcType=DOUBLE},
-        SH_ADJKND_HK_S = #{shAdjkndHkS,jdbcType=DOUBLE},
-        SH_ADCKND_HK_S = #{shAdckndHkS,jdbcType=DOUBLE},
-        HDXZSHCODQCL_D = #{hdxzshcodqclD,jdbcType=DOUBLE},
-        HDXZSHADQCL_D = #{hdxzshadqclD,jdbcType=DOUBLE},
-        JYTLC_M = #{jytlcM,jdbcType=DOUBLE},
-        BZ = #{bz,jdbcType=VARCHAR},
-        is_del = #{isDel,jdbcType=INTEGER},
-        poll_bl1 = #{pollBl1,jdbcType=VARCHAR},
-        poll_bl2 = #{pollBl2,jdbcType=VARCHAR},
-        poll_bl3 = #{pollBl3,jdbcType=VARCHAR},
-        poll_bl4 = #{pollBl4,jdbcType=VARCHAR},
-        poll_bl5 = #{pollBl5,jdbcType=VARCHAR},
-        poll_bl6 = #{pollBl6,jdbcType=VARCHAR},
-        poll_bl7 = #{pollBl7,jdbcType=VARCHAR},
-        poll_bl8 = #{pollBl8,jdbcType=VARCHAR},
-        poll_bl9 = #{pollBl9,jdbcType=VARCHAR},
-        poll_bl10 = #{pollBl10,jdbcType=VARCHAR}
+      XZQHDM = #{xzqhdm,jdbcType=VARCHAR},
+      XZQHMC = #{xzqhmc,jdbcType=VARCHAR},
+      SHXYDM = #{shxydm,jdbcType=VARCHAR},
+      ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      DWMC_GZ = #{dwmcGz,jdbcType=VARCHAR},
+      SSDM = #{ssdm,jdbcType=VARCHAR},
+      SSKZDY = #{sskzdy,jdbcType=VARCHAR},
+      YYDWMC = #{yydwmc,jdbcType=VARCHAR},
+      FDDBR = #{fddbr,jdbcType=VARCHAR},
+      QYXXDZ_S_ZZQ_ZXS = #{qyxxdzSZzqZxs,jdbcType=VARCHAR},
+      QYXXDZ_DQ_S_Z_M = #{qyxxdzDqSZM,jdbcType=VARCHAR},
+      QYXXDZ_X_Q_S_Q = #{qyxxdzXQSQ,jdbcType=VARCHAR},
+      QYXXDZ_X_Z = #{qyxxdzXZ,jdbcType=VARCHAR},
+      QYXXDZ_J_C_MPH = #{qyxxdzJCMph,jdbcType=VARCHAR},
+      ZXJD_D = #{zxjdD,jdbcType=INTEGER},
+      ZXJD_F = #{zxjdF,jdbcType=INTEGER},
+      ZXJD_M = #{zxjdM,jdbcType=INTEGER},
+      JD = #{jd,jdbcType=DOUBLE},
+      ZXWD_D = #{zxwdD,jdbcType=INTEGER},
+      ZXWD_F = #{zxwdF,jdbcType=INTEGER},
+      ZXWD_M = #{zxwdM,jdbcType=INTEGER},
+      WD = #{wd,jdbcType=DOUBLE},
+      LXFSDHHM = #{lxfsdhhm,jdbcType=VARCHAR},
+      LXFSLXR = #{lxfslxr,jdbcType=VARCHAR},
+      LXFSCZHM = #{lxfsczhm,jdbcType=VARCHAR},
+      LXFSYZBM = #{lxfsyzbm,jdbcType=VARCHAR},
+      WSCLSSLX = #{wsclsslx,jdbcType=VARCHAR},
+      WSCLCSMC = #{wsclcsmc,jdbcType=VARCHAR},
+      JCSJ = #{jcsj,jdbcType=INTEGER},
+      WSCLJB = #{wscljb,jdbcType=VARCHAR},
+      WSCLFFMC1 = #{wsclffmc1,jdbcType=VARCHAR},
+      WSCLFFDM1 = #{wsclffdm1,jdbcType=VARCHAR},
+      WSCLFFMC2 = #{wsclffmc2,jdbcType=VARCHAR},
+      WSCLFFDM2 = #{wsclffdm2,jdbcType=VARCHAR},
+      WSCLFFMC3 = #{wsclffmc3,jdbcType=VARCHAR},
+      WSCLFFDM3 = #{wsclffdm3,jdbcType=VARCHAR},
+      PSQXLXMC = #{psqxlxmc,jdbcType=VARCHAR},
+      PSQXLXDM = #{psqxlxdm,jdbcType=VARCHAR},
+      SNSTMC = #{snstmc,jdbcType=VARCHAR},
+      SNSTDM = #{snstdm,jdbcType=VARCHAR},
+      WNYYXHZZ = #{wnyyxhzz,jdbcType=VARCHAR},
+      WNYYXHZZMC = #{wnyyxhzzmc,jdbcType=VARCHAR},
+      ZXPFBZ = #{zxpfbz,jdbcType=VARCHAR},
+      ZXPFBZMC = #{zxpfbzmc,jdbcType=VARCHAR},
+      ZXPFBZXZJB = #{zxpfbzxzjb,jdbcType=VARCHAR},
+      ZXPFBZXZJBMC = #{zxpfbzxzjbmc,jdbcType=VARCHAR},
+      YXTS_T = #{yxtsT,jdbcType=INTEGER},
+      LJWCTZ_WY = #{ljwctzWy,jdbcType=DOUBLE},
+      XZGDZCTZ_WY = #{xzgdzctzWy,jdbcType=DOUBLE},
+      YXFY_WY = #{yxfyWy,jdbcType=DOUBLE},
+      YDL_WQWS = #{ydlWqws,jdbcType=DECIMAL},
+      WSSJCLNL_D_R = #{wssjclnlDR,jdbcType=DOUBLE},
+      WSSJCLL_WD = #{wssjcllWd,jdbcType=DOUBLE},
+      QZ_CLSHWSL_WD = #{qzClshwslWd,jdbcType=DOUBLE},
+      QZ_CLGYFSL_WD = #{qzClgyfslWd,jdbcType=DOUBLE},
+      QZ_CLBXQWDSL_WD = #{qzClbxqwdslWd,jdbcType=DOUBLE},
+      ZSSSCL_WD = #{zsssclWd,jdbcType=DOUBLE},
+      ZSSLYL_WD = #{zsslylWd,jdbcType=DOUBLE},
+      QZ_GYYSL_WD = #{qzGyyslWd,jdbcType=DOUBLE},
+      QZ_SZYS_WD = #{qzSzysWd,jdbcType=DOUBLE},
+      QZ_JGYSL_WD = #{qzJgyslWd,jdbcType=DOUBLE},
+      WNCSL_D = #{wncslD,jdbcType=DOUBLE},
+      WNCZL_D = #{wnczlD,jdbcType=DOUBLE},
+      QZ_TDLYL_D = #{qzTdlylD,jdbcType=DOUBLE},
+      QZ_TMCZL_D = #{qzTmczlD,jdbcType=DOUBLE},
+      QZ_JZCLLYL_D = #{qzJzcllylD,jdbcType=DOUBLE},
+      QZ_FSCZL_D = #{qzFsczlD,jdbcType=DOUBLE},
+      WNQDDQL_D = #{wnqddqlD,jdbcType=DOUBLE},
+      WNYYXHCQL_LFM = #{wnyyxhcqlLfm,jdbcType=DOUBLE},
+      HXXYLQCL_D = #{hxxylqclD,jdbcType=DOUBLE},
+      HXXYLJKND_HK_S = #{hxxyljkndHkS,jdbcType=DOUBLE},
+      HXXYLCKND_HK_S = #{hxxylckndHkS,jdbcType=DOUBLE},
+      SHXYLQCL_D = #{shxylqclD,jdbcType=DOUBLE},
+      SHXYLJKND_HK_S = #{shxyljkndHkS,jdbcType=DOUBLE},
+      SHXYLCKND_HK_S = #{shxylckndHkS,jdbcType=DOUBLE},
+      XFWQCL_D = #{xfwqclD,jdbcType=DOUBLE},
+      XFWJKND_HK_S = #{xfwjkndHkS,jdbcType=DOUBLE},
+      XFWCKND_HK_S = #{xfwckndHkS,jdbcType=DOUBLE},
+      DZWYQCL_D = #{dzwyqclD,jdbcType=DOUBLE},
+      DZWYJKND_HK_S = #{dzwyjkndHkS,jdbcType=DOUBLE},
+      DZWYCKND_HK_S = #{dzwyckndHkS,jdbcType=DOUBLE},
+      SYLQCL_D = #{sylqclD,jdbcType=DOUBLE},
+      SYLJKND_HK_S = #{syljkndHkS,jdbcType=DOUBLE},
+      SYLCKND_HK_S = #{sylckndHkS,jdbcType=DOUBLE},
+      YLZHXJQCL_D = #{ylzhxjqclD,jdbcType=DOUBLE},
+      YLZHXJJKND_HK_S = #{ylzhxjjkndHkS,jdbcType=DOUBLE},
+      YLZHXJCKND_HK_S = #{ylzhxjckndHkS,jdbcType=DOUBLE},
+      ADQCL_D = #{adqclD,jdbcType=DOUBLE},
+      ADJKND_HK_S = #{adjkndHkS,jdbcType=DOUBLE},
+      ADCKND_HK_S = #{adckndHkS,jdbcType=DOUBLE},
+      YLQCL_D = #{ylqclD,jdbcType=DOUBLE},
+      YLJKND_HK_S = #{yljkndHkS,jdbcType=DOUBLE},
+      YLCKND_HK_S = #{ylckndHkS,jdbcType=DOUBLE},
+      ZDQCL_D = #{zdqclD,jdbcType=DOUBLE},
+      ZDJKND_HK_S = #{zdjkndHkS,jdbcType=DOUBLE},
+      ZDCKND_HK_S = #{zdckndHkS,jdbcType=DOUBLE},
+      ZLQCL_QK = #{zlqclQk,jdbcType=DOUBLE},
+      ZLJKND_HK_S = #{zljkndHkS,jdbcType=DOUBLE},
+      ZLCKND_HK_S = #{zlckndHkS,jdbcType=DOUBLE},
+      HFFQCL_QK = #{hffqclQk,jdbcType=DOUBLE},
+      HFFJKND_HK_S = #{hffjkndHkS,jdbcType=DOUBLE},
+      HFFCKND_HK_S = #{hffckndHkS,jdbcType=DOUBLE},
+      QHWQCL_QK = #{qhwqclQk,jdbcType=DOUBLE},
+      QHWJKND_HK_S = #{qhwjkndHkS,jdbcType=DOUBLE},
+      QHWCKND_HK_S = #{qhwckndHkS,jdbcType=DOUBLE},
+      SQCL_QK = #{sqclQk,jdbcType=DOUBLE},
+      SJKND_HK_S = #{sjkndHkS,jdbcType=DOUBLE},
+      SCKND_HK_S = #{sckndHkS,jdbcType=DOUBLE},
+      QQCL_QK = #{qqclQk,jdbcType=DOUBLE},
+      QJKND_HK_S = #{qjkndHkS,jdbcType=DOUBLE},
+      QCKND_HK_S = #{qckndHkS,jdbcType=DOUBLE},
+      GQCL_QK = #{gqclQk,jdbcType=DOUBLE},
+      GJKND_HK_S = #{gjkndHkS,jdbcType=DOUBLE},
+      GCKND_HK_S = #{gckndHkS,jdbcType=DOUBLE},
+      GQCL_QK_dup1 = #{gqclQkDup1,jdbcType=DOUBLE},
+      GJKND_WK_S = #{gjkndWkS,jdbcType=DOUBLE},
+      GCKND_WK_S = #{gckndWkS,jdbcType=DOUBLE},
+      ZGQCL_QK = #{zgqclQk,jdbcType=DOUBLE},
+      ZGJKND_HK_S = #{zgjkndHkS,jdbcType=DOUBLE},
+      ZGCKND_HK_S = #{zgckndHkS,jdbcType=DOUBLE},
+      LJGQCL_QK = #{ljgqclQk,jdbcType=DOUBLE},
+      LJGJKND_HK_S = #{ljgjkndHkS,jdbcType=DOUBLE},
+      LJGCKND_HK_S = #{ljgckndHkS,jdbcType=DOUBLE},
+      GY_CLSL_WD_R = #{gyClslWdR,jdbcType=DOUBLE},
+      GY_XZCLSL_WD_R = #{gyXzclslWdR,jdbcType=DOUBLE},
+      GY_YXTS_T = #{gyYxtsT,jdbcType=DOUBLE},
+      GY_CODJKND_HK_S = #{gyCodjkndHkS,jdbcType=DOUBLE},
+      GY_CODCKND_HK_S = #{gyCodckndHkS,jdbcType=DOUBLE},
+      GY_ADJKND_HK_S = #{gyAdjkndHkS,jdbcType=DOUBLE},
+      GY_ADCKND_HK_S = #{gyAdckndHkS,jdbcType=DOUBLE},
+      SH_CLSL_WD_R = #{shClslWdR,jdbcType=DOUBLE},
+      SH_XZCLSL_WD_R = #{shXzclslWdR,jdbcType=DOUBLE},
+      SH_CODJKND_HK_S = #{shCodjkndHkS,jdbcType=DOUBLE},
+      SH_CODCKND_HK_S = #{shCodckndHkS,jdbcType=DOUBLE},
+      SH_ADJKND_HK_S = #{shAdjkndHkS,jdbcType=DOUBLE},
+      SH_ADCKND_HK_S = #{shAdckndHkS,jdbcType=DOUBLE},
+      HDXZSHCODQCL_D = #{hdxzshcodqclD,jdbcType=DOUBLE},
+      HDXZSHADQCL_D = #{hdxzshadqclD,jdbcType=DOUBLE},
+      JYTLC_M = #{jytlcM,jdbcType=DOUBLE},
+      BZ = #{bz,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      poll_bl1 = #{pollBl1,jdbcType=VARCHAR},
+      poll_bl2 = #{pollBl2,jdbcType=VARCHAR},
+      poll_bl3 = #{pollBl3,jdbcType=VARCHAR},
+      poll_bl4 = #{pollBl4,jdbcType=VARCHAR},
+      poll_bl5 = #{pollBl5,jdbcType=VARCHAR},
+      poll_bl6 = #{pollBl6,jdbcType=VARCHAR},
+      poll_bl7 = #{pollBl7,jdbcType=VARCHAR},
+      poll_bl8 = #{pollBl8,jdbcType=VARCHAR},
+      poll_bl9 = #{pollBl9,jdbcType=VARCHAR},
+      poll_bl10 = #{pollBl10,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  
-    <update id="deleteById" parameterType="java.lang.Long">
+  <update id="deleteById" parameterType="java.lang.Long">
 		update poll_factory
 		set is_del = 1
 		where ID = #{id,jdbcType=INTEGER}
-	
+
   	</update>
-    <select id="listAll" resultMap="BaseResultMap">    
-        select 
-        <include refid="Base_Column_List" />
-        from poll_factory
-        where
-        <if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if> 
-        is_del = 0  
-        ORDER BY XZQHMC
-   </select>  
-   <!-- 分页SQL语句 -->
-	<select id="selectByPage" resultMap="BaseResultMap">
-		select
-		*
-		from poll_factory
-		WHERE
-		<if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
-		is_del = 0
-		ORDER BY XZQHMC
-		limit #{startPos},#{pageSize}
-	</select>
-	<!-- 取得记录的总数 -->
-	<select id="getCount" resultType="long">
-		select
-		count(*)
-		from poll_factory
-		where
-		<if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
-		is_del = 0
-		ORDER BY XZQHMC
-	</select> 
-    <select id="getSearchCount" resultType="java.lang.Integer" parameterType="java.util.Map">
-		select
-		count(*)
-		from poll_factory
-		WHERE
-		<trim>  
-				<if test="map.tjnf !=null"> TJNF LIKE CONCAT('%', #{map.tjnf},'%') and </if>
-				<if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
-				<if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
-				<if test="map.zzjgdm !=null"> ZZJGDM LIKE CONCAT('%', #{map.zzjgdm},'%') and </if>
-				<if test="map.dwmcGz !=null"> DWMC_GZ LIKE CONCAT('%', #{map.dwmcGz},'%') and </if>
-				<if test="map.ssdm !=null"> SSDM LIKE CONCAT('%', #{map.ssdm},'%') and </if>
-				<if test="map.sskzdy !=null"> SSKZDY LIKE CONCAT('%', #{map.sskzdy},'%') and </if>
-				<if test="map.qyxxdzDqSZM !=null"> QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.qyxxdzDqSZM},'%') and </if>
-				<if test="map.qyxxdzXQSQ !=null"> QYXXDZ_X_Q_S_Q LIKE CONCAT('%', #{map.qyxxdzXQSQ},'%') and </if>
-				<if test="map.qyxxdzXZ !=null"> QYXXDZ_X_Z LIKE CONCAT('%', #{map.qyxxdzXZ},'%') and </if>
-				<if test="map.qyxxdzJCMph !=null"> QYXXDZ_J_C_MPH LIKE CONCAT('%', #{map.qyxxdzJCMph},'%') and </if>
-				<if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
-				<if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
-				<if test="map.wsclffmc1 !=null"> WSCLFFMC1 LIKE CONCAT('%', #{map.wsclffmc1},'%') and </if>
-				<if test="map.psqxlxmc !=null"> PSQXLXMC LIKE CONCAT('%', #{map.psqxlxmc},'%') and </if>
-				<if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
-				<if test="map.yxtsT !=null"> YXTS_T LIKE CONCAT('%', #{map.yxtsT},'%') and </if>
-				<if test="map.wssjclnlDR !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.wssjclnlDR},'%') and </if>
-				<if test="map.wssjcllWd !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.wssjcllWd},'%') and </if>
-				<if test="map.qzClshwslWd !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.qzClshwslWd},'%') and </if>
-				<if test="map.qzClgyfslWd !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.qzClgyfslWd},'%') and </if>
-				<if test="map.hxxylqclD !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.hxxylqclD},'%') and </if>
-				<if test="map.hxxyljkndHkS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.hxxyljkndHkS},'%') and </if>
-				<if test="map.hxxylckndHkS !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.hxxylckndHkS},'%') and </if>
-				<if test="map.adqclD !=null"> ADQCL_D LIKE CONCAT('%', #{map.adqclD},'%') and </if>
-				<if test="map.adjkndHkS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.adjkndHkS},'%') and </if>
-				<if test="map.adckndHkS !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.adckndHkS},'%') and </if>
-				<if test="map.zdqclD !=null"> ZDQCL_D LIKE CONCAT('%', #{map.zdqclD},'%') and </if>
-				<if test="map.zdjkndHkS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.zdjkndHkS},'%') and </if>
-				<if test="map.zdckndHkS !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.zdckndHkS},'%') and </if>
-				<if test="map.zlqclQk !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.zlqclQk},'%') and </if>
-				<if test="map.zljkndHkS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.zljkndHkS},'%') and </if>
-				<if test="map.zlckndHkS !=null"> ZLCKND_HK_S LIKE CONCAT('%', #{map.zlckndHkS},'%') and </if>
+  <select id="listAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from poll_factory
+    where
+    <if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
+    is_del = 0
+    ORDER BY XZQHMC
+  </select>
+  <!-- 分页SQL语句 -->
+  <select id="selectByPage" resultMap="BaseResultMap">
+    select
+    *
+    from poll_factory
+    WHERE
+    <if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
+    is_del = 0
+    ORDER BY XZQHMC
+    limit #{startPos},#{pageSize}
+  </select>
+  <!-- 取得记录的总数 -->
+  <select id="getCount" resultType="long">
+    select
+    count(*)
+    from poll_factory
+    where
+    <if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
+    is_del = 0
+    ORDER BY XZQHMC
+  </select>
+  <select id="getSearchCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+    select
+    count(*)
+    from poll_factory
+    WHERE
+    <trim>
+      <if test="map.tjnf !=null"> TJNF LIKE CONCAT('%', #{map.tjnf},'%') and </if>
+      <if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
+      <if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
+      <if test="map.zzjgdm !=null"> ZZJGDM LIKE CONCAT('%', #{map.zzjgdm},'%') and </if>
+      <if test="map.dwmcGz !=null"> DWMC_GZ LIKE CONCAT('%', #{map.dwmcGz},'%') and </if>
+      <if test="map.ssdm !=null"> SSDM LIKE CONCAT('%', #{map.ssdm},'%') and </if>
+      <if test="map.sskzdy !=null"> SSKZDY LIKE CONCAT('%', #{map.sskzdy},'%') and </if>
+      <if test="map.qyxxdzDqSZM !=null"> QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.qyxxdzDqSZM},'%') and </if>
+      <if test="map.qyxxdzXQSQ !=null"> QYXXDZ_X_Q_S_Q LIKE CONCAT('%', #{map.qyxxdzXQSQ},'%') and </if>
+      <if test="map.qyxxdzXZ !=null"> QYXXDZ_X_Z LIKE CONCAT('%', #{map.qyxxdzXZ},'%') and </if>
+      <if test="map.qyxxdzJCMph !=null"> QYXXDZ_J_C_MPH LIKE CONCAT('%', #{map.qyxxdzJCMph},'%') and </if>
+      <if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
+      <if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
+      <if test="map.wsclffmc1 !=null"> WSCLFFMC1 LIKE CONCAT('%', #{map.wsclffmc1},'%') and </if>
+      <if test="map.psqxlxmc !=null"> PSQXLXMC LIKE CONCAT('%', #{map.psqxlxmc},'%') and </if>
+      <if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
+      <if test="map.yxtsT !=null"> YXTS_T LIKE CONCAT('%', #{map.yxtsT},'%') and </if>
+      <if test="map.wssjclnlDR !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.wssjclnlDR},'%') and </if>
+      <if test="map.wssjcllWd !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.wssjcllWd},'%') and </if>
+      <if test="map.qzClshwslWd !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.qzClshwslWd},'%') and </if>
+      <if test="map.qzClgyfslWd !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.qzClgyfslWd},'%') and </if>
+      <if test="map.hxxylqclD !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.hxxylqclD},'%') and </if>
+      <if test="map.hxxyljkndHkS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.hxxyljkndHkS},'%') and </if>
+      <if test="map.hxxylckndHkS !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.hxxylckndHkS},'%') and </if>
+      <if test="map.adqclD !=null"> ADQCL_D LIKE CONCAT('%', #{map.adqclD},'%') and </if>
+      <if test="map.adjkndHkS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.adjkndHkS},'%') and </if>
+      <if test="map.adckndHkS !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.adckndHkS},'%') and </if>
+      <if test="map.zdqclD !=null"> ZDQCL_D LIKE CONCAT('%', #{map.zdqclD},'%') and </if>
+      <if test="map.zdjkndHkS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.zdjkndHkS},'%') and </if>
+      <if test="map.zdckndHkS !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.zdckndHkS},'%') and </if>
+      <if test="map.zlqclQk !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.zlqclQk},'%') and </if>
+      <if test="map.zljkndHkS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.zljkndHkS},'%') and </if>
+      <if test="map.zlckndHkS !=null"> ZLCKND_HK_S LIKE CONCAT('%', #{map.zlckndHkS},'%') and </if>
 
 
-          <if test="map.wnqddqlD !=null"> YXTS_T LIKE CONCAT('%', #{map.wnqddqlD},'%') and </if>
-          <if test="map.shxylqclD !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.shxylqclD},'%') and </if>
-          <if test="map.shxyljkndHKS !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.shxyljkndHKS},'%') and </if>
-          <if test="map.shxylckndHKS !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.shxylckndHKS},'%') and </if>
-          <if test="map.xfwqclD !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.xfwqclD},'%') and </if>
-          <if test="map.xfwjkndHKS !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.xfwjkndHKS},'%') and </if>
-          <if test="map.xfwckndHKS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.xfwckndHKS},'%') and </if>
-          <if test="map.dzwyqclD !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.dzwyqclD},'%') and </if>
-          <if test="map.dzwyjkndHKS !=null"> ADQCL_D LIKE CONCAT('%', #{map.dzwyjkndHKS},'%') and </if>
-          <if test="map.dzwyckndHKS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.dzwyckndHKS},'%') and </if>
-          <if test="map.sylqclD !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.sylqclD},'%') and </if>
-          <if test="map.syljkndHKS !=null"> ZDQCL_D LIKE CONCAT('%', #{map.syljkndHKS},'%') and </if>
-          <if test="map.sylckndHKS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.sylckndHKS},'%') and </if>
-          <if test="map.ylzhxjqclD !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.ylzhxjqclD},'%') and </if>
-          <if test="map.ylzhxjjkndHKS !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.ylzhxjjkndHKS},'%') and </if>
-          <if test="map.ylzhxjckndHKS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.ylzhxjckndHKS},'%') and </if>
-		        is_del = 0
-		</trim>
-		ORDER BY XZQHMC
-	</select>	
- 	<select id="searchByPage" resultMap="BaseResultMap">
-		select
-		*
-		from poll_factory
-		WHERE
-		<trim>
-				<if test="map.tjnf !=null"> TJNF LIKE CONCAT('%', #{map.tjnf},'%') and </if>  
-				<if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
-				<if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
-				<if test="map.zzjgdm !=null"> ZZJGDM LIKE CONCAT('%', #{map.zzjgdm},'%') and </if>
-				<if test="map.dwmcGz !=null"> DWMC_GZ LIKE CONCAT('%', #{map.dwmcGz},'%') and </if>
-				<if test="map.ssdm !=null"> SSDM LIKE CONCAT('%', #{map.ssdm},'%') and </if>
-				<if test="map.sskzdy !=null"> SSKZDY LIKE CONCAT('%', #{map.sskzdy},'%') and </if>
-				<if test="map.qyxxdzDqSZM !=null"> QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.qyxxdzDqSZM},'%') and </if>
-				<if test="map.qyxxdzXQSQ !=null"> QYXXDZ_X_Q_S_Q LIKE CONCAT('%', #{map.qyxxdzXQSQ},'%') and </if>
-				<if test="map.qyxxdzXZ !=null"> QYXXDZ_X_Z LIKE CONCAT('%', #{map.qyxxdzXZ},'%') and </if>
-				<if test="map.qyxxdzJCMph !=null"> QYXXDZ_J_C_MPH LIKE CONCAT('%', #{map.qyxxdzJCMph},'%') and </if>
-				<if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
-				<if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
-				<if test="map.wsclffmc1 !=null"> WSCLFFMC1 LIKE CONCAT('%', #{map.wsclffmc1},'%') and </if>
-				<if test="map.psqxlxmc !=null"> PSQXLXMC LIKE CONCAT('%', #{map.psqxlxmc},'%') and </if>
-				<if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
-				<if test="map.yxtsT !=null"> YXTS_T LIKE CONCAT('%', #{map.yxtsT},'%') and </if>
-				<if test="map.wssjclnlDR !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.wssjclnlDR},'%') and </if>
-				<if test="map.wssjcllWd !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.wssjcllWd},'%') and </if>
-				<if test="map.qzClshwslWd !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.qzClshwslWd},'%') and </if>
-				<if test="map.qzClgyfslWd !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.qzClgyfslWd},'%') and </if>
-				<if test="map.hxxylqclD !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.hxxylqclD},'%') and </if>
-				<if test="map.hxxyljkndHkS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.hxxyljkndHkS},'%') and </if>
-				<if test="map.hxxylckndHkS !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.hxxylckndHkS},'%') and </if>
-				<if test="map.adqclD !=null"> ADQCL_D LIKE CONCAT('%', #{map.adqclD},'%') and </if>
-				<if test="map.adjkndHkS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.adjkndHkS},'%') and </if>
-				<if test="map.adckndHkS !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.adckndHkS},'%') and </if>
-				<if test="map.zdqclD !=null"> ZDQCL_D LIKE CONCAT('%', #{map.zdqclD},'%') and </if>
-				<if test="map.zdjkndHkS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.zdjkndHkS},'%') and </if>
-				<if test="map.zdckndHkS !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.zdckndHkS},'%') and </if>
-				<if test="map.zlqclQk !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.zlqclQk},'%') and </if>
-				<if test="map.zljkndHkS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.zljkndHkS},'%') and </if>
-				<if test="map.zlckndHkS !=null"> ZLCKND_HK_S LIKE CONCAT('%', #{map.zlckndHkS},'%') and </if>
-
-
-
-          <if test="map.wnqddqlD !=null"> YXTS_T LIKE CONCAT('%', #{map.wnqddqlD},'%') and </if>
-          <if test="map.shxylqclD !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.shxylqclD},'%') and </if>
-          <if test="map.shxyljkndHKS !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.shxyljkndHKS},'%') and </if>
-          <if test="map.shxylckndHKS !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.shxylckndHKS},'%') and </if>
-          <if test="map.xfwqclD !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.xfwqclD},'%') and </if>
-          <if test="map.xfwjkndHKS !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.xfwjkndHKS},'%') and </if>
-          <if test="map.xfwckndHKS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.xfwckndHKS},'%') and </if>
-          <if test="map.dzwyqclD !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.dzwyqclD},'%') and </if>
-          <if test="map.dzwyjkndHKS !=null"> ADQCL_D LIKE CONCAT('%', #{map.dzwyjkndHKS},'%') and </if>
-          <if test="map.dzwyckndHKS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.dzwyckndHKS},'%') and </if>
-          <if test="map.sylqclD !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.sylqclD},'%') and </if>
-          <if test="map.syljkndHKS !=null"> ZDQCL_D LIKE CONCAT('%', #{map.syljkndHKS},'%') and </if>
-          <if test="map.sylckndHKS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.sylckndHKS},'%') and </if>
-          <if test="map.ylzhxjqclD !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.ylzhxjqclD},'%') and </if>
-          <if test="map.ylzhxjjkndHKS !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.ylzhxjjkndHKS},'%') and </if>
-          <if test="map.ylzhxjckndHKS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.ylzhxjckndHKS},'%') and </if>
-		        is_del = 0 
-		</trim>
-		ORDER BY XZQHMC
-		limit #{startPos},#{pageSize}
-	</select>	
-  
-	<select id="selectForMap" resultMap="BaseResultMap">
-		select
-		*
-		from poll_factory
-		WHERE
-		<trim>  
-			<if test="map.tjnf !=null"> TJNF LIKE CONCAT('%', #{map.tjnf},'%') and </if>
-			<if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
-			<if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
-			<if test="map.zzjgdm !=null"> ZZJGDM LIKE CONCAT('%', #{map.zzjgdm},'%') and </if>
-			<if test="map.dwmcGz !=null"> DWMC_GZ LIKE CONCAT('%', #{map.dwmcGz},'%') and </if>
-			<if test="map.ssdm !=null"> SSDM LIKE CONCAT('%', #{map.ssdm},'%') and </if>
-			<if test="map.sskzdy !=null"> SSKZDY LIKE CONCAT('%', #{map.sskzdy},'%') and </if>
-			<if test="map.qyxxdzDqSZM !=null"> QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.qyxxdzDqSZM},'%') and </if>
-			<if test="map.qyxxdzXQSQ !=null"> QYXXDZ_X_Q_S_Q LIKE CONCAT('%', #{map.qyxxdzXQSQ},'%') and </if>
-			<if test="map.qyxxdzXZ !=null"> QYXXDZ_X_Z LIKE CONCAT('%', #{map.qyxxdzXZ},'%') and </if>
-			<if test="map.qyxxdzJCMph !=null"> QYXXDZ_J_C_MPH LIKE CONCAT('%', #{map.qyxxdzJCMph},'%') and </if>
-			<if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
-			<if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
-			<if test="map.wsclffmc1 !=null"> WSCLFFMC1 LIKE CONCAT('%', #{map.wsclffmc1},'%') and </if>
-			<if test="map.psqxlxmc !=null"> PSQXLXMC LIKE CONCAT('%', #{map.psqxlxmc},'%') and </if>
-			<if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
-			<if test="map.yxtsT !=null"> YXTS_T LIKE CONCAT('%', #{map.yxtsT},'%') and </if>
-			<if test="map.wssjclnlDR !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.wssjclnlDR},'%') and </if>
-			<if test="map.wssjcllWd !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.wssjcllWd},'%') and </if>
-			<if test="map.qzClshwslWd !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.qzClshwslWd},'%') and </if>
-			<if test="map.qzClgyfslWd !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.qzClgyfslWd},'%') and </if>
-			<if test="map.hxxylqclD !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.hxxylqclD},'%') and </if>
-			<if test="map.hxxyljkndHkS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.hxxyljkndHkS},'%') and </if>
-			<if test="map.hxxylckndHkS !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.hxxylckndHkS},'%') and </if>
-			<if test="map.adqclD !=null"> ADQCL_D LIKE CONCAT('%', #{map.adqclD},'%') and </if>
-			<if test="map.adjkndHkS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.adjkndHkS},'%') and </if>
-			<if test="map.adckndHkS !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.adckndHkS},'%') and </if>
-			<if test="map.zdqclD !=null"> ZDQCL_D LIKE CONCAT('%', #{map.zdqclD},'%') and </if>
-			<if test="map.zdjkndHkS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.zdjkndHkS},'%') and </if>
-			<if test="map.zdckndHkS !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.zdckndHkS},'%') and </if>
-			<if test="map.zlqclQk !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.zlqclQk},'%') and </if>
-			<if test="map.zljkndHkS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.zljkndHkS},'%') and </if>
-			<if test="map.zlckndHkS !=null"> ZLCKND_HK_S LIKE CONCAT('%', #{map.zlckndHkS},'%') and </if>
+      <if test="map.wnqddqlD !=null"> YXTS_T LIKE CONCAT('%', #{map.wnqddqlD},'%') and </if>
+      <if test="map.shxylqclD !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.shxylqclD},'%') and </if>
+      <if test="map.shxyljkndHKS !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.shxyljkndHKS},'%') and </if>
+      <if test="map.shxylckndHKS !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.shxylckndHKS},'%') and </if>
+      <if test="map.xfwqclD !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.xfwqclD},'%') and </if>
+      <if test="map.xfwjkndHKS !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.xfwjkndHKS},'%') and </if>
+      <if test="map.xfwckndHKS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.xfwckndHKS},'%') and </if>
+      <if test="map.dzwyqclD !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.dzwyqclD},'%') and </if>
+      <if test="map.dzwyjkndHKS !=null"> ADQCL_D LIKE CONCAT('%', #{map.dzwyjkndHKS},'%') and </if>
+      <if test="map.dzwyckndHKS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.dzwyckndHKS},'%') and </if>
+      <if test="map.sylqclD !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.sylqclD},'%') and </if>
+      <if test="map.syljkndHKS !=null"> ZDQCL_D LIKE CONCAT('%', #{map.syljkndHKS},'%') and </if>
+      <if test="map.sylckndHKS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.sylckndHKS},'%') and </if>
+      <if test="map.ylzhxjqclD !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.ylzhxjqclD},'%') and </if>
+      <if test="map.ylzhxjjkndHKS !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.ylzhxjjkndHKS},'%') and </if>
+      <if test="map.ylzhxjckndHKS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.ylzhxjckndHKS},'%') and </if>
+      is_del = 0
+    </trim>
+    ORDER BY XZQHMC
+  </select>
+  <select id="searchByPage" resultMap="BaseResultMap">
+    select
+    *
+    from poll_factory
+    WHERE
+    <trim>
+      <if test="map.tjnf !=null"> TJNF LIKE CONCAT('%', #{map.tjnf},'%') and </if>
+      <if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
+      <if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
+      <if test="map.zzjgdm !=null"> ZZJGDM LIKE CONCAT('%', #{map.zzjgdm},'%') and </if>
+      <if test="map.dwmcGz !=null"> DWMC_GZ LIKE CONCAT('%', #{map.dwmcGz},'%') and </if>
+      <if test="map.ssdm !=null"> SSDM LIKE CONCAT('%', #{map.ssdm},'%') and </if>
+      <if test="map.sskzdy !=null"> SSKZDY LIKE CONCAT('%', #{map.sskzdy},'%') and </if>
+      <if test="map.qyxxdzDqSZM !=null"> QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.qyxxdzDqSZM},'%') and </if>
+      <if test="map.qyxxdzXQSQ !=null"> QYXXDZ_X_Q_S_Q LIKE CONCAT('%', #{map.qyxxdzXQSQ},'%') and </if>
+      <if test="map.qyxxdzXZ !=null"> QYXXDZ_X_Z LIKE CONCAT('%', #{map.qyxxdzXZ},'%') and </if>
+      <if test="map.qyxxdzJCMph !=null"> QYXXDZ_J_C_MPH LIKE CONCAT('%', #{map.qyxxdzJCMph},'%') and </if>
+      <if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
+      <if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
+      <if test="map.wsclffmc1 !=null"> WSCLFFMC1 LIKE CONCAT('%', #{map.wsclffmc1},'%') and </if>
+      <if test="map.psqxlxmc !=null"> PSQXLXMC LIKE CONCAT('%', #{map.psqxlxmc},'%') and </if>
+      <if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
+      <if test="map.yxtsT !=null"> YXTS_T LIKE CONCAT('%', #{map.yxtsT},'%') and </if>
+      <if test="map.wssjclnlDR !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.wssjclnlDR},'%') and </if>
+      <if test="map.wssjcllWd !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.wssjcllWd},'%') and </if>
+      <if test="map.qzClshwslWd !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.qzClshwslWd},'%') and </if>
+      <if test="map.qzClgyfslWd !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.qzClgyfslWd},'%') and </if>
+      <if test="map.hxxylqclD !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.hxxylqclD},'%') and </if>
+      <if test="map.hxxyljkndHkS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.hxxyljkndHkS},'%') and </if>
+      <if test="map.hxxylckndHkS !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.hxxylckndHkS},'%') and </if>
+      <if test="map.adqclD !=null"> ADQCL_D LIKE CONCAT('%', #{map.adqclD},'%') and </if>
+      <if test="map.adjkndHkS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.adjkndHkS},'%') and </if>
+      <if test="map.adckndHkS !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.adckndHkS},'%') and </if>
+      <if test="map.zdqclD !=null"> ZDQCL_D LIKE CONCAT('%', #{map.zdqclD},'%') and </if>
+      <if test="map.zdjkndHkS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.zdjkndHkS},'%') and </if>
+      <if test="map.zdckndHkS !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.zdckndHkS},'%') and </if>
+      <if test="map.zlqclQk !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.zlqclQk},'%') and </if>
+      <if test="map.zljkndHkS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.zljkndHkS},'%') and </if>
+      <if test="map.zlckndHkS !=null"> ZLCKND_HK_S LIKE CONCAT('%', #{map.zlckndHkS},'%') and </if>
 
 
 
-          <if test="map.wnqddqlD !=null"> YXTS_T LIKE CONCAT('%', #{map.wnqddqlD},'%') and </if>
-          <if test="map.shxylqclD !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.shxylqclD},'%') and </if>
-          <if test="map.shxyljkndHKS !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.shxyljkndHKS},'%') and </if>
-          <if test="map.shxylckndHKS !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.shxylckndHKS},'%') and </if>
-          <if test="map.xfwqclD !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.xfwqclD},'%') and </if>
-          <if test="map.xfwjkndHKS !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.xfwjkndHKS},'%') and </if>
-          <if test="map.xfwckndHKS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.xfwckndHKS},'%') and </if>
-          <if test="map.dzwyqclD !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.dzwyqclD},'%') and </if>
-          <if test="map.dzwyjkndHKS !=null"> ADQCL_D LIKE CONCAT('%', #{map.dzwyjkndHKS},'%') and </if>
-          <if test="map.dzwyckndHKS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.dzwyckndHKS},'%') and </if>
-          <if test="map.sylqclD !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.sylqclD},'%') and </if>
-          <if test="map.syljkndHKS !=null"> ZDQCL_D LIKE CONCAT('%', #{map.syljkndHKS},'%') and </if>
-          <if test="map.sylckndHKS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.sylckndHKS},'%') and </if>
-          <if test="map.ylzhxjqclD !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.ylzhxjqclD},'%') and </if>
-          <if test="map.ylzhxjjkndHKS !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.ylzhxjjkndHKS},'%') and </if>
-          <if test="map.ylzhxjckndHKS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.ylzhxjckndHKS},'%') and </if>
-	        is_del = 0 
-		</trim>
-	</select>
-    
-    <select id="selectKzdySum" resultType="Map">
-        select SSKZDY as KZDY,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D
-        from poll_factory
-        where 
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="map.sy != null">
-	        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
-	      </if>
-	        is_del = 0 and SSKZDY != ''
-		</trim> 
-		group by KZDY
-    </select>
-    <select id="selectKzdmSum" resultType="Map">
-        select SSDM as KZDM,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D
-        from poll_factory
-        where 
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="map.sy != null">
-	        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
-	      </if>
-	        is_del = 0 and SSDM != ''
-		</trim> 
-		group by KZDM
-    </select>
-    <select id="selectKzdyTotal" resultType="Map">
-        select SSKZDY as KZDY,SUM(cast(WSSJCLNL_D_R as SIGNED INTEGER)) as WSSJCLNL_D_R,SUM(cast(WSSJCLL_WD as SIGNED INTEGER)) as WSSJCLL_WD,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(HXXYLJKND_HK_S as SIGNED INTEGER)) as HXXYLJKND_HK_S,SUM(cast(HXXYLCKND_HK_S as SIGNED INTEGER)) as HXXYLCKND_HK_S,
-        SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D,SUM(cast(ADJKND_HK_S as SIGNED INTEGER)) as ADJKND_HK_S,SUM(cast(ADCKND_HK_S as SIGNED INTEGER)) as ADCKND_HK_S
-        from poll_factory
-        where 
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="map.sy != null">
-	        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
-	      </if>
-	      <if test="list != null and list.size()>0">
-	         SSKZDY in
-	         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
-                 #{item}  
-             </foreach>
-             and
-	      </if>
-	        is_del = 0 and SSKZDY != ''
-		</trim> 
-        group by SSKZDY limit #{startPos},#{pageSize}
-    </select>
-    <select id="getKzdyCount" resultType="java.lang.Integer">
-        select count(*) from (select SSKZDY from poll_factory
-        where 
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="map.sy != null">
-	        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
-	      </if>
-	      <if test="list != null and list.size()>0">
-	         SSKZDY in
-	         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
-                 #{item}  
-             </foreach>
-             and
-	      </if>
-	        is_del = 0 and SSKZDY != ''
-		</trim> 
-        group by SSKZDY) as total
-    </select>
-        <select id="selectKzdyTotalByName" resultType="Map">
-        select SSKZDY as KZDY,SUM(cast(WSSJCLNL_D_R as SIGNED INTEGER)) as WSSJCLNL_D_R,SUM(cast(WSSJCLL_WD as SIGNED INTEGER)) as WSSJCLL_WD,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(HXXYLJKND_HK_S as SIGNED INTEGER)) as HXXYLJKND_HK_S,SUM(cast(HXXYLCKND_HK_S as SIGNED INTEGER)) as HXXYLCKND_HK_S,
-        SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D,SUM(cast(ADJKND_HK_S as SIGNED INTEGER)) as ADJKND_HK_S,SUM(cast(ADCKND_HK_S as SIGNED INTEGER)) as ADCKND_HK_S
-        from poll_factory
-        where 
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="name != null">
-	        SSKZDY LIKE CONCAT('%', #{name}, '%') and
-	      </if>
-	        is_del = 0 and SSKZDY != ''
-		</trim> 
-        group by SSKZDY limit #{startPos},#{pageSize}
-    </select>
-    <select id="getKzdyCountByName" resultType="java.lang.Integer">
-        select count(*) from (select SSKZDY from poll_factory 
-        where
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="name != null">
-	        SSKZDY LIKE CONCAT('%', #{name}, '%') and
-	      </if>
-	        is_del = 0 and SSKZDY != ''
-		</trim>  
-        group by SSKZDY) as total
-    </select>
-    <select id="computeKzdyTotal" resultType="java.lang.Integer">
-        select 
-        <trim prefix="COALESCE(SUM(cast(" suffix="as SIGNED INTEGER)),0)">
-        ${map.prop}
-        </trim>
-        from poll_factory
-        where
-        <trim>
-	      <if test="map.kzdy != null">
-	        SSKZDY = #{map.kzdy} and
-	      </if>
-	        is_del = 0 and SSKZDY != ''
-		</trim>  
-    </select>
-    <select id="selectKzdmTotal" resultType="Map">
-        select SSDM as KZDM,SUM(cast(WSSJCLNL_D_R as SIGNED INTEGER)) as WSSJCLNL_D_R,SUM(cast(WSSJCLL_WD as SIGNED INTEGER)) as WSSJCLL_WD,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(HXXYLJKND_HK_S as SIGNED INTEGER)) as HXXYLJKND_HK_S,SUM(cast(HXXYLCKND_HK_S as SIGNED INTEGER)) as HXXYLCKND_HK_S,
-        SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D,SUM(cast(ADJKND_HK_S as SIGNED INTEGER)) as ADJKND_HK_S,SUM(cast(ADCKND_HK_S as SIGNED INTEGER)) as ADCKND_HK_S
-        from poll_factory 
-        where 
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="map.sy != null">
-	        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
-	      </if>
-	      <if test="list != null and list.size()>0">
-	         SSDM in
-	         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
-                 #{item}  
-             </foreach>
-             and
-	      </if>
-	        is_del = 0 and SSDM != ''
-		</trim> 
-        group by SSDM limit #{startPos},#{pageSize}
-    </select>
-    <select id="getKzdmCount" resultType="java.lang.Integer">
-        select count(*) from (select SSDM from poll_factory 
-        where 
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="map.sy != null">
-	        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
-	      </if>
-	      <if test="list != null and list.size()>0">
-	         SSDM in
-	         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
-                 #{item}  
-             </foreach>
-             and
-	      </if>
-	        is_del = 0 and SSDM != ''
-		</trim> 
-        group by SSDM) as total
-    </select>
-        <select id="selectKzdmTotalByName" resultType="Map">
-        select SSDM as KZDM,SUM(cast(WSSJCLNL_D_R as SIGNED INTEGER)) as WSSJCLNL_D_R,SUM(cast(WSSJCLL_WD as SIGNED INTEGER)) as WSSJCLL_WD,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(HXXYLJKND_HK_S as SIGNED INTEGER)) as HXXYLJKND_HK_S,SUM(cast(HXXYLCKND_HK_S as SIGNED INTEGER)) as HXXYLCKND_HK_S,
-        SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D,SUM(cast(ADJKND_HK_S as SIGNED INTEGER)) as ADJKND_HK_S,SUM(cast(ADCKND_HK_S as SIGNED INTEGER)) as ADCKND_HK_S
-        from poll_factory 
-        where 
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="name != null">
-	        SSDM LIKE CONCAT('%', #{name}, '%') and
-	      </if>
-	        is_del = 0 and SSDM != ''
-		</trim> 
-        group by SSDM limit #{startPos},#{pageSize}
-    </select>
-    <select id="getKzdmCountByName" resultType="java.lang.Integer">
-        select count(*) from (select SSDM from poll_factory 
-        where
-        <trim>  
-	      <if test="map.xxdzdqSZM != null">
-	        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
-	      </if>
-	      <if test="map.xzqhmc != null">
-	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
-	      </if>
-	      <if test="name != null">
-	        SSDM LIKE CONCAT('%', #{name}, '%') and
-	      </if>
-	        is_del = 0 and SSDM != ''
-		</trim>  
-        group by SSDM) as total
-    </select>
-    <select id="computeKzdmTotal" resultType="java.lang.Integer">
-        select 
-        <trim prefix="COALESCE(SUM(cast(" suffix="as SIGNED INTEGER)),0)">
-        ${map.prop}
-        </trim>
-        from poll_factory
-        where
-        <trim>
-	      <if test="map.kzdm != null">
-	        SSDM = #{map.kzdm} and
-	      </if>
-	        is_del = 0 and SSDM != ''
-		</trim>  
-    </select>
-    <select id="selectWater" resultType="Map">
+      <if test="map.wnqddqlD !=null"> YXTS_T LIKE CONCAT('%', #{map.wnqddqlD},'%') and </if>
+      <if test="map.shxylqclD !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.shxylqclD},'%') and </if>
+      <if test="map.shxyljkndHKS !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.shxyljkndHKS},'%') and </if>
+      <if test="map.shxylckndHKS !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.shxylckndHKS},'%') and </if>
+      <if test="map.xfwqclD !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.xfwqclD},'%') and </if>
+      <if test="map.xfwjkndHKS !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.xfwjkndHKS},'%') and </if>
+      <if test="map.xfwckndHKS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.xfwckndHKS},'%') and </if>
+      <if test="map.dzwyqclD !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.dzwyqclD},'%') and </if>
+      <if test="map.dzwyjkndHKS !=null"> ADQCL_D LIKE CONCAT('%', #{map.dzwyjkndHKS},'%') and </if>
+      <if test="map.dzwyckndHKS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.dzwyckndHKS},'%') and </if>
+      <if test="map.sylqclD !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.sylqclD},'%') and </if>
+      <if test="map.syljkndHKS !=null"> ZDQCL_D LIKE CONCAT('%', #{map.syljkndHKS},'%') and </if>
+      <if test="map.sylckndHKS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.sylckndHKS},'%') and </if>
+      <if test="map.ylzhxjqclD !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.ylzhxjqclD},'%') and </if>
+      <if test="map.ylzhxjjkndHKS !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.ylzhxjjkndHKS},'%') and </if>
+      <if test="map.ylzhxjckndHKS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.ylzhxjckndHKS},'%') and </if>
+      is_del = 0
+    </trim>
+    ORDER BY XZQHMC
+    limit #{startPos},#{pageSize}
+  </select>
+
+  <select id="selectForMap" resultMap="BaseResultMap">
+    select
+    *
+    from poll_factory
+    WHERE
+    <trim>
+      <if test="map.tjnf !=null"> TJNF LIKE CONCAT('%', #{map.tjnf},'%') and </if>
+      <if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
+      <if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
+      <if test="map.zzjgdm !=null"> ZZJGDM LIKE CONCAT('%', #{map.zzjgdm},'%') and </if>
+      <if test="map.dwmcGz !=null"> DWMC_GZ LIKE CONCAT('%', #{map.dwmcGz},'%') and </if>
+      <if test="map.ssdm !=null"> SSDM LIKE CONCAT('%', #{map.ssdm},'%') and </if>
+      <if test="map.sskzdy !=null"> SSKZDY LIKE CONCAT('%', #{map.sskzdy},'%') and </if>
+      <if test="map.qyxxdzDqSZM !=null"> QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.qyxxdzDqSZM},'%') and </if>
+      <if test="map.qyxxdzXQSQ !=null"> QYXXDZ_X_Q_S_Q LIKE CONCAT('%', #{map.qyxxdzXQSQ},'%') and </if>
+      <if test="map.qyxxdzXZ !=null"> QYXXDZ_X_Z LIKE CONCAT('%', #{map.qyxxdzXZ},'%') and </if>
+      <if test="map.qyxxdzJCMph !=null"> QYXXDZ_J_C_MPH LIKE CONCAT('%', #{map.qyxxdzJCMph},'%') and </if>
+      <if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
+      <if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
+      <if test="map.wsclffmc1 !=null"> WSCLFFMC1 LIKE CONCAT('%', #{map.wsclffmc1},'%') and </if>
+      <if test="map.psqxlxmc !=null"> PSQXLXMC LIKE CONCAT('%', #{map.psqxlxmc},'%') and </if>
+      <if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
+      <if test="map.yxtsT !=null"> YXTS_T LIKE CONCAT('%', #{map.yxtsT},'%') and </if>
+      <if test="map.wssjclnlDR !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.wssjclnlDR},'%') and </if>
+      <if test="map.wssjcllWd !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.wssjcllWd},'%') and </if>
+      <if test="map.qzClshwslWd !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.qzClshwslWd},'%') and </if>
+      <if test="map.qzClgyfslWd !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.qzClgyfslWd},'%') and </if>
+      <if test="map.hxxylqclD !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.hxxylqclD},'%') and </if>
+      <if test="map.hxxyljkndHkS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.hxxyljkndHkS},'%') and </if>
+      <if test="map.hxxylckndHkS !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.hxxylckndHkS},'%') and </if>
+      <if test="map.adqclD !=null"> ADQCL_D LIKE CONCAT('%', #{map.adqclD},'%') and </if>
+      <if test="map.adjkndHkS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.adjkndHkS},'%') and </if>
+      <if test="map.adckndHkS !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.adckndHkS},'%') and </if>
+      <if test="map.zdqclD !=null"> ZDQCL_D LIKE CONCAT('%', #{map.zdqclD},'%') and </if>
+      <if test="map.zdjkndHkS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.zdjkndHkS},'%') and </if>
+      <if test="map.zdckndHkS !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.zdckndHkS},'%') and </if>
+      <if test="map.zlqclQk !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.zlqclQk},'%') and </if>
+      <if test="map.zljkndHkS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.zljkndHkS},'%') and </if>
+      <if test="map.zlckndHkS !=null"> ZLCKND_HK_S LIKE CONCAT('%', #{map.zlckndHkS},'%') and </if>
+
+
+
+      <if test="map.wnqddqlD !=null"> YXTS_T LIKE CONCAT('%', #{map.wnqddqlD},'%') and </if>
+      <if test="map.shxylqclD !=null"> WSSJCLNL_D_R LIKE CONCAT('%', #{map.shxylqclD},'%') and </if>
+      <if test="map.shxyljkndHKS !=null"> WSSJCLL_WD LIKE CONCAT('%', #{map.shxyljkndHKS},'%') and </if>
+      <if test="map.shxylckndHKS !=null"> QZ_CLSHWSL_WD LIKE CONCAT('%', #{map.shxylckndHKS},'%') and </if>
+      <if test="map.xfwqclD !=null"> QZ_CLGYFSL_WD LIKE CONCAT('%', #{map.xfwqclD},'%') and </if>
+      <if test="map.xfwjkndHKS !=null"> HXXYLQCL_D LIKE CONCAT('%', #{map.xfwjkndHKS},'%') and </if>
+      <if test="map.xfwckndHKS !=null"> HXXYLJKND_HK_S LIKE CONCAT('%', #{map.xfwckndHKS},'%') and </if>
+      <if test="map.dzwyqclD !=null"> HXXYLCKND_HK_S LIKE CONCAT('%', #{map.dzwyqclD},'%') and </if>
+      <if test="map.dzwyjkndHKS !=null"> ADQCL_D LIKE CONCAT('%', #{map.dzwyjkndHKS},'%') and </if>
+      <if test="map.dzwyckndHKS !=null"> ADJKND_HK_S LIKE CONCAT('%', #{map.dzwyckndHKS},'%') and </if>
+      <if test="map.sylqclD !=null"> ADCKND_HK_S LIKE CONCAT('%', #{map.sylqclD},'%') and </if>
+      <if test="map.syljkndHKS !=null"> ZDQCL_D LIKE CONCAT('%', #{map.syljkndHKS},'%') and </if>
+      <if test="map.sylckndHKS !=null"> ZDJKND_HK_S LIKE CONCAT('%', #{map.sylckndHKS},'%') and </if>
+      <if test="map.ylzhxjqclD !=null"> ZDCKND_HK_S LIKE CONCAT('%', #{map.ylzhxjqclD},'%') and </if>
+      <if test="map.ylzhxjjkndHKS !=null"> ZLQCL_QK LIKE CONCAT('%', #{map.ylzhxjjkndHKS},'%') and </if>
+      <if test="map.ylzhxjckndHKS !=null"> ZLJKND_HK_S LIKE CONCAT('%', #{map.ylzhxjckndHKS},'%') and </if>
+      is_del = 0
+    </trim>
+  </select>
+
+  <select id="selectKzdySum" resultType="Map">
+    select SSKZDY as KZDY,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D
+    from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="map.sy != null">
+        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
+      </if>
+      is_del = 0 and SSKZDY != ''
+    </trim>
+    group by KZDY
+  </select>
+  <select id="selectKzdmSum" resultType="Map">
+    select SSDM as KZDM,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D
+    from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="map.sy != null">
+        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
+      </if>
+      is_del = 0 and SSDM != ''
+    </trim>
+    group by KZDM
+  </select>
+  <select id="selectKzdyTotal" resultType="Map">
+    select SSKZDY as KZDY,SUM(cast(WSSJCLNL_D_R as SIGNED INTEGER)) as WSSJCLNL_D_R,SUM(cast(WSSJCLL_WD as SIGNED INTEGER)) as WSSJCLL_WD,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(HXXYLJKND_HK_S as SIGNED INTEGER)) as HXXYLJKND_HK_S,SUM(cast(HXXYLCKND_HK_S as SIGNED INTEGER)) as HXXYLCKND_HK_S,
+    SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D,SUM(cast(ADJKND_HK_S as SIGNED INTEGER)) as ADJKND_HK_S,SUM(cast(ADCKND_HK_S as SIGNED INTEGER)) as ADCKND_HK_S
+    from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="map.sy != null">
+        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
+      </if>
+      <if test="list != null and list.size()>0">
+        SSKZDY in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+        and
+      </if>
+      is_del = 0 and SSKZDY != ''
+    </trim>
+    group by SSKZDY limit #{startPos},#{pageSize}
+  </select>
+  <select id="getKzdyCount" resultType="java.lang.Integer">
+    select count(*) from (select SSKZDY from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="map.sy != null">
+        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
+      </if>
+      <if test="list != null and list.size()>0">
+        SSKZDY in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+        and
+      </if>
+      is_del = 0 and SSKZDY != ''
+    </trim>
+    group by SSKZDY) as total
+  </select>
+  <select id="selectKzdyTotalByName" resultType="Map">
+    select SSKZDY as KZDY,SUM(cast(WSSJCLNL_D_R as SIGNED INTEGER)) as WSSJCLNL_D_R,SUM(cast(WSSJCLL_WD as SIGNED INTEGER)) as WSSJCLL_WD,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(HXXYLJKND_HK_S as SIGNED INTEGER)) as HXXYLJKND_HK_S,SUM(cast(HXXYLCKND_HK_S as SIGNED INTEGER)) as HXXYLCKND_HK_S,
+    SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D,SUM(cast(ADJKND_HK_S as SIGNED INTEGER)) as ADJKND_HK_S,SUM(cast(ADCKND_HK_S as SIGNED INTEGER)) as ADCKND_HK_S
+    from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="name != null">
+        SSKZDY LIKE CONCAT('%', #{name}, '%') and
+      </if>
+      is_del = 0 and SSKZDY != ''
+    </trim>
+    group by SSKZDY limit #{startPos},#{pageSize}
+  </select>
+  <select id="getKzdyCountByName" resultType="java.lang.Integer">
+    select count(*) from (select SSKZDY from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="name != null">
+        SSKZDY LIKE CONCAT('%', #{name}, '%') and
+      </if>
+      is_del = 0 and SSKZDY != ''
+    </trim>
+    group by SSKZDY) as total
+  </select>
+  <select id="computeKzdyTotal" resultType="java.lang.Integer">
+    select
+    <trim prefix="COALESCE(SUM(cast(" suffix="as SIGNED INTEGER)),0)">
+      ${map.prop}
+    </trim>
+    from poll_factory
+    where
+    <trim>
+      <if test="map.kzdy != null">
+        SSKZDY = #{map.kzdy} and
+      </if>
+      is_del = 0 and SSKZDY != ''
+    </trim>
+  </select>
+  <select id="selectKzdmTotal" resultType="Map">
+    select SSDM as KZDM,SUM(cast(WSSJCLNL_D_R as SIGNED INTEGER)) as WSSJCLNL_D_R,SUM(cast(WSSJCLL_WD as SIGNED INTEGER)) as WSSJCLL_WD,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(HXXYLJKND_HK_S as SIGNED INTEGER)) as HXXYLJKND_HK_S,SUM(cast(HXXYLCKND_HK_S as SIGNED INTEGER)) as HXXYLCKND_HK_S,
+    SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D,SUM(cast(ADJKND_HK_S as SIGNED INTEGER)) as ADJKND_HK_S,SUM(cast(ADCKND_HK_S as SIGNED INTEGER)) as ADCKND_HK_S
+    from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="map.sy != null">
+        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
+      </if>
+      <if test="list != null and list.size()>0">
+        SSDM in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+        and
+      </if>
+      is_del = 0 and SSDM != ''
+    </trim>
+    group by SSDM limit #{startPos},#{pageSize}
+  </select>
+  <select id="getKzdmCount" resultType="java.lang.Integer">
+    select count(*) from (select SSDM from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="map.sy != null">
+        SNSTMC LIKE CONCAT('%', #{map.sy}, '%') and
+      </if>
+      <if test="list != null and list.size()>0">
+        SSDM in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+        and
+      </if>
+      is_del = 0 and SSDM != ''
+    </trim>
+    group by SSDM) as total
+  </select>
+  <select id="selectKzdmTotalByName" resultType="Map">
+    select SSDM as KZDM,SUM(cast(WSSJCLNL_D_R as SIGNED INTEGER)) as WSSJCLNL_D_R,SUM(cast(WSSJCLL_WD as SIGNED INTEGER)) as WSSJCLL_WD,SUM(cast(HXXYLQCL_D as SIGNED INTEGER)) as HXXYLQCL_D,SUM(cast(HXXYLJKND_HK_S as SIGNED INTEGER)) as HXXYLJKND_HK_S,SUM(cast(HXXYLCKND_HK_S as SIGNED INTEGER)) as HXXYLCKND_HK_S,
+    SUM(cast(ADQCL_D as SIGNED INTEGER)) as ADQCL_D,SUM(cast(ADJKND_HK_S as SIGNED INTEGER)) as ADJKND_HK_S,SUM(cast(ADCKND_HK_S as SIGNED INTEGER)) as ADCKND_HK_S
+    from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="name != null">
+        SSDM LIKE CONCAT('%', #{name}, '%') and
+      </if>
+      is_del = 0 and SSDM != ''
+    </trim>
+    group by SSDM limit #{startPos},#{pageSize}
+  </select>
+  <select id="getKzdmCountByName" resultType="java.lang.Integer">
+    select count(*) from (select SSDM from poll_factory
+    where
+    <trim>
+      <if test="map.xxdzdqSZM != null">
+        QYXXDZ_DQ_S_Z_M LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+      </if>
+      <if test="map.xzqhmc != null">
+        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+      </if>
+      <if test="name != null">
+        SSDM LIKE CONCAT('%', #{name}, '%') and
+      </if>
+      is_del = 0 and SSDM != ''
+    </trim>
+    group by SSDM) as total
+  </select>
+  <select id="computeKzdmTotal" resultType="java.lang.Integer">
+    select
+    <trim prefix="COALESCE(SUM(cast(" suffix="as SIGNED INTEGER)),0)">
+      ${map.prop}
+    </trim>
+    from poll_factory
+    where
+    <trim>
+      <if test="map.kzdm != null">
+        SSDM = #{map.kzdm} and
+      </if>
+      is_del = 0 and SSDM != ''
+    </trim>
+  </select>
+  <select id="selectWater" resultType="Map">
         select distinct SNSTMC as SZLYMC
         from poll_factory
         where
@@ -3015,23 +3013,23 @@
     </select>
 
 
-    <select id="getWsc"   parameterType="java.util.Map" resultType="Map">
-        select *
-        from pollution
-        where
-        <trim>
-            <if test="map.SNSTMC!= null">
-                SNSTMC = #{map.SNSTMC} and
-            </if>
-            <if test="map.SNSTDM != null">
-                SNSTDM = #{map.SNSTDM} and
-            </if>
-            <if test="map.TJNF != null">
-                TJNF = #{map.TJNF} and
-            </if>
-        </trim>
-        is_del = 0
-    </select>
-  
-  
+  <select id="getWsc"   parameterType="java.util.Map" resultType="Map">
+    select *
+    from pollution
+    where
+    <trim>
+      <if test="map.SNSTMC!= null">
+        SNSTMC = #{map.SNSTMC} and
+      </if>
+      <if test="map.SNSTDM != null">
+        SNSTDM = #{map.SNSTDM} and
+      </if>
+      <if test="map.TJNF != null">
+        TJNF = #{map.TJNF} and
+      </if>
+    </trim>
+    is_del = 0
+  </select>
+
+
 </mapper>

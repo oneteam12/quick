@@ -3,7 +3,6 @@ package com.eliteams.quick4j.web.service;
 import com.eliteams.quick4j.core.generic.GenericService;
 import com.eliteams.quick4j.core.page.Page;
 import com.eliteams.quick4j.web.model.PollSource;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -72,6 +71,8 @@ public interface PollSourceService extends GenericService<PollSource, Long> {
     Page getSearchPage(String pageNow, Map map);
     
     List<PollSource> selectForMap(Map map);
+
+    List<PollSource> selectForM(Map map);
 
     List<PollSource> getShuiwennf(Map map);
 

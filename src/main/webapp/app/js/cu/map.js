@@ -36,30 +36,32 @@ require(["esri/map", "esri/layers/ArcGISDynamicMapServiceLayer", "esri/layers/Fe
        zoom:12,  //显示地图的级别  
        maxZoom:16  //最大空间等级  
       });
-  // var url = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer";
+        // var url = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer";
 		var url = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer";
-    agoLayer = new ArcGISDynamicMapServiceLayer(url);
-    //agoLayer.setVisibleLayers([9]);//设置china(9)
+        agoLayer = new ArcGISDynamicMapServiceLayer(url);
+         //agoLayer.setVisibleLayers([9]);//设置china(9)
 		//agoLayer.setVisibleLayers([19,20,21,23]);//设置china(9)
-		agoLayer.setVisibleLayers([0,1,28,31,32,33,34,35]);//设置china(9)
-    map.addLayer(agoLayer,0);
-	//	map.addLayer(agoLayer,0);
+		agoLayer.setVisibleLayers([14,15,16,17,18,19,20,21,22,23,24]);//设置china(9)
+        map.addLayer(agoLayer,0);
+
 
 
 		//var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/20";
-		var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/28";
+		var layerUrl_2 = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/14";
 		featureLayer_2 = new esri.layers.FeatureLayer(layerUrl_2, {
 			mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
 			outFields: ["*"],
 			hasAttributionData: true
+
 		});
+		featureLayer_2.setOpacity(0.1);
 		map.addLayer(featureLayer_2, 2);
 
 
 
-    //var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/5";
+		//var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/5";
 		//var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyu/MapServer/19";
-		var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/28";
+		var layerUrl = "http://localhost:6080/arcgis/rest/services/liaoheliuyunew/MapServer/22";
     layer = new esri.layers.FeatureLayer(layerUrl, 	{
         infoTemplate: new esri.InfoTemplate("控制单元", 
         "<button class='btnz btnz-info' type='button' onclick='cuToQmp(\"${单元名称}\")'>相关断面</button>"+
@@ -95,7 +97,8 @@ require(["esri/map", "esri/layers/ArcGISDynamicMapServiceLayer", "esri/layers/Fe
         ),
         mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
         outFields: ["*"],
-        hasAttributionData:true
+        hasAttributionData:true,
+
 	 });
 	
 	
@@ -110,7 +113,7 @@ require(["esri/map", "esri/layers/ArcGISDynamicMapServiceLayer", "esri/layers/Fe
     var labelClass = new LabelClass(json);
     labelClass.symbol = labelSymbol;
     layer.setLabelingInfo([ labelClass ]);
-    
+		layer.setOpacity(0.1);
 	//map.addLayer(layer);
 		map.addLayer(layer);
 	

@@ -9,27 +9,14 @@ import java.util.Map.Entry;
 
 import javax.annotation.Resource;
 
-import org.apache.ibatis.annotations.Param;
+import com.eliteams.quick4j.web.dao.*;
+import com.eliteams.quick4j.web.model.*;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.core.generic.GenericServiceImpl;
 import com.eliteams.quick4j.core.page.Page;
-import com.eliteams.quick4j.web.dao.ControlUnitMapper;
-import com.eliteams.quick4j.web.dao.PollFactoryMapper;
-import com.eliteams.quick4j.web.dao.PollSourceMapper;
-import com.eliteams.quick4j.web.dao.PollYangZhiMapper;
-import com.eliteams.quick4j.web.dao.QmpMapper;
-import com.eliteams.quick4j.web.dao.QmpWrxxMapper;
-import com.eliteams.quick4j.web.dao.QmpWrxxYearMapper;
-import com.eliteams.quick4j.web.dao.RoleMapper;
-import com.eliteams.quick4j.web.dao.UserMapper;
-import com.eliteams.quick4j.web.model.ControlUnit;
-import com.eliteams.quick4j.web.model.Dmzljs;
-import com.eliteams.quick4j.web.model.Qmp;
-import com.eliteams.quick4j.web.model.QmpWrxx;
-import com.eliteams.quick4j.web.model.QmpWrxxYear;
 import com.eliteams.quick4j.web.service.ControlUnitService;
 @Service
 public class ControlUnitServiceImpl extends GenericServiceImpl<ControlUnit, Integer> implements ControlUnitService{
@@ -1251,90 +1238,90 @@ public class ControlUnitServiceImpl extends GenericServiceImpl<ControlUnit, Inte
 	    			   case 4:
 	    				   if(zhibiao.equals("ad")){
 							   //dm.setApr(String.valueOf(Double.parseDouble(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
-							   dm.setApr(String.valueOf(qmpWrxxes.get(j).getAd()-Double.parseDouble(entry.getValue())));
+							   dm.setApr(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("hxxyl")){
-	    					   dm.setApr(String.valueOf(qmpWrxxes.get(j).getHxxyl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setApr(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getHxxyl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("zl")){
-	    					   dm.setApr(String.valueOf(qmpWrxxes.get(j).getZl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setApr(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getZl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   break;
 	    			   case 5:
 	    				   if(zhibiao.equals("ad")){
-	    					   dm.setMay(String.valueOf(qmpWrxxes.get(j).getAd()-Double.parseDouble(entry.getValue())));
+	    					   dm.setMay(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("hxxyl")){
-	    					   dm.setMay(String.valueOf(qmpWrxxes.get(j).getHxxyl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setMay(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getHxxyl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("zl")){
-	    					   dm.setMay(String.valueOf(qmpWrxxes.get(j).getZl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setMay(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getZl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   break;
 	    			   case 6:
 	    				   if(zhibiao.equals("ad")){
-	    					   dm.setJune(String.valueOf(qmpWrxxes.get(j).getAd()-Double.parseDouble(entry.getValue())));
+	    					   dm.setJune(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("hxxyl")){
-	    					   dm.setJune(String.valueOf(qmpWrxxes.get(j).getHxxyl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setJune(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getHxxyl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("zl")){
-	    					   dm.setJune(String.valueOf(qmpWrxxes.get(j).getZl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setJune(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getZl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   break;
 	    			   case 7:
 	    				   if(zhibiao.equals("ad")){
-	    					   dm.setJuly(String.valueOf(qmpWrxxes.get(j).getAd()-Double.parseDouble(entry.getValue())));
+	    					   dm.setJuly(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("hxxyl")){
-	    					   dm.setJuly(String.valueOf(qmpWrxxes.get(j).getHxxyl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setJuly(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getHxxyl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("zl")){
-	    					   dm.setJuly(String.valueOf(qmpWrxxes.get(j).getZl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setJuly(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getZl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   break;
 	    			   case 8:
 	    				   if(zhibiao.equals("ad")){
-	    					   dm.setAug(String.valueOf(qmpWrxxes.get(j).getAd()-Double.parseDouble(entry.getValue())));
+	    					   dm.setAug(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("hxxyl")){
-	    					   dm.setAug(String.valueOf(qmpWrxxes.get(j).getHxxyl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setAug(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getHxxyl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("zl")){
-	    					   dm.setAug(String.valueOf(qmpWrxxes.get(j).getZl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setAug(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getZl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   break;
 	    			   case 9:
 	    				   if(zhibiao.equals("ad")){
-	    					   dm.setSept(String.valueOf(qmpWrxxes.get(j).getAd()-Double.parseDouble(entry.getValue())));
+	    					   dm.setSept(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("hxxyl")){
-	    					   dm.setSept(String.valueOf(qmpWrxxes.get(j).getHxxyl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setSept(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getHxxyl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("zl")){
-	    					   dm.setSept(String.valueOf(qmpWrxxes.get(j).getZl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setSept(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getZl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   break;
 	    			   case 10:
 	    				   if(zhibiao.equals("ad")){
-	    					   dm.setOct(String.valueOf(qmpWrxxes.get(j).getAd()-Double.parseDouble(entry.getValue())));
+	    					   dm.setOct(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("hxxyl")){
-	    					   dm.setOct(String.valueOf(qmpWrxxes.get(j).getHxxyl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setOct(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getHxxyl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("zl")){
-	    					   dm.setOct(String.valueOf(qmpWrxxes.get(j).getZl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setOct(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getZl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   break;
 	    			   case 11:
 	    				   if(zhibiao.equals("ad")){
-	    					   dm.setNov(String.valueOf(qmpWrxxes.get(j).getAd()-Double.parseDouble(entry.getValue())));
+	    					   dm.setNov(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getAd())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("hxxyl")){
-	    					   dm.setNov(String.valueOf(qmpWrxxes.get(j).getHxxyl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setNov(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getHxxyl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   if(zhibiao.equals("zl")){
-	    					   dm.setNov(String.valueOf(qmpWrxxes.get(j).getZl()-Double.parseDouble(entry.getValue())));
+	    					   dm.setNov(String.valueOf(Double.valueOf(qmpWrxxes.get(j).getZl())-Double.parseDouble(entry.getValue())));
  	    				   }
 	    				   break;
 	    			   default: 

@@ -595,7 +595,7 @@
   <!-- 分页SQL语句 -->  
   <select id="selectCUByPage" resultMap="BaseResultMap">  
         select   
-        *  
+        *
         from control_unit 
         WHERE 
         <trim>

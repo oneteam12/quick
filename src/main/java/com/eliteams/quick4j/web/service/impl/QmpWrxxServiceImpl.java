@@ -8,24 +8,15 @@ import com.eliteams.quick4j.web.dao.QmpWrxxMapper;
 import com.eliteams.quick4j.web.dao.RoleMapper;
 import com.eliteams.quick4j.web.dao.UserMapper;
 import com.eliteams.quick4j.web.model.Dmzljs;
-import com.eliteams.quick4j.web.model.Qmp;
 import com.eliteams.quick4j.web.model.QmpWrxx;
-import com.eliteams.quick4j.web.service.QmpService;
 import com.eliteams.quick4j.web.service.QmpWrxxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.sql.Array;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -364,18 +355,18 @@ public class QmpWrxxServiceImpl extends GenericServiceImpl<QmpWrxx, Long> implem
             Dmzljs dmzljs = new Dmzljs();//每个月份的现在的通量（化学指标量×流量）
             for (QmpWrxx qmpWrxx : qmpWrxxes) {
                 if (qmpWrxx.getAd().equals(Double.valueOf(""))) {
-                    qmpWrxx.setAd(1.1);
+                    qmpWrxx.setAd("1.1");
                 }
                 if (qmpWrxx.getHxxyl().equals(Double.valueOf(""))) {
                     //qmpWrxx.setHxxyl("1.1");
-                    qmpWrxx.setHxxyl(1.1);
+                    qmpWrxx.setHxxyl("1.1");
                 }
                 if (qmpWrxx.getZl().equals(Double.valueOf(""))) {
-                    qmpWrxx.setZl(1.1);
+                    qmpWrxx.setZl("1.1");
                 }
 
                 if (qmpWrxx.getFlowRate().equals(Double.valueOf(""))) {
-                    qmpWrxx.setFlowRate(1.1);
+                    qmpWrxx.setFlowRate("1.1");
                 }
                 if (section_name.equals(qmpWrxx.getSectionName())) {
                     dmzljs.setName(section_name);

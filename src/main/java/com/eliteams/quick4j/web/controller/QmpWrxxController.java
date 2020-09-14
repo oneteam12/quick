@@ -7,7 +7,6 @@ import com.eliteams.quick4j.web.model.QmpWrxxYear;
 import com.eliteams.quick4j.web.model.charts.*;
 import com.eliteams.quick4j.web.service.QmpWrxxService;
 import com.eliteams.quick4j.web.service.QmpWrxxYearService;
-import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

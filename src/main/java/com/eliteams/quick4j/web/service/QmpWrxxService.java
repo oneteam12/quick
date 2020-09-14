@@ -3,7 +3,6 @@ package com.eliteams.quick4j.web.service;
 import com.eliteams.quick4j.core.generic.GenericService;
 import com.eliteams.quick4j.core.page.Page;
 import com.eliteams.quick4j.web.model.Dmzljs;
-import com.eliteams.quick4j.web.model.Qmp;
 import com.eliteams.quick4j.web.model.QmpWrxx;
 import org.springframework.stereotype.Service;
 

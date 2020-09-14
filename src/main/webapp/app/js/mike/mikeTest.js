@@ -181,6 +181,13 @@ var myChart2 = echarts.init(document.getElementById('second'));
 
 myChart2.setOption({
     title:{ text:'分布图'  },
+    toolbox: {
+        show : true,
+        feature : {
+            /* line是折线图，bar是柱形图*/
+            magicType: {show: true, type: ['line', 'bar']},
+        }
+    },
         xAxis:{ data:[] },
         yAxis:{ type : 'value',//默认为值类型       
             splitLine:{ show:true } },
@@ -208,6 +215,13 @@ $("#mytype").click(function(){
                 title: {
                     text: data.title,
                     textStyle: {fontSize: 14}
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        /* line是折线图，bar是柱形图*/
+                        magicType: {show: true, type: ['line', 'bar']},
+                    }
                 },
                 legend: {
                     data: data.categ,

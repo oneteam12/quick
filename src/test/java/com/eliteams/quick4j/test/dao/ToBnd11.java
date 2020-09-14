@@ -65,7 +65,7 @@ public class ToBnd11 {
         sb.append("\r\n");
         sb.append("         [ComponentArray]");
         sb.append("\r\n");
-        sb.append("            Component = 1, 0, 0, |.\\2017南章党流量、水位时间序列文件.dfs0|, 1, 18, '2017台沟COD', 0, 1");
+        sb.append("            Component = 1, 0, 0, |.\\2017南章党流量、水位时间序列文件.dfs0|, 1, 18, '2017台沟COD', 0,  ");
         sb.append("\r\n");
         sb.append("            Component = 2, 0, 0, |.\\2017南章党流量、水位时间序列文件.dfs0|, 0.01, 19, '2017台沟氨氮', 0, 1");
         sb.append("\r\n");

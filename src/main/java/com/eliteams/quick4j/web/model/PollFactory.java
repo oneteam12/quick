@@ -1530,5 +1530,4 @@ public class PollFactory {
     public void setPollBl10(String pollBl10) {
         this.pollBl10 = pollBl10 == null ? null : pollBl10.trim();
     }
-
 }

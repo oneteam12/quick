@@ -13,4 +13,6 @@ public interface MikeService extends GenericService<MikeJbxx, Integer> {
 
     List<MikeJbxx> selectOne(Map map);
 
+   int insertSelective(MikeJbxx m);
+
 }

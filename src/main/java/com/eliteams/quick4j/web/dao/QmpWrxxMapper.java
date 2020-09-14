@@ -2,10 +2,10 @@ package com.eliteams.quick4j.web.dao;
 
 import com.eliteams.quick4j.web.model.QmpWrxx;
 import com.eliteams.quick4j.web.model.QmpWrxxExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 
 public interface QmpWrxxMapper {
     long countByExample(QmpWrxxExample example);
@@ -29,9 +29,9 @@ public interface QmpWrxxMapper {
     int updateByPrimaryKeySelective(QmpWrxx record);
 
     int updateByPrimaryKey(QmpWrxx record);
-    
+
     String computeKzdmTotal_std(@Param(value = "map") Map map);
-    
+
     List<QmpWrxx> searchQmpWrxx(@Param(value = "map") Map map);
 
     /**
@@ -60,8 +60,8 @@ public interface QmpWrxxMapper {
     List<QmpWrxx> searchByPage(@Param(value = "startPos") int startPos, @Param(value = "pageSize") int pageSize, @Param(value = "map") Map map, @Param(value = "month") int month);
 
     List<QmpWrxx> selectAllIWant(@Param(value = "map") Map map);
-    
+
     List<QmpWrxx> selectCuMianyuan(@Param(value = "map") Map map);
-    
+
     List<QmpWrxx> selectCuDianyuan(@Param(value = "map") Map map);
 }

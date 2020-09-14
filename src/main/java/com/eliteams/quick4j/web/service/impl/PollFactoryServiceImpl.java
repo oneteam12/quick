@@ -6,18 +6,16 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import com.eliteams.quick4j.web.dao.PollFactoryMapper;
+import com.eliteams.quick4j.web.model.PollFactory;
 import org.springframework.stereotype.Service;
 import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.core.generic.GenericServiceImpl;
 import com.eliteams.quick4j.core.page.Page;
-import com.eliteams.quick4j.web.dao.PollFactoryMapper;
-import com.eliteams.quick4j.web.dao.QmpMapper;
 import com.eliteams.quick4j.web.dao.RoleMapper;
 import com.eliteams.quick4j.web.dao.UserMapper;
-import com.eliteams.quick4j.web.model.PollFactory;
-import com.eliteams.quick4j.web.model.Qmp;
- 
- 
+
+
 import com.eliteams.quick4j.web.service.PollFactoryService;
 
 
@@ -57,7 +55,7 @@ public class PollFactoryServiceImpl extends GenericServiceImpl<PollFactory, Long
 
     @Override
     public GenericDao<PollFactory, Long> getDao() {
-        return pollfactoryMapper;
+        return (GenericDao<PollFactory, Long>) pollfactoryMapper;
     }
 
 	@Override
